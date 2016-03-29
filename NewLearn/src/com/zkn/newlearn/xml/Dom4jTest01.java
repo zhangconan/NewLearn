@@ -48,20 +48,20 @@ public class Dom4jTest01 implements XmlDocument{
 			Document document;
 			try {
 				document = saxReader.read(inputXml);
-				Element employees = document.getRootElement();   
-				for(Iterator i = employees.elementIterator(); i.hasNext();){   
-					Element employee = (Element) i.next();   
-					for(Iterator j = employee.elementIterator(); j.hasNext();){   
-						Element node=(Element) j.next();   
-						System.out.println(node.getName()+":"+node.getText());   
-						}   
-					}   
-			} catch (MalformedURLException e) {
+				Element employees = document.getRootElement();
+				for(Iterator i = employees.elementIterator(); i.hasNext();){
+					Element employee = (Element) i.next();
+					for(Iterator j = employee.elementIterator(); j.hasNext();){
+						Element node=(Element) j.next();
+						System.out.println(node.getName()+":"+node.getText());
+						}
+					}
+			} catch (Exception e) {
 				e.printStackTrace();
-			}   
-			} catch (DocumentException e) {   
-				System.out.println(e.getMessage());   
-			}   
+			}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
 			System.out.println("dom4j parserXml");   
 	}   
 }

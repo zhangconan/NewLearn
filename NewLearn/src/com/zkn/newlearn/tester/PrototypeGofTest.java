@@ -1,12 +1,11 @@
 package com.zkn.newlearn.tester;
 
-import org.junit.Test;
-
 import com.zkn.newlearn.domain.PersonDomain;
 import com.zkn.newlearn.gof.prototype.PrototypeGofTest01;
+import org.junit.Test;
 
 /**
- * Ô­ÐÍÄ£Ê½µ¥Ôª²âÊÔÀà
+ * Ô­ï¿½ï¿½Ä£Ê½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @author zkn
  *
  */
@@ -18,16 +17,16 @@ public class PrototypeGofTest {
 		PrototypeGofTest01 prototype = new PrototypeGofTest01();
 		prototype.setAge(12);
 		prototype.setName("zhangsanlisi");
-		prototype.setSchool("ÈýÔªÇÅ¡£¡£¡£¡£");
+		prototype.setSchool("ï¿½ï¿½Ôªï¿½Å¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		PersonDomain person = new PersonDomain();
 		person.setAge(50);
-		person.setName("ÍõÍòÍùÍù");
+		person.setName("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		prototype.setPersonDomain(person);
 		
-		PrototypeGofTest01 proto = (PrototypeGofTest01) prototype.clone();//Ç³¿½±´ ÒýÓÃ¶ÔÏó»¹ÊÇÖ´ÏòÔ­À´µÄ¶ÔÏó
-		proto.setSchool("ÌìÍ¨Ô·¡£¡£¡£¡£");
+		PrototypeGofTest01 proto = (PrototypeGofTest01) prototype.clone();//Ç³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½Ô­ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½
+		proto.setSchool("ï¿½ï¿½Í¨Ô·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		PersonDomain pd = new PersonDomain();
-		pd.setName("ÎÒÎÊÎÊ¶øÈë");
+		pd.setName("ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½");
 		pd.setAge(89);
 		//proto.setPersonDomain(pd);
 		proto.getPersonDomain().setName("eee");

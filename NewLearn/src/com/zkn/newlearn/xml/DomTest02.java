@@ -15,7 +15,7 @@ import org.w3c.dom.Document;
 public class DomTest02 {
 
 	/**
-	 * ´´½¨XMLÎÄ¼þ
+	 * ï¿½ï¿½ï¿½ï¿½XMLï¿½Ä¼ï¿½
 	 * @param fileName
 	 */
 	public void createXml(String fileName){
@@ -23,7 +23,7 @@ public class DomTest02 {
 		try {
 			DocumentBuilder builder = builderFactory.newDocumentBuilder();
 			Document document = builder.newDocument();
-			document.createElement();
+			document.createElement(null);
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		}
