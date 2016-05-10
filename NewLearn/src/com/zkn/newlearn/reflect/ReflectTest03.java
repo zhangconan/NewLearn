@@ -1,19 +1,44 @@
 package com.zkn.newlearn.reflect;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Created by wb-zhangkenan on 2016/5/9.
+ * 参数类型为基本类型、包装类型、String类型
+ * 重载方法暂时没有考虑
+ * 更复杂类型参数以后会补充进来
+ * Created by zkn on 2016/5/9.
  */
 public class ReflectTest03 {
 
     public static void main(String[] args){
-        try {
-            Object clazz = Class.forName("com.zkn.newlearn.reflect.ReflectTest02").newInstance();
+    	List<Object> list = new ArrayList<Object>();
+    	list.add("张三");
+    	list.add("C");
+    	//全部当做String值来传递
+        executeReflectMethod("com.zkn.newlearn.reflect.ReflectTest02","testVariableArgument",list);
+    }
+
+	private static void executeReflectMethod(String className,String methodName,List<Object> list) {
+		try {
+            Object clazz = Class.forName(className).newInstance();
             Method[] obj = clazz.getClass().getMethods();
             for(Method method : obj){
-                if("testVariableArgument".equals(method.getName())){
-                    Class[] cla = method.getParameterTypes();
+                if(methodName!=null && methodName.equals(method.getName())){
+                    //如果是private修饰符的，则把可访问性设置为true
+                    if(!method.isAccessible()){
+                        method.setAccessible(true);
+                    }
+                    //得到方法中的所有参数信息
+                    Class<?>[] parameterClazz = method.getParameterTypes();
+                    List<Object> listValue = new ArrayList<Object>();
+                    //循环参数类型
+                    for(int i=0; i<parameterClazz.length; i++){
+                        fillList(listValue, parameterClazz[i],list.get(i));
+                    }
+                    method.invoke(clazz,listValue.toArray());
                 }
             }
         } catch (InstantiationException e) {
@@ -22,6 +47,59 @@ public class ReflectTest03 {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }
-    }
+        } catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void fillList(List<Object> list, Class<?> parameter,Object value) {
+		System.out.println(parameter.getTypeName());
+		if("java.lang.String".equals(parameter.getTypeName())){
+			list.add(value);
+		}else if("java.lang.Character".equals(parameter.getTypeName())){
+			char[] ch = ((String)value).toCharArray();
+			list.add(ch[0]);
+		}else if("char".equals(parameter.getTypeName())){
+			char[] ch = ((String)value).toCharArray();
+			list.add(ch[0]);
+		}else if("java.lang.Double".equals(parameter.getTypeName())){
+			list.add(Double.parseDouble((String) value));
+		}else if("double".equals(parameter.getTypeName())){
+			list.add(Double.parseDouble((String) value));
+		}else if("java.lang.Integer".equals(parameter.getTypeName())){
+			list.add(Integer.parseInt((String) value));
+		}else if("int".equals(parameter.getTypeName())){
+			list.add(Integer.parseInt((String) value));
+		}else if("java.lang.Long".equals(parameter.getTypeName())){
+			list.add(Long.parseLong((String) value));
+		}else if("long".equals(parameter.getTypeName())){
+			list.add(Long.parseLong((String) value));
+		}else if("java.lang.Float".equals(parameter.getTypeName())){
+			list.add(Float.parseFloat((String) value));
+		}else if("float".equals(parameter.getTypeName())){
+			list.add(Float.parseFloat((String) value));
+		}else if("java.lang.Short".equals(parameter.getTypeName())){
+			list.add(Short.parseShort((String) value));
+		}else if("shrot".equals(parameter.getTypeName())){
+			list.add(Short.parseShort((String) value));
+		}else if("java.lang.Byte".equals(parameter.getTypeName())){
+			list.add(Byte.parseByte((String) value));
+		}else if("byte".equals(parameter.getTypeName())){
+			list.add(Byte.parseByte((String) value));
+		}else if("java.lang.Boolean".equals(parameter.getTypeName())){
+			if("false".equals(value) || "0".equals(value)){
+				list.add(false);
+			}else if("true".equals(value) || "1".equals(value)){
+				list.add(true);
+			}
+		}else if("boolean".equals(parameter.getTypeName())){
+			if("false".equals(value) || "0".equals(value)){
+				list.add(false);
+			}else if("true".equals(value) || "1".equals(value)){
+				list.add(true);
+			}
+		}
+	}
 }
