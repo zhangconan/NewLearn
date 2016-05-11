@@ -2,18 +2,27 @@ package com.zkn.newlearn.reflect;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+<<<<<<< HEAD
+=======
+import java.lang.reflect.Parameter;
+>>>>>>> bb8ccae72d2bc580a884af14f5263624d82cb8d5
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+<<<<<<< HEAD
  * 鍙傛暟绫诲瀷涓哄熀鏈被鍨嬨�佸寘瑁呯被鍨嬨�丼tring绫诲瀷
  * 閲嶈浇鏂规硶鏆傛椂娌℃湁鑰冭檻
  * 鏇村鏉傜被鍨嬪弬鏁颁互鍚庝細琛ュ厖杩涙潵
  * Created by zkn on 2016/5/9.
+=======
+ * Created by wb-zhangkenan on 2016/5/9.
+>>>>>>> bb8ccae72d2bc580a884af14f5263624d82cb8d5
  */
 public class ReflectTest03 {
 
     public static void main(String[] args){
+<<<<<<< HEAD
     	List<Object> list = new ArrayList<Object>();
     	list.add("寮犱笁");
     	list.add("C");
@@ -39,6 +48,29 @@ public class ReflectTest03 {
                         fillList(listValue, parameterClazz[i],list.get(i));
                     }
                     method.invoke(clazz,listValue.toArray());
+=======
+        try {
+            Object clazz = Class.forName("com.zkn.newlearn.reflect.ReflectTest02").newInstance();
+            //获取所有的方法，包括私有的方法
+            Method[] obj = clazz.getClass().getDeclaredMethods();
+            for(Method method : obj){
+                if("testVariableArgument".equals(method.getName())){
+                	//获取所有得参数类型
+                	Class[] parameterClass = method.getParameterTypes();
+                	for(Class parmeter : parameterClass){
+                		
+                		System.out.println(parmeter.getTypeName());
+                		
+                	}
+                    if(!method.isAccessible()){
+                    	//如果是private 方法 ，则设置为true
+                    	method.setAccessible(true);
+                    }
+                    List<Object> list = new ArrayList<Object>();
+                    list.add("1111");
+                    list.add(88888);
+                    method.invoke(clazz,list.toArray());
+>>>>>>> bb8ccae72d2bc580a884af14f5263624d82cb8d5
                 }
             }
         } catch (InstantiationException e) {
@@ -47,6 +79,7 @@ public class ReflectTest03 {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+<<<<<<< HEAD
         } catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
@@ -102,4 +135,10 @@ public class ReflectTest03 {
 			}
 		}
 	}
+=======
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+>>>>>>> bb8ccae72d2bc580a884af14f5263624d82cb8d5
 }
