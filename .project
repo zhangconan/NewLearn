@@ -10,7 +10,6 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
-<<<<<<< HEAD
 		<buildCommand>
 			<name>org.eclipse.m2e.core.maven2Builder</name>
 			<arguments>
@@ -18,11 +17,7 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.eclipse.m2e.core.maven2Nature</nature>
-=======
-	</buildSpec>
-	<natures>
->>>>>>> bb8ccae72d2bc580a884af14f5263624d82cb8d5
 		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
 </projectDescription>
