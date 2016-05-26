@@ -6,8 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-public @interface AnnotationTest02 {
+@Target({ElementType.TYPE,ElementType.FIELD})
+public @interface AnnotationTest04 {
 	
-	String getUserName();
+	String getAddress();
 }
