@@ -1,3 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
+<<<<<<< HEAD
+=======
+encoding//src/test/java=UTF-8
+>>>>>>> e8b1b93ff21cbde2fb446e81dd836f94782ef6de
 encoding/<project>=UTF-8
