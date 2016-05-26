@@ -1,13 +1,12 @@
 package com.zkn.newlearn.thread;
 
 /**
- * @description ¶àÏß³Ì
+ * @description ï¿½ï¿½ï¿½ß³ï¿½
  * @author zkn
  *
  */
 
 public class ThreadTest01 {
-
 
 	public static void main(String[] args) {
 		
@@ -23,7 +22,6 @@ public class ThreadTest01 {
 		thread1.start();
 		thread2.start();
 	}
-	
 }
 
 class ThreadTest03 extends Thread{
