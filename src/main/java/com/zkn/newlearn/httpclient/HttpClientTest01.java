@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
+import org.apache.http.Consts;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
@@ -24,10 +25,10 @@ import com.google.common.collect.Lists;
  * @author zkn 2016-06-05
  *
  */
-public class HttpClientTest01 {
+public class HttpClientTest01 {   
 
 	public static void main(String[] args) {
-		
+		//创建HttpClient对象
 		CloseableHttpClient closeHttpClient = HttpClients.createDefault();
 		CloseableHttpResponse httpResponse = null;
 		//发送Post请求
@@ -37,7 +38,7 @@ public class HttpClientTest01 {
 		params.add(new BasicNameValuePair("cityEname", "henan"));
 		try {
 			//转换参数并设置编码格式
-			httpPost.setEntity(new UrlEncodedFormEntity(params,"utf-8"));
+			httpPost.setEntity(new UrlEncodedFormEntity(params,Consts.UTF_8));
 			//执行Post请求 得到Response对象
 			httpResponse = closeHttpClient.execute(httpPost);
 			//httpResponse.getStatusLine() 响应头信息
@@ -45,14 +46,16 @@ public class HttpClientTest01 {
 			//返回对象 向上造型
 			HttpEntity httpEntity = httpResponse.getEntity();
 			if(httpEntity != null){
-				//响应输出流
+				//响应输入流
 				InputStream is = httpEntity.getContent();
-				//转换为字符输出流
-				BufferedReader br = new BufferedReader(new InputStreamReader(is,"utf-8"));
+				//转换为字符输入流
+				BufferedReader br = new BufferedReader(new InputStreamReader(is,Consts.UTF_8));
 				String line = null;
 				while((line=br.readLine())!=null){
 					System.out.println(line);
 				}
+				//关闭输入流
+				is.close();
 			}
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
