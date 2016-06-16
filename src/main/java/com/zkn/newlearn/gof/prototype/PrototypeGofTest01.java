@@ -10,22 +10,22 @@ import java.io.Serializable;
 import com.zkn.newlearn.domain.PersonDomain;
 
 /**
- * Ô­ĞÍÉè¼ÆÄ£Ê½ Ç³¿½±´ Éî¿½±´
+ * Ô­ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½ Ç³ï¿½ï¿½ï¿½ï¿½ ï¿½î¿½ï¿½ï¿½
  * @author zkn
  *
  */
 public class PrototypeGofTest01 implements Cloneable,Serializable{
 
 	/**
-	 * ĞòÁĞ
+	 * ï¿½ï¿½ï¿½ï¿½
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * Ãû×Ö
+	 * ï¿½ï¿½ï¿½ï¿½
 	 */
 	private String name;
 	/**
-	 * ÄêÁä
+	 * ï¿½ï¿½ï¿½ï¿½
 	 */
 	private int age;
 	/**
@@ -33,9 +33,15 @@ public class PrototypeGofTest01 implements Cloneable,Serializable{
 	 */
 	private String school;
 	/**
-	 * ÈË
+	 * ï¿½ï¿½
 	 */
 	private PersonDomain personDomain;
+	{
+		System.out.println("è¿™æ˜¯æ„é€ ä»£ç å—");
+	}
+	static{
+		System.out.println("æˆ‘è¢«åˆå§‹åŒ–äº†ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚");
+	}
 	
 	public String getName() {
 		return name;
@@ -70,7 +76,7 @@ public class PrototypeGofTest01 implements Cloneable,Serializable{
 	}
 
 	/**
-	 * Ç³¿½±´
+	 * æµ…copy
 	 */
 	@Override
 	public Object clone() throws CloneNotSupportedException {
@@ -79,7 +85,7 @@ public class PrototypeGofTest01 implements Cloneable,Serializable{
 		return prototype;
 	}
 	/**
-	 * Éî¿½±´ ÊµÏÖË¼Â·£ºÏÈ°Ñ¶ÔÏóÑ§ĞòÁĞ»¯È»ºóÔÙ·´ĞòÁĞ»¯
+	 * æ·±copy åºåˆ—åŒ–
 	 * @return
 	 * @throws IOException 
 	 * @throws ClassNotFoundException 
@@ -90,13 +96,23 @@ public class PrototypeGofTest01 implements Cloneable,Serializable{
 		object.writeObject(this);
 		
 		ObjectInputStream objectin = new ObjectInputStream(new ByteArrayInputStream(bos.toByteArray()));
-		return objectin.readObject();
+		PrototypeGofTest01 test01 = (PrototypeGofTest01)objectin.readObject();
+		if(test01 == this){
+			System.out.println("222222");
+		}else{
+			System.out.println("33333");
+		}
+		return test01;
 	}
 	
 	@Override
 	public String toString() {
 		return "PrototypeGofTest01 [name=" + name + ", age=" + age
 				+ ", school=" + school + ", personDomain=" + personDomain + "]";
+	}
+
+	public PrototypeGofTest01() {
+		System.out.println("æˆ‘è¢«å®ä¾‹åŒ–äº†ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚");
 	}
 	
 }

@@ -30,6 +30,18 @@
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils-bean-collections</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jdom</groupId>
+			<artifactId>jdom</artifactId>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -52,6 +64,22 @@
 				<groupId>commons-beanutils</groupId>
 				<artifactId>commons-beanutils-bean-collections</artifactId>
 				<version>1.8.3</version>
+			</dependency>
+			<!-- CGlib 包含 asm -->
+			<dependency>
+				<groupId>cglib</groupId>
+				<artifactId>cglib-nodep</artifactId>
+				<version>3.1</version>
+			</dependency>
+			<dependency>
+				<groupId>dom4j</groupId>
+				<artifactId>dom4j</artifactId>
+				<version>1.6.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jdom</groupId>
+				<artifactId>jdom</artifactId>
+				<version>1.1</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
