@@ -1,5 +1,11 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
+<<<<<<< HEAD
 encoding//src/main/java/com/zkn/newlearn/gof/prototype/PrototypeGofTest01.java=UTF-8
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> branch 'master' of git@code.csdn.net:zknxx/newlearn.git
 encoding//src/test/java=UTF-8
+>>>>>>> e8b1b93ff21cbde2fb446e81dd836f94782ef6de
 encoding/<project>=UTF-8

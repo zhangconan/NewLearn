@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 
 /**
  * 测试Annotation
- * @author wb-zhangkenan
+ * @author zkn
  *
  */
 @AnnotationTest02(getUserName="zhangsan")
