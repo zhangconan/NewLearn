@@ -4,12 +4,10 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-import org.omg.CORBA.portable.InvokeHandler;
-
 /**
  * 
  * @author zkn
- * 此代理类 代理实现接口的类
+ * 姝や唬鐞嗙被 浠ｇ悊瀹炵幇鎺ュ彛鐨勭被
  *
  */
 

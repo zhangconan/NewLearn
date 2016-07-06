@@ -9,14 +9,14 @@ import net.sf.cglib.proxy.MethodProxy;
 /**
  * 
  * @author zkn
- *	´úÀíÀà²»ÄÜÎªfinalĞŞÊÎµÄÀà
- *	´Ë´úÀíÀà ´úÀíµÄÊÇÃ»ÓĞÊµÏÖ½Ó¿ÚµÄÀà
+ *	ä»£ç†ç±»ä¸èƒ½ä¸ºfinalä¿®é¥°çš„ç±»
+ *	æ­¤ä»£ç†ç±» ä»£ç†çš„æ˜¯æ²¡æœ‰å®ç°æ¥å£çš„ç±»
  */
 
 public class CglibProxyHandler implements MethodInterceptor{
 
 	/**
-	 * ´úÀí¶ÔÏó
+	 * ä»£ç†å¯¹è±¡
 	 */
 	private Object targetObj;
 	
@@ -31,7 +31,7 @@ public class CglibProxyHandler implements MethodInterceptor{
 	public Object intercept(Object obj, Method arg1, Object[] arg2,
 			MethodProxy proxy) throws Throwable {
 		
-		Object object = proxy.invoke(this.targetObj, arg2);//ÕâÀïÈç¹û»»³Éobj »áÏİÈëËÀÑ­»·ÖĞ
+		Object object = proxy.invoke(this.targetObj, arg2);//è¿™é‡Œå¦‚æœæ¢æˆobj ä¼šé™·å…¥æ­»å¾ªç¯ä¸­
 		return object;
 	}
 	

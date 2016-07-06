@@ -11,7 +11,7 @@ import com.zkn.newlearn.proxyhandler.PersonInterImpl;
 public class ProxyHandlerTester {
 
 	/**
-	 * JDK¶¯Ì¬´úÀí
+	 * JDKåŠ¨æ€ä»£ç†
 	 */
 	@Test 
 	public void testJdk(){
@@ -22,7 +22,7 @@ public class ProxyHandlerTester {
 	}
 	
 	/**
-	 * CGLIB¶¯Ì¬´úÀí
+	 * CGLIBåŠ¨æ€ä»£ç†
 	 */
 	@Test
 	public void testCglib(){

@@ -10,8 +10,8 @@ public class PersonInterImpl implements PersonInter {
 
 	public String test() {
 
-		System.out.println("¶¯Ì¬´úÀí²âÊÔ¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£");
-		System.out.println("¶¯Ì¬´úÀí²âÊÔ¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£");
+		System.out.println("åŠ¨æ€ä»£ç†æµ‹è¯•ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚");
+		System.out.println("åŠ¨æ€ä»£ç†æµ‹è¯•ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚");
 		return "111";
 	}
 	
