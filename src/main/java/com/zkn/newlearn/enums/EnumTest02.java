@@ -6,8 +6,7 @@ package com.zkn.newlearn.enums;
  *
  */
 
-public enum EnumTest02 {
-
+public enum EnumTest02{
 	GREEN{
 		public void getInfo(){
 			System.out.println("这个是绿灯");
@@ -23,8 +22,11 @@ public enum EnumTest02 {
 			System.out.println("这个是黄灯");
 		}
 	};
-	
+
 	public void getInfo(){
 		
 	}
+	
 }
+
+
