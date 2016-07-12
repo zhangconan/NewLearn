@@ -1,7 +1,7 @@
 package com.zkn.newlearn.gof.singleton;
 
 /**
- * ¶öº¹Ê½µ¥ÀıÄ£Ê½
+ * é¥¿æ±—å¼å•ä¾‹æ¨¡å¼
  * @author zkn
  *
  */

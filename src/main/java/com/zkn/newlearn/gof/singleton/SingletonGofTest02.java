@@ -1,7 +1,7 @@
 package com.zkn.newlearn.gof.singleton;
 
 /**
- * ÀÁººÊ½µ¥ÀıÄ£Ê½
+ * æ‡’æ±‰å¼å•ä¾‹æ¨¡å¼
  * @author zkn
  *
  */
@@ -10,13 +10,13 @@ public class SingletonGofTest02 {
 	private static SingletonGofTest02 singleton;
 	
 	/**
-	 * ¹¹Ôìº¯ÊıË½ÓĞ»¯
+	 * æ„é€ å‡½æ•°ç§æœ‰åŒ–
 	 */
 	private SingletonGofTest02(){
 		
 	}
 	/**
-	 * ¸ø¶ÔÏó¼ÓËø£¬ĞÔÄÜ±È½ÏµÍ¡£
+	 * ç»™å¯¹è±¡åŠ é”ï¼Œæ€§èƒ½æ¯”è¾ƒä½ã€‚
 	 * @return
 	 */
 	public synchronized static SingletonGofTest02 getInstance(){

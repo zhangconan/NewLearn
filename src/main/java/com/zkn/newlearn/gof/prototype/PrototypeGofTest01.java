@@ -36,9 +36,11 @@ public class PrototypeGofTest01 implements Cloneable,Serializable{
 	 * ��
 	 */
 	private PersonDomain personDomain;
+	
 	{
 		System.out.println("这是构造代码块");
 	}
+	
 	static{
 		System.out.println("我被初始化了。。。。。。");
 	}
@@ -104,13 +106,13 @@ public class PrototypeGofTest01 implements Cloneable,Serializable{
 		}
 		return test01;
 	}
-	
+	/*
 	@Override
 	public String toString() {
 		return "PrototypeGofTest01 [name=" + name + ", age=" + age
 				+ ", school=" + school + ", personDomain=" + personDomain + "]";
 	}
-
+	*/
 	public PrototypeGofTest01() {
 		System.out.println("我被实例化了。。。。。。");
 	}

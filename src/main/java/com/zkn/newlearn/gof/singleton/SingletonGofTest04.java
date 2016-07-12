@@ -1,7 +1,7 @@
 package com.zkn.newlearn.gof.singleton;
 
 /**
- * 枚举类实现单例模式
+ * 鏋氫妇瀹炵幇鍗曚緥
  * @author zkn
  *
  */

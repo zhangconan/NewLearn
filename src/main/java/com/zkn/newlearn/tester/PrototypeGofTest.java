@@ -14,7 +14,7 @@ public class PrototypeGofTest {
 
 	@Test
 	public void testPrototypeGof() throws Exception{
-	
+		
 		PrototypeGofTest01 prototype = new PrototypeGofTest01();
 		prototype.setAge(12);
 		prototype.setName("zhangsanlisi");
@@ -23,7 +23,7 @@ public class PrototypeGofTest {
 		person.setAge(50);
 		person.setName("张三李四");
 		prototype.setPersonDomain(person);
-		
+		/*
 		PrototypeGofTest01 proto = (PrototypeGofTest01) prototype.clone();//浅copy
 		proto.setSchool("张三李四的点点滴滴");
 		PersonDomain pd = new PersonDomain();
@@ -33,7 +33,7 @@ public class PrototypeGofTest {
 		proto.getPersonDomain().setName("eee");
 		System.out.println(prototype.toString());
 		System.out.println(proto.toString());
-		
+		*/
 		PrototypeGofTest01 protoDeep = (PrototypeGofTest01) prototype.deepClone();
 		protoDeep.getPersonDomain().setName("66666666");
 		System.out.println(prototype.toString());

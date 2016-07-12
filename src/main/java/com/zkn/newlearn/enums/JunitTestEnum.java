@@ -21,8 +21,8 @@ public class JunitTestEnum {
 		System.out.println(Arrays.toString(EnumTest01.values()));
 		// 循环所有的枚举类型
 		for (EnumTest01 test : EnumTest01.values()) {
-			System.out.println(test.getEnumDesc() + test.getEnumValue());
-			// System.out.println(test.name()+" "+test.ordinal());
+			//System.out.println(test.getEnumDesc() + test.getEnumValue());
+			System.out.println(test.name()+" "+test.ordinal());
 		}
 		// ValueOf
 		System.out.println(EnumTest01.valueOf("UPDATE").getEnumDesc());
@@ -77,4 +77,10 @@ public class JunitTestEnum {
 			break;
 		}
 	}
+	
+	@Test
+	public void testEnumCustom(){
+		EnumTest02 enumTest = GREEN;
+		enumTest.RED.RED.getInfo();
+	} 
 }

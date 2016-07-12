@@ -1,7 +1,7 @@
 package com.zkn.newlearn.gof.singleton;
 
 /**
- * ÄÚ²¿¾²Ì¬ÀàµÄĞÎÊ½ÊµÏÖµ¥ÀıÄ£Ê½
+ * å†…éƒ¨é™æ€ç±»çš„å½¢å¼å®ç°å•ä¾‹æ¨¡å¼
  * @author zkn
  *
  */
@@ -9,13 +9,13 @@ package com.zkn.newlearn.gof.singleton;
 public class SingletonGofTest03{
 
 	/**
-	 * Ë½ÓĞ»¯¹¹Ôìº¯Êı
+	 * ç§æœ‰åŒ–æ„é€ å‡½æ•°
 	 */
 	private SingletonGofTest03() {
 		
 	}
 	/**
-	 * ¾²Ì¬ÄÚ²¿Àà
+	 * é™æ€å†…éƒ¨ç±»
 	 * @author zkn
 	 *
 	 */
@@ -29,7 +29,7 @@ public class SingletonGofTest03{
 		return InstanceSingleton.singleton;
 	}
 	/**
-	 * ·ÀÖ¹±»ĞòÁĞ»¯
+	 * é˜²æ­¢è¢«åºåˆ—åŒ–
 	 * @return
 	 */
 	public Object readResolve(){

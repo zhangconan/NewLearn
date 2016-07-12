@@ -5,7 +5,7 @@ import com.zkn.newlearn.gof.factory.MessageSenderImpl;
 import com.zkn.newlearn.gof.factory.Sender;
 
 /**
- * �򵥹���ģʽ
+ * 简单工厂模式
  * @author zkn
  *
  */

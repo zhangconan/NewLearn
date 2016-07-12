@@ -4,6 +4,10 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/java/com/zkn/newlearn/gof/prototype/PrototypeGofTest01.java=UTF-8
+encoding//src/main/java/com/zkn/newlearn/gof/singleton/SimpleFactoryTest01.java=UTF-8
+encoding//src/main/java/com/zkn/newlearn/gof/singleton/SingletonGofTest01.java=UTF-8
+encoding//src/main/java/com/zkn/newlearn/gof/singleton/SingletonGofTest02.java=UTF-8
+encoding//src/main/java/com/zkn/newlearn/gof/singleton/SingletonGofTest03.java=UTF-8
 encoding//src/main/java/com/zkn/newlearn/proxyhandler/CglibProxyHandler.java=UTF-8
 encoding//src/main/java/com/zkn/newlearn/proxyhandler/JdkProxyHandler.java=UTF-8
 encoding//src/main/java/com/zkn/newlearn/proxyhandler/PersonInter.java=UTF-8
