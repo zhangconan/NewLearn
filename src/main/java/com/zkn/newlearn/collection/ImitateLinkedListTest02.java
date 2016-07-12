@@ -1,5 +1,7 @@
 package com.zkn.newlearn.collection;
 
+import java.util.Arrays;
+
 /**
  * 
  * @author zkn 2016-06-25
@@ -88,6 +90,80 @@ public class ImitateLinkedListTest02<E> {
 		}
 	}
 	/**
+	 * 获取第一个元素
+	 * @return
+	 */
+	public E getFirst(){
+		
+		if(first == null)
+			return null;
+		return first.item;
+	}
+	/**
+	 * 获取最后一个元素
+	 * @return
+	 */
+	public E getLast(){
+		
+		if(last == null)
+			return null;
+		return last.item;
+	}
+	/**
+	 * 移除对象
+	 * @return
+	 */
+	public boolean remove(Object obj){
+		
+		//分两种情况来处理
+		//如果obj == null
+		if(obj == null){
+			for(Node<E> x = first;x != null;x = x.next){
+				if(x.item == null){
+					removeElement(x);
+					return true;
+				}
+			}
+		}else{
+			for(Node<E> x = first;x != null;x = x.next){
+				if(obj.equals(x.item)){
+					removeElement(x);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	private E removeElement(Node<E> node) {
+		E itemElement = node.item;
+		//用来保存prev节点，防止后面 当node节点是最后一个节点的时候， node.prev=null，last为null
+		Node<E> prevNode = node.prev;
+		//说明node为first节点
+		if(node.prev == null){
+			//first节点的时候需要把node.next变为first
+			first = node.next;
+		}else{
+			//如果node不是first节点，则把他的上个节点的指向变成当前node的下一个节点
+			//然后把这个节点的上个节点的变为null 相当于打断节点的左面
+			node.prev.next = node.next;
+			node.prev = null;
+		} 
+		//如果node为last节点
+		if(node.next == null){
+			//说明node的上一个节点为last节点
+			last = prevNode;
+		}else{
+			//说明如果node不是last几点，则把node节点的指向的下一个元素的上一个节点变为当前node的上一个节点
+			//然后把当前node节点的next变为null 相当于打断节点的右面
+			node.next.prev = prevNode;
+			node.next = null;
+		}
+		node.item = null;
+		size --;
+		return itemElement;
+	}
+	/**
 	 * 检查元素是否合法
 	 * @param size2
 	 */
@@ -106,11 +182,11 @@ public class ImitateLinkedListTest02<E> {
 		//当前元素
 		E item;
 		//上一个
-		Node prev;
+		Node<E> prev;
 		//下一个
-		Node next;
+		Node<E> next;
 		
-		public Node(E item, Node prev, Node next) {
+		public Node(E item, Node<E> prev, Node<E> next) {
 			this.item = item;
 			this.prev = prev;
 			this.next = next;
@@ -122,10 +198,17 @@ public class ImitateLinkedListTest02<E> {
 		ImitateLinkedListTest02<String> linkedList = new ImitateLinkedListTest02<String>();
 		linkedList.add("张三");
 		linkedList.add("李四");
-		linkedList.add("王五");
 		linkedList.add("马六");
+		linkedList.add("王五");
+		
+		linkedList.remove("马六1");
 		
 		System.out.println(linkedList.size());
-		System.out.println(linkedList.get(2));
+		System.out.println(linkedList.getFirst());
+		System.out.println(linkedList.getLast());
+		for(int i=0;i<linkedList.size;i++){
+			System.out.print(linkedList.get(i)+"->");
+		}
+		System.out.println("");
 	}
 }
