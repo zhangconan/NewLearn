@@ -11,6 +11,6 @@ public class MessageSenderImpl implements Sender{
 	@Override
 	public void doSend() {
 
-		System.out.println("·¢ËÍ¶ÌĞÅ¡£¡£¡£¡£¡£");
+		System.out.println("å‘é€çŸ­ä¿¡ã€‚ã€‚ã€‚ã€‚ã€‚");
 	}
 }

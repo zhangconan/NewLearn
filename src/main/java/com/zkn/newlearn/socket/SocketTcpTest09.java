@@ -27,7 +27,7 @@ public class SocketTcpTest09 {
 			 System.out.println(new String(bt,0,len));
 			 PrintWriter writer = 
 					 new PrintWriter(socket.getOutputStream(),true);
-			 writer.println("<font color='red' size='20'>¿Í»§¶Ë£¬ÄãºÃ</font>");
+			 writer.println("<font color='red' size='20'>dddd</font>");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally{

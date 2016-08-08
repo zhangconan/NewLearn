@@ -8,7 +8,7 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 
 /**
- * ·¢ËÍ¶Ë
+ * å‘é€ç«¯
  * @author zkn
  *
  */
@@ -18,7 +18,7 @@ public class SocketUdpTest01 {
 	public static void main(String[] args) {
 		
 		try {
-			String str = "ÄãºÃ°¡¡£¡£¡£¡£";
+			String str = "ä½ å¥½å•Šã€‚ã€‚ã€‚ã€‚";
 			DatagramSocket ds = new DatagramSocket();
 			byte[] buf = str.getBytes();  
 			ds.send(new DatagramPacket(buf, buf.length,InetAddress.getByName("127.0.0.1"),11111));

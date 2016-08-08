@@ -5,7 +5,7 @@ import com.zkn.newlearn.gof.prototype.PrototypeGofTest01;
 import org.junit.Test;
 
 /**
- * ԭ��ģʽ��Ԫ������
+ * 原锟斤拷模式锟斤拷元锟斤拷锟斤拷锟斤拷
  * @author zkn
  *
  */
@@ -18,16 +18,16 @@ public class PrototypeGofTest {
 		PrototypeGofTest01 prototype = new PrototypeGofTest01();
 		prototype.setAge(12);
 		prototype.setName("zhangsanlisi");
-		prototype.setSchool("张三李四");
+		prototype.setSchool("寮犱笁鏉庡洓");
 		PersonDomain person = new PersonDomain();
 		person.setAge(50);
-		person.setName("张三李四");
+		person.setName("寮犱笁鏉庡洓");
 		prototype.setPersonDomain(person);
 		/*
-		PrototypeGofTest01 proto = (PrototypeGofTest01) prototype.clone();//浅copy
-		proto.setSchool("张三李四的点点滴滴");
+		PrototypeGofTest01 proto = (PrototypeGofTest01) prototype.clone();//娴卌opy
+		proto.setSchool("寮犱笁鏉庡洓鐨勭偣鐐规淮婊�");
 		PersonDomain pd = new PersonDomain();
-		pd.setName("张三李四凄凄切切");
+		pd.setName("寮犱笁鏉庡洓鍑勫噭鍒囧垏");
 		pd.setAge(89);
 		//proto.setPersonDomain(pd);
 		proto.getPersonDomain().setName("eee");

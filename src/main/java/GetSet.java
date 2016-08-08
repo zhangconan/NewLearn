@@ -19,7 +19,19 @@ public class GetSet {
 	}
 	
 	public static void main(String[] args) {
-		String[] str = "26;27".split(";");
-		System.out.println(str.length);
+		Integer val1 = 199;
+		Integer val2 = 344;
+		if(val1 < val2){
+			System.out.println("张三李四");
+		}else{
+			System.out.println("sdsdsdsd");
+		}
+
+		String s1 = "Programming";
+		String s2 = new String("Programming");
+		String s3 = "Program" + "ming";
+		System.out.println(s1 == s2);
+		System.out.println(s1 == s3);
+		System.out.println(s1 == s1.intern());
 	}
 }

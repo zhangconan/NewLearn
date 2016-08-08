@@ -15,7 +15,6 @@ import org.w3c.dom.Document;
 public class DomTest02 {
 
 	/**
-	 * ����XML�ļ�
 	 * @param fileName
 	 */
 	public void createXml(String fileName){

@@ -48,11 +48,11 @@ class MySAXHandlerNew extends DefaultHandler {
 	Attributes attributes = null; 
 	
 	public void startDocument() throws SAXException { 
-		System.out.println("ÎÄµµ¿ªÊ¼´òÓ¡ÁË"); 
+		System.out.println("æ–‡æ¡£å¼€å§‹æ‰“å°äº†"); 
 	}
 	
 	public void endDocument() throws SAXException { 
-		System.out.println("ÎÄµµ´òÓ¡½áÊøÁË"); 
+		System.out.println("æ–‡æ¡£æ‰“å°ç»“æŸäº†"); 
 	} 
 	
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException { 

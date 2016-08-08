@@ -6,7 +6,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * ·şÎñ¶Ë
+ * æœåŠ¡ç«¯
  * @author pc
  *
  */

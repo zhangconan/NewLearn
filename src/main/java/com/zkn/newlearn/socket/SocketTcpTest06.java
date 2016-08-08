@@ -10,7 +10,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 /**
- * ¿Í»§¶Ë
+ * å®¢æˆ·ç«¯
  * @author zkn
  *
  */
@@ -22,10 +22,10 @@ public class SocketTcpTest06 {
 		Socket socket = null;
 		try {
 			socket = new Socket("127.0.0.1",10008);
-			//¼üÅÌ×Ö·ûÊäÈëÁ÷  ×Ö½ÚÊäÈëÁ÷ºÍ×Ö·ûÊäÈëÁ÷Ïà»¥×ª»»µÄÖĞ¼äÀàInputStreamReader
+			//é”®ç›˜å­—ç¬¦è¾“å…¥æµ  å­—èŠ‚è¾“å…¥æµå’Œå­—ç¬¦è¾“å…¥æµç›¸äº’è½¬æ¢çš„ä¸­é—´ç±»InputStreamReader
 			BufferedReader buffReader = 
 					new BufferedReader(new InputStreamReader(System.in));
-			//×Ö·ûÊä³öÁ÷  ×Ö½ÚÊä³öÁ÷ºÍ×Ö·ûÊä³öÁ÷Ïà»¥×ª»»µÄÖĞ¼äÀà OutputStreamReader
+			//å­—ç¬¦è¾“å‡ºæµ  å­—èŠ‚è¾“å‡ºæµå’Œå­—ç¬¦è¾“å‡ºæµç›¸äº’è½¬æ¢çš„ä¸­é—´ç±» OutputStreamReader
 			/*
 			BufferedWriter buffWriter = 
 					new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
@@ -41,12 +41,12 @@ public class SocketTcpTest06 {
 					break;
 				/*
 				buffWriter.write(line);
-				buffWriter.newLine();  //Ïàµ±ÓÚ»Ø³µ¼ü
+				buffWriter.newLine();  //ç›¸å½“äºå›è½¦é”®
 				buffWriter.flush();
 				*/
 				prWriter.println(line);
 				String str = buffr.readLine();
-				System.out.println("·şÎñ¶Ë:"+str);
+				System.out.println("æœåŠ¡ç«¯:"+str);
 			}
 			
 		} catch (UnknownHostException e) {

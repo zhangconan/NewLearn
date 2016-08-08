@@ -3,7 +3,7 @@ package com.zkn.newlearn.domain;
 import java.io.Serializable;
 
 /**
- * Person对象
+ * Person瀵硅薄
  * @author zkn
  *
  */
@@ -11,15 +11,15 @@ import java.io.Serializable;
 public class PersonDomain implements Serializable{
 
 	/**
-	 * 序列
+	 * 搴忓垪
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * 姓名
+	 * 濮撳悕
 	 */
 	private String name;
 	/**
-	 * 年龄
+	 * 骞撮緞
 	 */
 	private int age;
 	

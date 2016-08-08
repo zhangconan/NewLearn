@@ -7,7 +7,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * ·şÎñ¶Ë
+ * æœåŠ¡ç«¯
  * @author zkn
  *
  */
@@ -26,7 +26,7 @@ public class SocketTcpTest03 {
 			System.out.println(str);
 			
 			OutputStream os = socket.getOutputStream();
-			os.write("¿Í»§¶Ë,ÄãºÃ".getBytes());
+			os.write("å®¢æˆ·ç«¯,ä½ å¥½".getBytes());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally{

@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.io.SequenceInputStream;
 
 /**
- * SequenceInputStream 可以把两个输入流合并成一个输入流
+ * SequenceInputStream 鍙互鎶婁袱涓緭鍏ユ祦鍚堝苟鎴愪竴涓緭鍏ユ祦
  * @author zkn
  *
  */

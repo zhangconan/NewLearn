@@ -9,7 +9,7 @@ import com.zkn.newlearn.gof.singleton.SingletonGofTest04;
 
 
 /**
- * µ¥ÀıÄ£Ê½²âÊÔÀà
+ * å•ä¾‹æ¨¡å¼æµ‹è¯•ç±»
  * @author zkn
  *
  */
@@ -17,7 +17,7 @@ import com.zkn.newlearn.gof.singleton.SingletonGofTest04;
 public class SingletonGofTest {
 
 	/**
-	 * ¶öººÄ£Ê½²âÊÔÀà
+	 * é¥¿æ±‰æ¨¡å¼æµ‹è¯•ç±»
 	 */
 	@Test
 	public void testHungrySingleton(){
@@ -28,7 +28,7 @@ public class SingletonGofTest {
 	}
 	
 	/**
-	 * ÀÁººÄ£Ê½²âÊÔÀà
+	 * æ‡’æ±‰æ¨¡å¼æµ‹è¯•ç±»
 	 */
 	@Test
 	public void testLazySingleton(){
@@ -38,7 +38,7 @@ public class SingletonGofTest {
 		System.out.println(singleton1==singleton2);
 	}
 	/**
-	 * ¾²Ì¬ÄÚ²¿Àà²âÊÔÀà
+	 * é™æ€å†…éƒ¨ç±»æµ‹è¯•ç±»
 	 */
 	@Test
 	public void testStaticSingleton(){
@@ -48,7 +48,7 @@ public class SingletonGofTest {
 		System.out.println(singleton1==singleton2);
 	}
 	/**
-	 * Ã¶¾ÙÀà²âÊÔÀà
+	 * æšä¸¾ç±»æµ‹è¯•ç±»
 	 */
 	@Test
 	public void testEnumSingleton(){

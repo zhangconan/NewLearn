@@ -1,7 +1,7 @@
 package com.zkn.newlearn.gof.factory;
 
 /**
- * ÓÊ¼şĞÅÏ¢Ìá¹©Õß
+ * é‚®ä»¶ä¿¡æ¯æä¾›è€…
  * @author zkn
  *
  */

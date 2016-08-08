@@ -6,7 +6,7 @@ import java.net.DatagramSocket;
 import java.net.SocketException;
 
 /**
- * ���ն�
+ * 接收端
  * @author zkn
  *
  */
@@ -17,7 +17,7 @@ public class SocketUdpTest02 {
 		
 		try {
 			/**
-			 * �󶨶˿ں�
+			 * 绑定端口号
 			 */
 			DatagramSocket ds = new DatagramSocket(11111);
 			byte[] buf = new byte[1024];

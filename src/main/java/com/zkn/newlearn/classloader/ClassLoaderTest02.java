@@ -1,36 +1,36 @@
 package com.zkn.newlearn.classloader;
 
 /**
- * 
+ *
  * @author zkn
  *
  */
 
 class MainClass{
-	
+
 	public static int a;
 	public static MainClass clt = new MainClass();
 	public static int b = 0;
 	/**
-	 * 
-	static{
-		a = 20;
-		System.out.println("a=:"+a);
-	}
-	{ //¹¹Ôì¿é ³õÊ¼»¯Ò»´Î Ö´ĞĞÒ»´Î
-		//a = 23;
-		b = 14;
-		System.out.println("a=:"+a+" b=:"+b);
-	}
-	*/
+	 *
+	 static{
+	 a = 20;
+	 System.out.println("a=:"+a);
+	 }
+	 { //æ„é€ å— åˆå§‹åŒ–ä¸€æ¬¡ æ‰§è¡Œä¸€æ¬¡
+	 //a = 23;
+	 b = 14;
+	 System.out.println("a=:"+a+" b=:"+b);
+	 }
+	 */
 
 	private MainClass() {
 		a++;
 		b++;
 	}
-	
+
 	public static MainClass getInstance(){
-		
+
 		return clt;
 	}
 
@@ -41,11 +41,11 @@ class ClassLoaderTest02 {
 
 
 	public static void main(String[] args) {
-		
+
 		MainClass cl = MainClass.getInstance();
 		System.out.println(cl.a +" "+cl.b);
 	}
-	
+
 }
 
 

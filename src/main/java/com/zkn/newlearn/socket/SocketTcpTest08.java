@@ -10,7 +10,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 /**
- * ÁÄÌì¿Í»§¶Ë
+ * èŠå¤©å®¢æˆ·ç«¯
  * @author zkn
  *
  */
@@ -22,13 +22,13 @@ public class SocketTcpTest08 {
 		Socket socket = null;
 		try {
 			 socket = new Socket("127.0.0.1",10006);
-			 //¼üÅÌ×Ö·ûÊäÈëÁ÷
+			 //é”®ç›˜å­—ç¬¦è¾“å…¥æµ
 			 BufferedReader buffReaderKey = 
 					 new BufferedReader(new InputStreamReader(System.in));
-			 //×Ö·ûÊä³öÁ÷
+			 //å­—ç¬¦è¾“å‡ºæµ
 			 PrintWriter prWriter = 
 					 new PrintWriter(new OutputStreamWriter(socket.getOutputStream()),true);
-			 //×Ö·ûÊä³öÁ÷
+			 //å­—ç¬¦è¾“å‡ºæµ
 			 BufferedReader buffReader = 
 					 new BufferedReader(new InputStreamReader(socket.getInputStream())); 
 			 String str = null;
@@ -36,7 +36,7 @@ public class SocketTcpTest08 {
 			 while((str = buffReaderKey.readLine())!=null){
 				 prWriter.println(str);
 				 String strs = buffReader.readLine();
-				 System.out.println("·şÎñ¶Ë:"+strs);
+				 System.out.println("æœåŠ¡ç«¯:"+strs);
 			 }
 			 
 		} catch (UnknownHostException e) {

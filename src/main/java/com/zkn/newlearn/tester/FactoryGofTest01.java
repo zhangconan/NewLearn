@@ -12,7 +12,7 @@ import com.zkn.newlearn.gof.singleton.SimpleFactoryTest01;
 public class FactoryGofTest01 {
 
 	/**
-	 * ²âÊÔ¼òµ¥¹¤³§
+	 * æµ‹è¯•ç®€å•å·¥å‚
 	 */
 	@Test
 	public void testSimpleFactory() {
@@ -23,7 +23,7 @@ public class FactoryGofTest01 {
 	}
 
 	/**
-	 * ²âÊÔ¾²Ì¬¹¤³§
+	 * æµ‹è¯•é™æ€å·¥å‚
 	 */
 	@Test
 	public void testStaticFactory(){
@@ -34,7 +34,7 @@ public class FactoryGofTest01 {
 	}
 	
 	/**
-	 * ²âÊÔ³éÏó¹¤³§
+	 * æµ‹è¯•æŠ½è±¡å·¥å‚
 	 */
 	@Test
 	public void testAbstraceFactory(){

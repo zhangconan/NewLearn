@@ -1,7 +1,7 @@
 package com.zkn.newlearn.gof.adapter;
 
 /**
- * ÀàµÄÊÊÅäÆ÷Ä£Ê½
+ * ç±»çš„é€‚é…å™¨æ¨¡å¼
  * @see com.zkn.newlearn.gof.adapter.AdapterGofDemo03
  * @see com.zkn.newlearn.gof.adapter.AdapterGofDemo04
  * @author zkn
@@ -13,6 +13,6 @@ public class AdapterGofDemo05 extends AdapterGofDemo03{
 	@Override
 	public void learnChinese() {
 		
-		System.out.println("Ñ§Ï°ÖĞÎÄ¡£¡£¡£¡£¡£¡£");
+		System.out.println("å­¦ä¹ ä¸­æ–‡ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚");
 	}
 }
