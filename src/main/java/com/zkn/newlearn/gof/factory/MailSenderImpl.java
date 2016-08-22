@@ -10,6 +10,6 @@ public class MailSenderImpl implements Sender{
 
 	public void doSend() {
 		
-		System.out.println("ÓÊ¼ş·¢ËÍ¡£¡£¡£¡£");
+		System.out.println("é‚®ä»¶å‘é€ã€‚ã€‚ã€‚ã€‚");
 	}
 }

@@ -2,7 +2,7 @@ package com.zkn.newlearn.gof.factory;
 
 /**
  * 
- * 抽象工厂接口
+ * 鎶借薄宸ュ巶鎺ュ彛
  * @author zkn
  *
  */

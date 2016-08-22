@@ -11,10 +11,10 @@ public class TestAnnotation01 {
 		
 		if(TestAnnotation01.class.isAnnotationPresent(AnnotationTest01.class)){
 			AnnotationTest01 an = TestAnnotation01.class.getAnnotation(AnnotationTest01.class);
-			System.out.println("ÓÐ×¢½â¡£¡£¡£¡£¡£¡£");
+			System.out.println("æœ‰æ³¨è§£ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚");
 			System.out.println(an.color());
 		}else{
-			System.out.println("Ã»ÓÐ×¢½â");
+			System.out.println("æ²¡æœ‰æ³¨è§£");
 		}
 	}
 }

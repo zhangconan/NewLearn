@@ -1,10 +1,10 @@
 package com.zkn.newlearn.gof.adapter;
 
 /**
- * ½Ó¿ÚµÄÊÊÅäÆ÷Ä£Ê½
- * µ±²»Ï£ÍûÊµÏÖÒ»¸ö½Ó¿ÚÖĞËùÓĞµÄ·½·¨Ê±£¬
- * ¿ÉÒÔ´´½¨Ò»¸ö³éÏóÀàWrapper£¬ÊµÏÖËùÓĞ·½·¨£¬
- * ÎÒÃÇĞ´±ğµÄÀàµÄÊ±ºò£¬¼Ì³Ğ³éÏóÀà¼´¿É
+ * æ¥å£çš„é€‚é…å™¨æ¨¡å¼
+ * å½“ä¸å¸Œæœ›å®ç°ä¸€ä¸ªæ¥å£ä¸­æ‰€æœ‰çš„æ–¹æ³•æ—¶ï¼Œ
+ * å¯ä»¥åˆ›å»ºä¸€ä¸ªæŠ½è±¡ç±»Wrapperï¼Œå®ç°æ‰€æœ‰æ–¹æ³•ï¼Œ
+ * æˆ‘ä»¬å†™åˆ«çš„ç±»çš„æ—¶å€™ï¼Œç»§æ‰¿æŠ½è±¡ç±»å³å¯
  * @see com.zkn.newlearn.gof.adapter.AdapterGofDemo03
  * @author zkn
  *
@@ -15,7 +15,7 @@ public class AdapterGofDemo04 extends AdapterGofDemo03{
 	@Override
 	public void learnEnglish() {
 		
-		System.out.println("½Ó¿ÚµÄÊÊÅäÆ÷Ä£Ê½........");
+		System.out.println("æ¥å£çš„é€‚é…å™¨æ¨¡å¼........");
 	}
 
 }

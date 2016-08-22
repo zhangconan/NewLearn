@@ -9,7 +9,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * ·şÎñ¶Ë
+ * æœåŠ¡ç«¯
  * @author zkn
  *
  */
@@ -28,7 +28,7 @@ public class SocketTcpTest05 {
 					 new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 			 String str = null;
 			 while((str=buffReader.readLine())!=null){
-				 System.out.println("¿Í»§¶Ë:"+str);
+				 System.out.println("å®¢æˆ·ç«¯:"+str);
 				 str = str.toUpperCase();
 				 buffWriter.write(str);
 				 buffWriter.newLine();

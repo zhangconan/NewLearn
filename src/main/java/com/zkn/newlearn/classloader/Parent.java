@@ -13,7 +13,7 @@ public class Parent {
 	public Parent(){
 		
 		new Dog();
-		System.out.println("ParentÀà¼ÓÔØÆ÷Îª£º"+Parent.class.getClassLoader());
+		System.out.println("Parentç±»åŠ è½½å™¨ä¸ºï¼š"+Parent.class.getClassLoader());
 		
 	}
 	

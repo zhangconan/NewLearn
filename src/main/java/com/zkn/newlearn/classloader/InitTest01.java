@@ -20,7 +20,7 @@ public class InitTest01 {
 	public static InitTest01 test2 = new InitTest01();
 	
 	{
-		System.out.println("¹¹Ôì´úÂë¿é¡£¡£¡£¡£¡£¡£¡£¡£¡£");
+		System.out.println("æ„é€ ä»£ç å—ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚");
 	}
 	
 	public InitTest01() {

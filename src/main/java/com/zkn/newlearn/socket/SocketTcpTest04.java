@@ -8,7 +8,7 @@ import java.net.UnknownHostException;
 import java.util.Scanner;
 
 /**
- * ¿Í»§¶Ë
+ * å®¢æˆ·ç«¯
  * @author zkn
  *
  */

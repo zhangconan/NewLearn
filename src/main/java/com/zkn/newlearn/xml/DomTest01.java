@@ -45,14 +45,14 @@ public class DomTest01 implements XmlDocument {
 	}
 	
 	/**
-	 * ´´½¨XMLÎÄ¼ş
+	 * åˆ›å»ºXMLæ–‡ä»¶
 	 */
 	public void createXml(String fileName) {
 		Element root = this.document.createElement("employees");
 		this.document.appendChild(root);
 		Element employee = this.document.createElement("employee");
 		Element name = this.document.createElement("name");
-		name.appendChild(this.document.createTextNode("¶¡ºêÁÁ"));
+		name.appendChild(this.document.createTextNode("ä¸å®äº®"));
 		employee.appendChild(name);
 		Element sex = this.document.createElement("sex");
 		sex.appendChild(this.document.createTextNode("m"));
@@ -70,7 +70,7 @@ public class DomTest01 implements XmlDocument {
 			PrintWriter pw = new PrintWriter(new FileOutputStream(fileName));
 			StreamResult result = new StreamResult(pw);
 			transformer.transform(source, result);
-			System.out.println("Éú³ÉXMLÎÄ¼ş³É¹¦!");
+			System.out.println("ç”ŸæˆXMLæ–‡ä»¶æˆåŠŸ!");
 		} catch (TransformerConfigurationException e) {
 			System.out.println(e.getMessage());
 		} catch (IllegalArgumentException e) {
@@ -83,8 +83,8 @@ public class DomTest01 implements XmlDocument {
 	}
 
 	/**
-	 * ½âÎöXMLÎÄ¼ş
-	 * ÕâÀïÓÃµİ¹é±È½ÏºÃÒ»µã
+	 * è§£æXMLæ–‡ä»¶
+	 * è¿™é‡Œç”¨é€’å½’æ¯”è¾ƒå¥½ä¸€ç‚¹
 	 */
 	public void parserXml(String fileName) {
 		try {
@@ -104,7 +104,7 @@ public class DomTest01 implements XmlDocument {
 					}
 				}
 			}
-			System.out.println("½âÎöÍê±Ï");
+			System.out.println("è§£æå®Œæ¯•");
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
 		} catch (ParserConfigurationException e) {

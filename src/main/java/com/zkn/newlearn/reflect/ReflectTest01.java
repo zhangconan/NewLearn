@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 public class ReflectTest01 {
 
 	public static void main(String[] args) {
-		Person person = new Person(30,"ÕÅÈý");
+		Person person = new Person(30,"å¼ ä¸‰");
 		try {
 			Class<?> clazz = Class.forName("com.zkn.newlearn.reflect.Person");
 			Method methods = clazz.getDeclaredMethod("getValue",null);

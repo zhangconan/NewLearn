@@ -1,7 +1,7 @@
 package com.zkn.newlearn.gof.factory;
 
 /**
- * ¾²Ì¬¹¤³§Ä£Ê½
+ * é™æ€å·¥å‚æ¨¡å¼
  * @author zkn
  *
  */
@@ -9,7 +9,7 @@ package com.zkn.newlearn.gof.factory;
 public class StaticFactoryTest01 {
 
 	/**
-	 * ÓÊ¼şÊµÏÖÀà
+	 * é‚®ä»¶å®ç°ç±»
 	 * @return
 	 */
 	public static Sender getMailSender(){
@@ -18,7 +18,7 @@ public class StaticFactoryTest01 {
 	}
 	
 	/**
-	 * ¶ÌĞÅÊµÏÖÀà
+	 * çŸ­ä¿¡å®ç°ç±»
 	 * @return
 	 */
 	public static Sender getMessageSender(){

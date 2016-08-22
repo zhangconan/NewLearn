@@ -14,11 +14,11 @@ import java.io.InputStream;
 public class ClassLoaderTest04 extends ClassLoader {
 
 	/**
-	 * Â·¾¶
+	 * è·¯å¾„
 	 */
 	private String path = "";
 	/**
-	 * ºó×ºÃû
+	 * åç¼€å
 	 */
 	private String className = ".class";
 	

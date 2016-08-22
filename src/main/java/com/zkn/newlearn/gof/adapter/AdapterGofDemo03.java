@@ -1,7 +1,7 @@
 package com.zkn.newlearn.gof.adapter;
 
 /**
- * ½Ó¿ÚµÄÊÊÅäÆ÷Ä£Ê½
+ * æ¥å£çš„é€‚é…å™¨æ¨¡å¼
  * 
  * @author zkn
  *

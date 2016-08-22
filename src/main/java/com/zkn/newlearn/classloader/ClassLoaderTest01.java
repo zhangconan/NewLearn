@@ -1,7 +1,7 @@
 package com.zkn.newlearn.classloader;
 
 /**
- * @description Í¨¹ı×ÓÀàÒıÓÃ¸¸ÀàµÄ¾²Ì¬×Ö¶Î£¬²»»áµ¼ÖÂ×ÓÀà³õÊ¼»¯¡£
+ * @description é€šè¿‡å­ç±»å¼•ç”¨çˆ¶ç±»çš„é™æ€å­—æ®µï¼Œä¸ä¼šå¯¼è‡´å­ç±»åˆå§‹åŒ–ã€‚
  * @author zkn
  *
  */
@@ -11,7 +11,7 @@ public class ClassLoaderTest01 {
 	public static void main(String[] args) {
 		System.out.println(SubClass.a);
 		/**		
-		SubClass sub = new SubClass(); //new×ÓÀà»áµ¼ÖÂ¸¸ÀàµÄ³õÊ¼»¯£¬ËùÒÔ»áÖ´ĞĞ¸¸ÀàÖĞµÄ¾²Ì¬¿é¡£
+		SubClass sub = new SubClass(); //newå­ç±»ä¼šå¯¼è‡´çˆ¶ç±»çš„åˆå§‹åŒ–ï¼Œæ‰€ä»¥ä¼šæ‰§è¡Œçˆ¶ç±»ä¸­çš„é™æ€å—ã€‚
 		sub.getValue();
 		*/
 		ClassLoaderTest02 t = new ClassLoaderTest02();
@@ -23,7 +23,7 @@ class SuperClass{
 	static{
 		
 		a = 20;
-		System.out.println("¸¸Àà¡¢¡¢¡¢¡¢");
+		System.out.println("çˆ¶ç±»ã€ã€ã€ã€");
 	}
 	public static int a = 14;
 }
@@ -31,11 +31,11 @@ class SuperClass{
 class SubClass extends SuperClass{
 	
 	static{
-		System.out.println("×ÓÀà¡£¡£¡£¡£¡£¡£");
+		System.out.println("å­ç±»ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚");
 	}
 	
 	public void getValue(){
-		System.out.println("aµÄÖµÊÇ¶àÉÙ£º"+a);
+		System.out.println("açš„å€¼æ˜¯å¤šå°‘ï¼š"+a);
 	}
 	
 }

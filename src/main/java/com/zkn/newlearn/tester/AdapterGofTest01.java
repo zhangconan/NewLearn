@@ -11,14 +11,14 @@ import com.zkn.newlearn.gof.adapter.LearnLanguageInter;
 import com.zkn.newlearn.gof.adapter.LearnLanguageMuiInter;
 
 /**
- * ÊÊÅäÆ÷Ä£Ê½µ¥Ôª²âÊÔÀà
+ * é€‚é…å™¨æ¨¡å¼å•å…ƒæµ‹è¯•ç±»
  * @author zkn
  *
  */
 public class AdapterGofTest01 {
 
 	/**
-	 * ²âÊÔÀàµÄÊÊÅäÆ÷Ä£Ê½
+	 * æµ‹è¯•ç±»çš„é€‚é…å™¨æ¨¡å¼
 	 */
 	@Test
 	public void testClassAdapter(){
@@ -27,7 +27,7 @@ public class AdapterGofTest01 {
 		adapter.learnEnglish();
 	}
 	/**
-	 * ²âÊÔ¶ÔÏóµÄÊÊÅäÆ÷Ä£Ê½
+	 * æµ‹è¯•å¯¹è±¡çš„é€‚é…å™¨æ¨¡å¼
 	 */
 	@Test
 	public void testObjectAdapter(){
@@ -36,7 +36,7 @@ public class AdapterGofTest01 {
 		adapter.learnEnglish();
 	}
 	/**
-	 * ²âÊÔÀàµÄÊÊÅäÆ÷Ä£Ê½
+	 * æµ‹è¯•ç±»çš„é€‚é…å™¨æ¨¡å¼
 	 */
 	@Test
 	public void testInterfaceAdapter(){

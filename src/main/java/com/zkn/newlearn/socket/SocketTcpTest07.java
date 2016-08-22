@@ -9,7 +9,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * ÁÄÌì·şÎñ¶Ë
+ * èŠå¤©æœåŠ¡ç«¯
  * @author zkn
  *
  */
@@ -23,23 +23,23 @@ public class SocketTcpTest07 {
 			server = new ServerSocket(10006);
 			Socket socket = server.accept();
 			
-			//×Ö·ûÊäÈëÁ÷
+			//å­—ç¬¦è¾“å…¥æµ
 			BufferedReader buffReader = 
 					new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			/**
-			//¼üÅÌÊäÈëÁ÷
+			//é”®ç›˜è¾“å…¥æµ
 			BufferedReader buffReaderKey = 
 					new BufferedReader(new InputStreamReader(System.in));
 			*/
-			//×Ö·ûÊä³öÁ÷
+			//å­—ç¬¦è¾“å‡ºæµ
 			BufferedWriter buffWriter = 
 					new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 			
 			String str = null;
 			while((str = buffReader.readLine())!=null){
-				System.out.println("¿Í»§¶Ë:"+str);
+				System.out.println("å®¢æˆ·ç«¯:"+str);
 				//String strs = buffReaderKey.readLine();
-				buffWriter.write("»Ø¸´:"+str);
+				buffWriter.write("å›å¤:"+str);
 				buffWriter.newLine();
 				buffWriter.flush();
 			}
