@@ -22,7 +22,9 @@ public class PersonDomain implements Serializable{
 	 * 年龄
 	 */
 	private int age;
-	
+
+	private StudentDomain studentDomain;
+
 	public String getName() {
 		return name;
 	}
@@ -43,5 +45,12 @@ public class PersonDomain implements Serializable{
 	public String toString() {
 		return "PersonDomain [name=" + name + ", age=" + age + "]";
 	}
-	
+
+	public StudentDomain getStudentDomain() {
+		return studentDomain;
+	}
+
+	public void setStudentDomain(StudentDomain studentDomain) {
+		this.studentDomain = studentDomain;
+	}
 }

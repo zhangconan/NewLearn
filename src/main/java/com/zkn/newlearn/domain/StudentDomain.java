@@ -1,9 +1,10 @@
 package com.zkn.newlearn.domain;
 
 /**
- * Created by wb-zhangkenan on 2016/9/1.
+ * Created by zkn on 2016/8/23.
  */
 public class StudentDomain {
+
     /**
      * 地址
      */
@@ -41,4 +42,3 @@ public class StudentDomain {
         this.schoolName = schoolName;
     }
 }
-
