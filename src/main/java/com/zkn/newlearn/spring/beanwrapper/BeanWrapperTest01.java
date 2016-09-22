@@ -4,6 +4,8 @@ import com.zkn.newlearn.domain.StudentDomain;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 
+import java.util.Date;
+
 /**
  * BeanWrapper是Spring中提供的一个Java对象的组装类，
  * 设置和获取属性值以及嵌套属性
@@ -15,6 +17,7 @@ public class BeanWrapperTest01 {
 
         BeanWrapper beanWrapper = new BeanWrapperImpl(new StudentDomain());
         beanWrapper.setPropertyValue("address","北京路九十六号");
+        beanWrapper.setPropertyValue("buildDate",new Date());
         System.out.println(beanWrapper.getPropertyValue("address"));
-    }
+   }
 }

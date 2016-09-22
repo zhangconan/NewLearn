@@ -1,5 +1,7 @@
 package com.zkn.newlearn.domain;
 
+import java.util.Date;
+
 /**
  * Created by zkn on 2016/8/23.
  */
@@ -17,6 +19,10 @@ public class StudentDomain {
      * 学校名称
      */
     private String schoolName;
+    /**
+     * 成立时间
+     */
+    private Date buildDate;
 
     public String getAddress() {
         return address;
@@ -40,5 +46,13 @@ public class StudentDomain {
 
     public void setSchoolName(String schoolName) {
         this.schoolName = schoolName;
+    }
+
+    public Date getBuildDate() {
+        return buildDate;
+    }
+
+    public void setBuildDate(Date buildDate) {
+        this.buildDate = buildDate;
     }
 }
