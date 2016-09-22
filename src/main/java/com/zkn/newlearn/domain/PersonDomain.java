@@ -1,6 +1,7 @@
 package com.zkn.newlearn.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Person对象
@@ -24,6 +25,10 @@ public class PersonDomain implements Serializable{
 	private int age;
 
 	private StudentDomain studentDomain;
+	/**
+	 * 出生日期
+	 */
+	private Date birthDay;
 
 	public String getName() {
 		return name;
@@ -43,7 +48,7 @@ public class PersonDomain implements Serializable{
 
 	@Override
 	public String toString() {
-		return "PersonDomain [name=" + name + ", age=" + age + "]";
+		return "PersonDomain [name=" + name + ", age=" + age +",birthDay="+(birthDay==null?"birthDay位空":birthDay.getTime())+"" +"]";
 	}
 
 	public StudentDomain getStudentDomain() {
@@ -52,5 +57,13 @@ public class PersonDomain implements Serializable{
 
 	public void setStudentDomain(StudentDomain studentDomain) {
 		this.studentDomain = studentDomain;
+	}
+
+	public Date getBirthDay() {
+		return birthDay;
+	}
+
+	public void setBirthDay(Date birthDay) {
+		this.birthDay = birthDay;
 	}
 }
