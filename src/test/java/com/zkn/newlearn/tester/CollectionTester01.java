@@ -20,5 +20,6 @@ public class CollectionTester01 {
 		listTest.add(1258);
 		listTest.add(new Integer(222));
 		System.out.println(listTest.size());
+
 	}
 }
