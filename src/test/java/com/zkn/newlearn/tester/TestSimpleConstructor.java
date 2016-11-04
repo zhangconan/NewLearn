@@ -2,8 +2,8 @@ package com.zkn.newlearn.tester;
 
 /**
  * Created by wb-zhangkenan on 2016/10/11.
- * 子类在实例化的时候会默认调用父类的构造函数，
- * 因为在jvm加载类的时候，存在被动初始化父类的动作。
+ * 子类在实例化的时候会被动的初始化父类（不会实例化父类），默认调用父类的构造函数.
+ * 然后才会初始化子类，调用子类的构造函数，初始化完毕后，为成员变量赋值。生成子类的实例。
  */
 public class TestSimpleConstructor {
 
@@ -15,16 +15,15 @@ public class TestSimpleConstructor {
 
 abstract class FatherSimpleConstructor{
     public static final int DEFAULT_PORT = 4000;
-    public FatherSimpleConstructor(int test){
+    public FatherSimpleConstructor(){
         int port = getPort();
-        /**
-         * 在初始化父类的时候，子类还没被初始化，所示
-          */
         System.out.println("端口号是："+port);
     }
+    /**
     public FatherSimpleConstructor(){
 
     }
+     */
     public abstract int getPort();
 }
 
