@@ -5,14 +5,17 @@ package com.zkn.newlearn.thread;
  *
  */
 
-public class ThreadTest01 {
+public class     ThreadTest01 {
 
 	public static void main(String[] args) {
 		
 		Runnable run = new Runnable() {
 			
 			public void run() {
-				System.out.println("ddddddddddddd");
+				while (true){
+
+				}
+				//System.out.println("ddddddddddddd");
 			}
 		};
 		
