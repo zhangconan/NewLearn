@@ -71,6 +71,17 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
+	   <!--RocketMQ 的 jar 包-->
+		<dependency>
+			<groupId>com.alibaba.rocketmq</groupId>
+			<artifactId>rocketmq-client</artifactId>
+			<version>3.5.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba.rocketmq</groupId>
+			<artifactId>rocketmq-all</artifactId>
+			<version>3.5.9</version>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
