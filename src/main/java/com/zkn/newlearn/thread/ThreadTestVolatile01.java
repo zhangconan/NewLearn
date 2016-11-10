@@ -45,6 +45,10 @@ class TestVolatile implements Runnable{
         for(int i=0;i<1000;i++){
             Math.hypot(Math.pow(92456789,i),Math.cos(i));
         }
+        /*
+        synchronized (this){
+            count++;
+        }*/
         count++;
     }
 
