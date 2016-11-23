@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import com.zkn.newlearn.collection.ImitateArrayListTest01;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 测试集合类
  * @author zkn 
@@ -20,6 +23,11 @@ public class CollectionTester01 {
 		listTest.add(1258);
 		listTest.add(new Integer(222));
 		System.out.println(listTest.size());
-
+	}
+	@Test
+	public void testArrayToList(){
+		String str = "sss,dewwe,dwaaawe";
+		List list = Arrays.asList(str.split(","));
+		System.out.println(list.size());
 	}
 }
