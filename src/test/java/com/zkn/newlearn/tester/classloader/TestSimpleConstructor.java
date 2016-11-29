@@ -1,4 +1,4 @@
-package com.zkn.newlearn.tester;
+package com.zkn.newlearn.tester.classloader;
 
 /**
  * Created by wb-zhangkenan on 2016/10/11.

@@ -1,4 +1,4 @@
-package com.zkn.newlearn.tester;
+package com.zkn.newlearn.tester.gof;
 
 import com.zkn.newlearn.domain.PersonDomain;
 import com.zkn.newlearn.gof.prototype.PrototypeGofTest01;

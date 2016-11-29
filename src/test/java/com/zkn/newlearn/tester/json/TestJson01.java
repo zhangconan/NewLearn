@@ -1,4 +1,4 @@
-package com.zkn.newlearn.tester;
+package com.zkn.newlearn.tester.json;
 
 import com.alibaba.fastjson.JSON;
 

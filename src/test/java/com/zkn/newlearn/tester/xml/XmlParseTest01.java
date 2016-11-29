@@ -1,11 +1,11 @@
-package com.zkn.newlearn.tester;
+package com.zkn.newlearn.tester.xml;
 
 import org.junit.Test;
 
 import com.zkn.newlearn.xml.DomTest01;
 
 /**
- * µ¥Ôª²âÊÔÀà
+ * ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @author zkn
  *
  */

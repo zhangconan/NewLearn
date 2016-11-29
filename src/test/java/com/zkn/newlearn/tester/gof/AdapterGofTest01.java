@@ -1,4 +1,4 @@
-package com.zkn.newlearn.tester;
+package com.zkn.newlearn.tester.gof;
 
 import org.junit.Test;
 

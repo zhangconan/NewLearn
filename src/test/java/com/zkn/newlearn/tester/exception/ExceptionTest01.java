@@ -1,4 +1,4 @@
-package com.zkn.newlearn.tester;
+package com.zkn.newlearn.tester.exception;
 
 /**
  * Created by wb-zhangkenan on 2016/8/10.

@@ -1,4 +1,4 @@
-package com.zkn.newlearn.tester;
+package com.zkn.newlearn.tester.annotation;
 
 import com.zkn.newlearn.annotation.AnnotationTest01;
 

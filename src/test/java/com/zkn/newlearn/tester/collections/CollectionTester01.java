@@ -1,4 +1,4 @@
-package com.zkn.newlearn.tester;
+package com.zkn.newlearn.tester.collections;
 
 import org.apache.commons.collections.ComparatorUtils;
 import org.junit.Test;

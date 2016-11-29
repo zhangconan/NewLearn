@@ -1,4 +1,4 @@
-package com.zkn.newlearn.tester;
+package com.zkn.newlearn.tester.collections;
 
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;
