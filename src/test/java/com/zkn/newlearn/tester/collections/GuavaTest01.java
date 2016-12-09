@@ -45,5 +45,6 @@ public class GuavaTest01 {
         for(Map.Entry<String,String> entry : maps.entrySet()){
             System.out.println(entry.getKey()+" "+entry.getValue());
         }
+        System.out.println("姓名："+Joiner.on(",").join(maps.values()));
     }
 }
