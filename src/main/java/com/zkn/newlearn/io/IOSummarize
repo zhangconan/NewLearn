@@ -1,0 +1,47 @@
+字节输入流（InputStream）：
+SequenceInputStream:
+    SequenceInputStream可以把两个输入流合并成一个输入流。主要用作合并输入流。
+                        内部有一个Enumeration属性，来存放两个输入流。
+                        内部有一个nextStream方法，来指示Enumeration中存放的下一个输入流。
+ByteArrayInputStream:
+    ByteArrayInputStream是字节数组输入流。它的内部有一个字节数组，用来保存读取字节流数据。
+                        pos属性，int类型，用来标记下一个会被读取的字节的索引。
+                        mark属性，int类型，当标记用。注意：mark(int)这个方法需要传入一个int值，但是传入的这个int值没有卵用。
+                        count属性，int类型，字节流的长度。
+FileInputStream：
+    FileInputStream是一个操作文件的字节输入流。可以通过getChannel方法来得到FileChannel对象。
+FilterInputStream：
+    FilterInputStream的作用是用来封装其它的输入流，并为它们提供额外的功能。它本身不对输入流进行处理。装饰模式的运用。
+                     它的常用子类：BufferedInputStream和DataInputStream。还有DeflaterInputStream和PushbackInputStream。
+ObjectInputStream：
+    ObjectInputStream对以前使用ObjectOutputStream写入的基本数据和对象进行反序列化。
+                     内部包含读取序列化的字段和基本类型的方法。
+PipedInputStream：
+    PipedInputStream是管道输入流，它通常和PipedOutputStream一起使用。它们的作用是让多线程可以通过管道进行线程间的通讯。
+                    我们在线程A中向PipedOutputStream中写入数据，这些数据会自动的发送到与PipedOutputStream对应的PipedInputStream中，
+                    进而存储在PipedInputStream的缓冲中；此时，线程B通过读取PipedInputStream中的数据。
+DataInputStream:
+    DataInputStream是数据输入流。它是FilterInputStream的子类，也是用来装饰其它输入流，它“允许应用程序以与机器无关方式从底层输入流中读取基本Java数据类型”
+BufferedInputStream：
+    BufferedInputStream为另一个输入流添加一些功能，即缓冲输入以及支持mark和reset方法的能力。在创建 BufferedInputStream 时，
+                        会创建一个内部缓冲区数组。在读取或跳过流中的字节时，可根据需要从包含的输入流再次填充该内部缓冲区，一次填充多个字节。
+                        mark操作记录输入流中的某个点，reset操作使得在从包含的输入流中获取新字节之前，再次读取自最后一次mark操作后读取的所有字节。
+InflaterInputStream：
+    FilterInputStream此类为解压缩"deflate"压缩格式的数据实现流过滤器。它还用作其他解压缩过滤器（如 GZIPInputStream）的基础。
+DeflaterInputStream：
+    DeflaterInputStream为使用"deflate"压缩格式压缩数据实现输入流过滤器。
+PushbackInputStream：
+    PushbackInputStream为另一个输入流添加“推回 (push back)”或“取消读取 (unread)”的功能。对于一个输入流来讲都是采用从头到尾的顺序读取的，
+                        如果在输入流中某个不需要的内容被读取进来，则通常只能通过程序将这些不需要的内容处理掉。但是我们可以用PushbackInputStream
+                        中的unread方法把读取进来的某些数据重新回退到输入流的缓冲区之中。
+GZIPInputStream：
+    GZIPInputStream为读取GZIP文件格式的压缩数据实现流过滤器。
+ZipInputStream：
+    ZipInputStream为读取ZIP文件格式的文件实现输入流过滤器。包括对已压缩和未压缩条目的支持。
+JarInputStream：
+    JarInputStream类用于从任何输入流读取JAR文件内容。它扩展了java.util.zip.ZipInputStream类，使之支持读取可选的Manifest条目。
+                    Manifest可用于存储有关JAR文件及其条目的元信息。
+
+字节输出流（OutputStream）：
+
+
