@@ -6,7 +6,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 /**
- * ¿Í»§¶Ë
+ * å®¢æˆ·ç«¯
  * @author zkn
  *
  */
@@ -17,7 +17,7 @@ public class SocketTcpTest02 {
 		try {
 			Socket socket = new Socket("127.0.0.1",10003);
 			OutputStream os = socket.getOutputStream();
-			String str = "ÄãºÃ°¡";
+			String str = "ä½ å¥½å•Š";
 			os.write(str.getBytes());
 			socket.close();
 		} catch (UnknownHostException e) {
@@ -25,7 +25,7 @@ public class SocketTcpTest02 {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
+
+
 	}
 }
