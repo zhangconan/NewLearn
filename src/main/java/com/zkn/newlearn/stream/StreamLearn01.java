@@ -20,6 +20,10 @@ public class StreamLearn01 {
             add("zhangsanwangwu");
             add("zhangsanliuliu");
             add("zhangsanqiba");
+            add("zhangsanqiwewew");
+            add("sdwwsd");
+            add("zhangwesrersanqiba");
+            add("zhang1qqwqwsanqiba");
         }
     };
 
@@ -38,13 +42,16 @@ public class StreamLearn01 {
          * Consumer<T>  接收T不返回值
          */
         //串行操作
-        stream.stream().map(String::toUpperCase).forEach(System.out::println);
+        //stream.stream().map(String::toUpperCase).forEach(System.out::println);
         //只是处理原数据，不会改变原数据
         System.out.println(Arrays.toString(stream.toArray()));
         //并行操作，并行操作最后需要合并结果集，要不然结果和自己想象的不太一样下面这个例子可以证明
         stream.stream().parallel().map(String::toUpperCase).forEach(System.out::println);
+        System.out.println();
+        //并行操作，即使是并行操作，结果也是顺序输出的
+        stream.stream().parallel().map(String::toUpperCase).forEachOrdered(System.out::println);
         //并行操作，最后合并结果集，保证最后的顺序
-        stream.stream().parallel().map(String::toUpperCase).collect(Collectors.toList()).forEach(System.out::println);
+        //stream.stream().parallel().map(String::toUpperCase).collect(Collectors.toList()).forEach(System.out::println);
     }
 
     /**
