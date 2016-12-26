@@ -82,6 +82,11 @@
 			<artifactId>rocketmq-all</artifactId>
 			<version>3.5.9</version>
 		</dependency>
+		<dependency>
+			<groupId>axis</groupId>
+			<artifactId>axis-wsdl4j</artifactId>
+			<version>1.5.1</version>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

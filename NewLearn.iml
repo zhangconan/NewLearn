@@ -35,5 +35,6 @@
     <orderEntry type="library" name="Maven: com.alibaba.rocketmq:rocketmq-client:3.5.9" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.5" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.rocketmq:rocketmq-all:3.5.9" level="project" />
+    <orderEntry type="library" name="Maven: axis:axis-wsdl4j:1.5.1" level="project" />
   </component>
 </module>
