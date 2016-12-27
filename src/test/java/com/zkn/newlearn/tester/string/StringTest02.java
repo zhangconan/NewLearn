@@ -1,4 +1,4 @@
-package com.zkn.newlearn.tester.base;
+package com.zkn.newlearn.tester.string;
 
 import org.junit.Test;
 
