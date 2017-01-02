@@ -114,7 +114,21 @@ public class LambdaLearn02 {
         //如果Optional中的值为null的话，get方法会报异常
         System.out.println(optional.get());
     }
+    @Test
+    public void testCollection01(){
 
+        System.out.println(IntStream.of(1,4,12,34,112,533)
+                .filter(e-> e > 20)
+                .reduce(0,Integer::sum));
+        IntStream.of(1,4,12,34,112,533)
+                .filter(e-> e > 20)
+                .average()
+                .ifPresent(e -> System.out.println(e));
+        IntStream.of(1,4,12,34,112,533)
+                .filter(e-> e > 20)
+                .max()
+                .ifPresent(e -> System.out.println(e));
+    }
     /**
      * 测试连接元素
      */
