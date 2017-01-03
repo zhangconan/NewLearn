@@ -15,13 +15,13 @@ public class StreamLearn01 {
 
     private static List<String> stream = new ArrayList<String>() {
         {
-            add("zhangsan");
-            add("zhangsanlisi");
+            add("sdwwsd");
+            add("saszhangsan");
+            add("qwqwqwzhangsanlisi");
             add("zhangsanwangwu");
             add("zhangsanliuliu");
             add("zhangsanqiba");
             add("zhangsanqiwewew");
-            add("sdwwsd");
             add("zhangwesrersanqiba");
             add("zhang1qqwqwsanqiba");
         }
@@ -83,19 +83,32 @@ public class StreamLearn01 {
      */
     @Test
     public void testFindFirst() {
+        List<List<String>> lists = new ArrayList<List<String>>(){
+            {
+                add(Arrays.asList("zhangsan01", "lisi01"));
+                add(Arrays.asList("zhangsan02", "lisi02", "wangwu02"));
+            }
+        };
 
-        stream.stream().peek(s -> System.out.print(s + "  ")).
+//        lists.stream().peek(s -> {s.set(0,"zhangqqqqqqq");
+//                        System.out.println("一个两个");}).
+//                filter(s -> s.size() > 2).
+//                findAny().
+//                ifPresent(s -> System.out.println(s));
+
+        stream.stream().peek(s -> System.out.println(s + " peek ")).
                 map(String::toUpperCase).
-                filter(s -> s.startsWith("ZHANGSAN")).
+                filter(s -> {
+                    System.out.println(s+" filter"); return s.startsWith("ZHANGSAN");}).
                 findAny().
                 ifPresent(s -> System.out.println(s));
 
-        Stream.of("one0", "two0", "three", "four")
-                .filter(e -> e.length() > 3)
-                .peek(e -> System.out.println("Filtered value: " + e))
-                .map(String::toUpperCase)
-                .peek(e -> System.out.println("Mapped value: " + e))
-                .collect(Collectors.toList()).forEach(System.out::println);
+//        Stream.of("one", "two", "three", "four")
+//                .filter(e -> e.length() > 3)
+//                .peek(e -> System.out.println("Filtered value: " + e))
+//                .map(String::toUpperCase)
+//                .peek(e -> System.out.println("Mapped value: " + e))
+//                .collect(Collectors.toList()).forEach(System.out::println);
     }
 
     /**
