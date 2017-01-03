@@ -69,7 +69,9 @@ public class StreamLearn01 {
             }
         };
         //flagMap把streamFlatMap中的结构扁平化，将最底层的元素抽出来，放到一起。
-        streamFlatMap.stream().flatMap(childRen -> childRen.stream()).map(String::toUpperCase).forEach(System.out::println);
+        streamFlatMap.stream()
+                .flatMap(childRen -> childRen.stream())
+                .map(String::toUpperCase).forEach(System.out::println);
     }
 
     /**
@@ -120,11 +122,13 @@ public class StreamLearn01 {
     public void testReduce() {
 
         // 字符串连接，concat = "ABCD"
-        String concat = Stream.of("A", "B", "C", "D").reduce("", String::concat);
+        String concat = Stream.of("A", "B", "C", "D").reduce("sss", String::concat);
+        System.out.println(concat);
         // 求最小值，minValue = -3.0
         double minValue = Stream.of(-1.5, 1.0, -3.0, -2.0).reduce(Double.MAX_VALUE, Double::min);
         // 求和，sumValue = 10, 有起始值
-        int sumValue = Stream.of(1, 2, 3, 4).reduce(0, Integer::sum);
+        int sumValue = Stream.of(1, 2, 3, 4).reduce(15, (s1,s2)->s1+=s2);
+        System.out.println(sumValue);
         // 求和，sumValue = 10, 无起始值
         sumValue = Stream.of(1, 2, 3, 4).reduce(Integer::sum).get();
         // 过滤，字符串连接，concat = "ace"
