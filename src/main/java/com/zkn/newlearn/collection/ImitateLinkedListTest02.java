@@ -1,7 +1,5 @@
 package com.zkn.newlearn.collection;
 
-import java.util.Arrays;
-
 /**
  * 
  * @author zkn 2016-06-25
@@ -13,7 +11,6 @@ import java.util.Arrays;
  *		3、一个用来表示下一个元素
  *	还需要两个属性节点用来保存链表的头和尾
  */
-
 public class ImitateLinkedListTest02<E> {
 	/**
 	 * 表示头部
