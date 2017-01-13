@@ -29,6 +29,10 @@ public class PersonDomain implements Serializable{
 	 * 出生日期
 	 */
 	private Date birthDay;
+	/**
+	 * 地址
+	 */
+	private String address;
 
 	public String getName() {
 		return name;
@@ -48,7 +52,7 @@ public class PersonDomain implements Serializable{
 
 	@Override
 	public String toString() {
-		return "PersonDomain [name=" + name + ", age=" + age +",birthDay="+(birthDay==null?"birthDay位空":birthDay.getTime())+"" +"]";
+		return "PersonDomain [name=" + name + ", age=" + age +",birthDay="+(birthDay==null?"birthDay位空":birthDay.getTime())+","+ address +"]";
 	}
 
 	public StudentDomain getStudentDomain() {
@@ -65,5 +69,13 @@ public class PersonDomain implements Serializable{
 
 	public void setBirthDay(Date birthDay) {
 		this.birthDay = birthDay;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }
