@@ -1,4 +1,4 @@
-package com.zkn.newlearn.thread;
+package com.zkn.newlearn.thread.threadlocal;
 
 /**
  * Created by wb-zhangkenan on 2016/11/10.
