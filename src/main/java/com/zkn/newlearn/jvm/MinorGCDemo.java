@@ -7,6 +7,7 @@ package com.zkn.newlearn.jvm;
  * -Xmx 堆最大值
  * -Xmn 新生代的值
  * -XX:+PrintGCDetails 打印GC信息
+ * PSYoungGen GC回收方式为并行回收GC
  */
 public class MinorGCDemo {
     public static void main(String[] args){
@@ -22,13 +23,14 @@ public class MinorGCDemo {
         }
     }
 
-    private static void happenMinorGC(int happenMinorGCIndex) {
+    public static void happenMinorGC(int happenMinorGCIndex) {
 
         for(int i=0;i<happenMinorGCIndex;i++){
             if(i == happenMinorGCIndex-1){
                 try {
                     Thread.sleep(2000);
                     System.out.println("minor gc should happen");
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
