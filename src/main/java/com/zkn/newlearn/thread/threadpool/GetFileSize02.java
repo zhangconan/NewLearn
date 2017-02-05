@@ -23,14 +23,11 @@ public class GetFileSize02 {
         try {
             List<Future<Long>> futures = Files.list(new File("D:/").toPath())
                     .filter(s -> !s.toFile().isDirectory())
-                    .map(s -> new Callable<Long>() {
-                        @Override
-                        public Long call() throws Exception {
-                            System.out.println(s);
-                            return Files.size(s);
-                        }
+                    .map(s -> (Callable<Long>) () -> {
+                        System.out.println(s);
+                        return Files.size(s);
                     })
-                    .map(c -> executorService.submit((Callable<Long>) c))
+                    .map(c -> executorService.submit((Callable<Long>) c))//提交线程执行
                     .collect(Collectors.toList());
 
             Supplier<LongStream> streamSupplier = () ->
@@ -43,7 +40,7 @@ public class GetFileSize02 {
                         }
                     })
                             .mapToLong(val -> (Long) val);
-
+            executorService.shutdown();
             streamSupplier.get().forEach(System.out::println);
             System.out.println("total:" + streamSupplier.get().sum());
         } catch (IOException e) {
