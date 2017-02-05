@@ -27,40 +27,9 @@ public class GetTotalFileSize {
                         long size = Files.size(s);
                         return size;
                     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     Long size = null;
                     try {//拆装箱问题
-
-
-
-
-
-
-
-
-                                            size = (Long) future.get();
+                        size = (Long) future.get();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     } catch (ExecutionException e) {
