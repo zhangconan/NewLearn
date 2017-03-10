@@ -13,7 +13,7 @@ public class GetBytes {
         //17.52.86.120
         //System.out.println(Integer.toBinaryString(0x11345678));
         //10000010 00110010 00001010 11001000 B类地址 16位网络ID
-        System.out.println(Integer.toBinaryString(562));
+        System.out.println(Integer.toBinaryString(252));
         System.out.println(Integer.toHexString(562+1024*32));
     }
 }
