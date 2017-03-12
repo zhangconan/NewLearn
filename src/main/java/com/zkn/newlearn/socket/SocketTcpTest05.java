@@ -20,20 +20,22 @@ public class SocketTcpTest05 {
 		ServerSocket server = null;
 		try {
 			 server = new ServerSocket(10008);
-			 Socket socket = server.accept();
-			 
-			 BufferedReader buffReader = 
-					 new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			 BufferedWriter buffWriter = 
-					 new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-			 String str = null;
-			 while((str=buffReader.readLine())!=null){
-				 System.out.println("客户端:"+str);
-				 str = str.toUpperCase();
-				 buffWriter.write(str);
-				 buffWriter.newLine();
-				 buffWriter.flush();
-			 }
+			while(true){
+				Socket socket = server.accept();
+
+				BufferedReader buffReader =
+						new BufferedReader(new InputStreamReader(socket.getInputStream()));
+				BufferedWriter buffWriter =
+						new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+				String str = null;
+				while((str=buffReader.readLine())!=null){
+					System.out.println("客户端:"+str);
+					str = str.toUpperCase();
+					buffWriter.write(str);
+					buffWriter.newLine();
+					buffWriter.flush();
+				}
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally{

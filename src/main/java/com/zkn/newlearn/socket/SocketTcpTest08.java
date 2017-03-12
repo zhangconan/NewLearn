@@ -21,7 +21,7 @@ public class SocketTcpTest08 {
 		
 		Socket socket = null;
 		try {
-			 socket = new Socket("127.0.0.1",10006);
+			 socket = new Socket("127.0.0.1",10008);
 			 //键盘字符输入流
 			 BufferedReader buffReaderKey = 
 					 new BufferedReader(new InputStreamReader(System.in));

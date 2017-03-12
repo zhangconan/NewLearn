@@ -26,4 +26,10 @@ public class StringTest03 {
         String str = "sdsd.sdwewe.sdwewe.";
         System.out.println(Arrays.toString(str.split("\\.")));
     }
+
+    @Test
+    public void testBoundary(){
+        String str = "multipart/form-data; boundary=----WebKitFormBoundaryBjbce374AAVAQIjz";
+        System.out.println(str.substring(str.indexOf("boundary")+"boundary=".length()));
+    }
 }
