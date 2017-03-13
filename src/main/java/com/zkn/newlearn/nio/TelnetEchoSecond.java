@@ -12,7 +12,7 @@ import java.util.Iterator;
 /**
  * Created by zkn on 2017/3/9.
  */
-public class TelnetEchoFirst {
+public class TelnetEchoSecond {
 
     public static void main(String[] args){
 
@@ -24,7 +24,7 @@ public class TelnetEchoFirst {
             //非阻塞
             serverSocketChannel.configureBlocking(false);
             //设置端口号
-            InetSocketAddress address = new InetSocketAddress(9000);
+            InetSocketAddress address = new InetSocketAddress(9001);
             serverSocketChannel.socket().bind(address);
             System.out.println("started at "+address);
             serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
@@ -42,14 +42,23 @@ public class TelnetEchoFirst {
                         socketChannel.write(ByteBuffer.wrap("Welcome Leader.us Power Man Java Course.....\r\n ".getBytes()));
                         iter.remove();//这里一定要移除掉
                     }else if((selectedKey.readyOps() & SelectionKey.OP_READ) == SelectionKey.OP_READ){
-                        //如果有读事件一定要处理，不然会死循环
+                        System.out.println("received read event");
                         SocketChannel socketChannel = (SocketChannel) selectedKey.channel();
                         ByteBuffer buffer = ByteBuffer.allocate(100);
-                        buffer.put("\r\nFollow you:".getBytes());
                         socketChannel.read(buffer);
+                        int writeBufferSize = socketChannel.socket().getSendBufferSize();
+                        System.out.println("send buffer size:"+writeBufferSize);
+                        buffer = ByteBuffer.allocate(writeBufferSize*50+2);
+                        for(int i=0;i<buffer.capacity()-2;i++){
+                            buffer.put((byte)('a'+i%25));
+                        }
                         buffer.put("\r\n".getBytes());
                         buffer.flip();
-                        socketChannel.write(buffer);
+                        int writed = socketChannel.write(buffer);
+                        System.out.println("wited:"+writed);
+                        if(buffer.hasRemaining()){
+                            System.out.println("not write finished,remains "+buffer.remaining());
+                        }
                         iter.remove();
                     }
                 }
