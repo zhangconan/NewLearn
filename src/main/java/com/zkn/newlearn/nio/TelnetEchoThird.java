@@ -35,6 +35,7 @@ public class TelnetEchoThird {
                 while (iter.hasNext()) {
                     SelectionKey selectedKey = iter.next();
                     if ((selectedKey.readyOps() & SelectionKey.OP_ACCEPT) == SelectionKey.OP_ACCEPT) {
+                        System.out.println("这是一个连接...");
                         ServerSocketChannel serverChannel = (ServerSocketChannel) selectedKey.channel();
                         SocketChannel socketChannel = serverChannel.accept();
                         socketChannel.configureBlocking(false);
@@ -75,6 +76,8 @@ public class TelnetEchoThird {
                                 System.out.println("not write finished bind to session,remains "+buffer.remaining());
                                 buffer = buffer.compact();
                                 selectedKey.attach(buffer);
+                                //这里存在没有写完的数据，所以需要继续的写
+                                selectedKey.interestOps(selectedKey.interestOps()|SelectionKey.OP_WRITE);
                             }
                         }
                     }
