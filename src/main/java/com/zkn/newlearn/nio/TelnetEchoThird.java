@@ -36,17 +36,15 @@ public class TelnetEchoThird {
                     SelectionKey selectedKey = iter.next();
                     if ((selectedKey.readyOps() & SelectionKey.OP_ACCEPT) == SelectionKey.OP_ACCEPT) {
                         ServerSocketChannel serverChannel = (ServerSocketChannel) selectedKey.channel();
-                        SocketChannel socketChannel = serverSocketChannel.accept();
+                        SocketChannel socketChannel = serverChannel.accept();
                         socketChannel.configureBlocking(false);
                         socketChannel.register(selector, SelectionKey.OP_READ);
                         socketChannel.write(ByteBuffer.wrap("Welcome Leader.us Power Man Java Course.....\r\n ".getBytes()));
-                        iter.remove();//这里一定要移除掉
                     } else if ((selectedKey.readyOps() & SelectionKey.OP_READ) == SelectionKey.OP_READ) {
                         System.out.println("received read event");
                         SocketChannel socketChannel = (SocketChannel) selectedKey.channel();
                         ByteBuffer buffer = ByteBuffer.allocate(100);
                         socketChannel.read(buffer);
-
                         buffer = (ByteBuffer) selectedKey.attachment();
                         if(buffer == null || !buffer.hasRemaining()){
                             int dataLength = socketChannel.socket().getSendBufferSize()*50;
@@ -63,8 +61,9 @@ public class TelnetEchoThird {
                             System.out.println("not write finished bind to session");
                             buffer = buffer.compact();
                             selectedKey.attach(buffer);
+                            //这里一定要重新注册感兴趣
+                            selectedKey.interestOps(selectedKey.interestOps()|SelectionKey.OP_WRITE);
                         }
-                        iter.remove();
                     }else if(selectedKey.isWritable()){
                         System.out.println("received write event ");
                         ByteBuffer buffer = (ByteBuffer) selectedKey.attachment();
@@ -78,8 +77,8 @@ public class TelnetEchoThird {
                                 selectedKey.attach(buffer);
                             }
                         }
-                        iter.remove();
                     }
+                    iter.remove();//这里一定要移除掉
                 }
             }
         } catch (IOException e) {
