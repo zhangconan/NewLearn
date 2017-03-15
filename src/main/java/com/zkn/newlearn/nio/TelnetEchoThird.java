@@ -79,8 +79,9 @@ public class TelnetEchoThird {
                             System.out.println("writed "+writed );
                             if(buffer.hasRemaining()){
                                 System.out.println("not write finished bind to session,remains "+buffer.remaining());
-                                //buffer = buffer.compact();
-                                buffer = buffer.slice();
+                                buffer = buffer.compact();
+                                buffer.flip();
+                                //buffer = buffer.slice();
                                 selectedKey.attach(buffer);
                                 //这里存在没有写完的数据，所以需要继续的写
                                 selectedKey.interestOps(selectedKey.interestOps()|SelectionKey.OP_WRITE);
