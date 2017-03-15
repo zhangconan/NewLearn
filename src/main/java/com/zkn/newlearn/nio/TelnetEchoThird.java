@@ -64,6 +64,9 @@ public class TelnetEchoThird {
                             selectedKey.attach(buffer);
                             //这里一定要重新注册感兴趣
                             selectedKey.interestOps(selectedKey.interestOps()|SelectionKey.OP_WRITE);
+                        }else{
+                            selectedKey.attach(null);
+                            selectedKey.interestOps(selectedKey.interestOps() & ~SelectionKey.OP_WRITE);
                         }
                     }else if(selectedKey.isWritable()){
                         System.out.println("received write event ");
@@ -78,6 +81,10 @@ public class TelnetEchoThird {
                                 selectedKey.attach(buffer);
                                 //这里存在没有写完的数据，所以需要继续的写
                                 selectedKey.interestOps(selectedKey.interestOps()|SelectionKey.OP_WRITE);
+                            }else{
+                                //只有writebuffer为空，始终可写，所以没数据可写的时候要取消写事件
+                                selectedKey.attach(null);
+                                selectedKey.interestOps(selectedKey.interestOps() & ~ selectedKey.OP_WRITE);
                             }
                         }
                     }
