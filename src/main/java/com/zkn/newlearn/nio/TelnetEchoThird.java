@@ -35,6 +35,7 @@ public class TelnetEchoThird {
                 while (iter.hasNext()) {
                     SelectionKey selectedKey = iter.next();
                     if ((selectedKey.readyOps() & SelectionKey.OP_ACCEPT) == SelectionKey.OP_ACCEPT) {
+                        System.out.println("这是一个连接...");
                         ServerSocketChannel serverChannel = (ServerSocketChannel) selectedKey.channel();
                         SocketChannel socketChannel = serverChannel.accept();
                         socketChannel.configureBlocking(false);
@@ -58,23 +59,36 @@ public class TelnetEchoThird {
                         int writed = socketChannel.write(buffer);
                         System.out.println("writed "+writed);
                         if(buffer.hasRemaining()){
-                            System.out.println("not write finished bind to session");
-                            buffer = buffer.compact();
+                            System.out.println("not write finished bind to session "+buffer.remaining());
+                            //buffer = buffer.compact();
+                            buffer = buffer.slice();
                             selectedKey.attach(buffer);
                             //这里一定要重新注册感兴趣
                             selectedKey.interestOps(selectedKey.interestOps()|SelectionKey.OP_WRITE);
+                        }else{
+                            selectedKey.attach(null);
+                            selectedKey.interestOps(selectedKey.interestOps() & ~SelectionKey.OP_WRITE);
                         }
                     }else if(selectedKey.isWritable()){
                         System.out.println("received write event ");
                         ByteBuffer buffer = (ByteBuffer) selectedKey.attachment();
                         SocketChannel socketChannel = (SocketChannel) selectedKey.channel();
                         if(buffer != null){
+                            System.out.println("all count:"+buffer.remaining());
                             int writed = socketChannel.write(buffer);
-                            System.out.println("writed "+writed);
+                            System.out.println("writed "+writed );
                             if(buffer.hasRemaining()){
                                 System.out.println("not write finished bind to session,remains "+buffer.remaining());
                                 buffer = buffer.compact();
+                                buffer.flip();
+                                //buffer = buffer.slice();
                                 selectedKey.attach(buffer);
+                                //这里存在没有写完的数据，所以需要继续的写
+                                selectedKey.interestOps(selectedKey.interestOps()|SelectionKey.OP_WRITE);
+                            }else{
+                                //只有writebuffer为空，始终可写，所以没数据可写的时候要取消写事件
+                                selectedKey.attach(null);
+                                selectedKey.interestOps(selectedKey.interestOps() & ~ selectedKey.OP_WRITE);
                             }
                         }
                     }
