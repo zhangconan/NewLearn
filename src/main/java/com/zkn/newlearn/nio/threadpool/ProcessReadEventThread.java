@@ -39,6 +39,7 @@ public class ProcessReadEventThread {
                     SelectionKey selectionKey =  it.next();
                     //如果有连接事件就绪
                     if ((selectionKey.readyOps() & SelectionKey.OP_ACCEPT) == SelectionKey.OP_ACCEPT){
+                        System.out.println("received accept event");
                         //服务器通道
                         ServerSocketChannel serverSocket = (ServerSocketChannel)selectionKey.channel();
                         SocketChannel socketChannel = serverSocket.accept();
@@ -46,11 +47,13 @@ public class ProcessReadEventThread {
                         socketChannel.configureBlocking(false);
                         //注册读事件
                         socketChannel.register(selector,SelectionKey.OP_READ);
-                        socketChannel.write(ByteBuffer.wrap("我是服务器的通道".getBytes()));
+                        socketChannel.write(ByteBuffer.wrap("I am Server".getBytes()));
                     }
                     //如果有读事件就绪
                     if((selectionKey.readyOps() & SelectionKey.OP_READ) == SelectionKey.OP_READ){
+                        System.out.println("received read event");
                         SocketChannel socketChannel = (SocketChannel)selectionKey.channel();
+                        System.out.println(socketChannel.socket().toString());
                         //创建缓冲区
                         ByteBuffer buffer = ByteBuffer.allocate(100);
                         buffer.put("\r\nFollow Me:".getBytes());
@@ -58,10 +61,14 @@ public class ProcessReadEventThread {
                         buffer.put("\r\n".getBytes());
                         buffer.flip();
                         socketChannel.write(buffer);
+                        selectionKey.interestOps(selectionKey.interestOps() &~ SelectionKey.OP_READ);
+                        System.out.println("信息发送完毕");
                     }
                     //如果有写事件就绪
                     if((selectionKey.readyOps() & SelectionKey.OP_WRITE) == SelectionKey.OP_WRITE){
+                        System.out.println("received write event");
                         SocketChannel socketChannel = (SocketChannel)selectionKey.channel();
+                        System.out.println(socketChannel.socket().toString());
                         ByteBuffer buffer = ByteBuffer.allocate(100);
                         socketChannel.write(buffer);
                     }

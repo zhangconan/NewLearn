@@ -88,7 +88,7 @@ public class TelnetEchoThird {
                             }else{
                                 //只有writebuffer为空，始终可写，所以没数据可写的时候要取消写事件
                                 selectedKey.attach(null);
-                                selectedKey.interestOps(selectedKey.interestOps() & ~ selectedKey.OP_WRITE);
+                                selectedKey.interestOps(selectedKey.interestOps() & ~ SelectionKey.OP_WRITE);
                             }
                         }
                     }
