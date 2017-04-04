@@ -59,6 +59,7 @@ public class SocketChannelSelector {
                         System.out.println("received read event");
                         //先取消读事件
                         selectionKey.interestOps(selectionKey.interestOps() & ~SelectionKey.OP_READ);
+                        selectionKey.attachment();
                         SocketChannel socketChannel = (SocketChannel) selectionKey.channel();
                         System.out.println(socketChannel.socket().toString());
                         //创建缓冲区
