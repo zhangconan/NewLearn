@@ -8,9 +8,12 @@ import java.util.Arrays;
 public class StringTest01 {
 
     public static void main(String[] args){
-        String str = "sssssssz.ddds..sdsdwe";
+        String str = "sssssssz.ddds.sdsdwe.";
         //str = str.substring(0,str.length()-1);
         //System.out.println(str);
         System.out.println(Arrays.toString(str.split("\\.")));
+        str = str.substring(0,str.lastIndexOf("."));
+        System.out.println(str);
+        System.out.println(str.substring(0,str.lastIndexOf(".")));
     }
 }

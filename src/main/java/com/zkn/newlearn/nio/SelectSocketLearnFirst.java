@@ -17,7 +17,7 @@ public class SelectSocketLearnFirst {
 
     public static int PORT_NUMBER = 1234;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         try {
             new SelectSocketLearnFirst().go(args);
         } catch (Exception e) {
@@ -25,7 +25,7 @@ public class SelectSocketLearnFirst {
         }
     }
 
-    private void go(String[] args) throws Exception {
+    protected void go(String[] args) throws Exception {
         int port = PORT_NUMBER;
         if (args != null && args.length > 0) {
             port = Integer.parseInt(args[0]);
