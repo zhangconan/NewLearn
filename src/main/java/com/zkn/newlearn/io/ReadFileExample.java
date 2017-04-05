@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.LineNumberReader;
 
 /**
  * Created by wb-zhangkenan on 2017/2/4.
@@ -16,25 +18,20 @@ public class ReadFileExample {
     }
 
     private static void byteReadFile() {
-        InputStream inputStream = null;
+        LineNumberReader inputStream = null;
         try {
-            inputStream = new FileInputStream("C:\\Users\\wb-zhangkenan\\Desktop\\abc.txt");
+            inputStream = new LineNumberReader(new InputStreamReader(new FileInputStream("D:\\centOs\\VirtualBoxVMs"
+                + "\\CentOs\\ZknCentOs.vdi")));
             byte[] bytes = new byte[1024];
             int flag = 0;//读取内容多少的标记
             int index = 0;//统计个数
             StringBuilder stringBuilder = new StringBuilder();
-            while ((flag = inputStream.read(bytes)) != -1){
-                stringBuilder.append(new String(bytes,0,flag));
+            System.out.println(inputStream.getLineNumber());
+            String str = null;
+            while((str = inputStream.readLine())!=null){
+                System.out.println(str);
             }
-            index = stringBuilder.indexOf("sd");
-            int count = 0;
-            if(index >= 0){
-                do{
-                    count++;
-                }while ((index=stringBuilder.indexOf("sd",index+1)) > 0);
-            }
-            System.out.println(count);
-            System.out.println(stringBuilder.toString());
+            System.out.println("读完了。。。。");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
