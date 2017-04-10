@@ -41,4 +41,10 @@ public class ByteMoveTest01 {
             System.out.println("ssss");
         }
     }
+
+    @Test
+    public void test7(){
+        //永远是8的倍数
+        System.out.println((1+7) & (~7));
+    }
 }
