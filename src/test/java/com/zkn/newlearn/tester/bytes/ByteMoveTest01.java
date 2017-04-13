@@ -47,4 +47,14 @@ public class ByteMoveTest01 {
         //永远是8的倍数
         System.out.println((1+7) & (~7));
     }
+    @Test
+    public void test2(){
+        char[] c = new char[15];
+        c[0] ='a';
+        c[1] ='b';
+        c[2] ='c';
+        c[8] ='g';
+        System.out.println(new String(c));
+        System.out.println(new String(c).replace('\0',' '));
+    }
 }

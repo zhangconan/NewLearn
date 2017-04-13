@@ -37,6 +37,7 @@
     <orderEntry type="library" name="Maven: com.alibaba.rocketmq:rocketmq-all:3.5.9" level="project" />
     <orderEntry type="library" name="Maven: axis:axis-wsdl4j:1.5.1" level="project" />
     <orderEntry type="library" name="Maven: javax.transaction:jta:1.1" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty:3.10.5.Final" level="project" />
     <orderEntry type="library" name="Gradle: org.hibernate:hibernate-validator:5.2.4.Final" level="project" />
   </component>
 </module>
