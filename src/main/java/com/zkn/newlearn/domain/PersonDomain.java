@@ -50,9 +50,20 @@ public class PersonDomain implements Serializable{
 		this.age = age;
 	}
 
+	//@Override
+	//public String toString() {
+	//	return "PersonDomain [name=" + name + ", age=" + age +",birthDay="+(birthDay==null?"birthDay位空":birthDay.getTime())+","+ address +"]";
+	//}
+
 	@Override
 	public String toString() {
-		return "PersonDomain [name=" + name + ", age=" + age +",birthDay="+(birthDay==null?"birthDay位空":birthDay.getTime())+","+ address +"]";
+		return "PersonDomain{" +
+			"name='" + name + '\'' +
+			", age=" + age +
+			", studentDomain=" + studentDomain +
+			", birthDay=" + birthDay +
+			", address='" + address + '\'' +
+			'}';
 	}
 
 	public StudentDomain getStudentDomain() {

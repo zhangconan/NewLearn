@@ -55,4 +55,14 @@ public class StudentDomain {
     public void setBuildDate(Date buildDate) {
         this.buildDate = buildDate;
     }
+
+    @Override
+    public String toString() {
+        return "StudentDomain{" +
+            "address='" + address + '\'' +
+            ", family='" + family + '\'' +
+            ", schoolName='" + schoolName + '\'' +
+            ", buildDate=" + buildDate +
+            '}';
+    }
 }
