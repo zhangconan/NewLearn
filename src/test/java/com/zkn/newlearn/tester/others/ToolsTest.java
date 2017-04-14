@@ -18,7 +18,6 @@ public class ToolsTest {
     public void testRanddomObject(){
 
         System.out.println(JSON.toJSONString(RandomObjectValue.getObject(PersonDomain.class)));
-        System.out.println(RandomObjectValue.getObject(PersonDomain.class));
-        System.out.println(RandomObjectValue.getObject(PersonDomain.class));
+        System.out.println((PersonDomain)RandomObjectValue.getObject(PersonDomain.class));
     }
 }

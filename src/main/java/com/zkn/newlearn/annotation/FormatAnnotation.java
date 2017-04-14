@@ -16,5 +16,21 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface FormatAnnotation {
 
+    /**
+     * 日期的格式
+     * @return
+     */
     String dateFormat() default "yyyy-MM-dd hh:mm:ss";
+
+    /**
+     * list集合的长度
+     * @return
+     */
+    String listLength() default "4";
+
+    /**
+     * map集合的长度
+     * @return
+     */
+    String mapLength() default "4";
 }
