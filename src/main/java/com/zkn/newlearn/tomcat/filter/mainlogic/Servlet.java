@@ -6,5 +6,11 @@ package com.zkn.newlearn.tomcat.filter.mainlogic;
  * @author wb-zhangkenan
  * @date 2017/04/21
  */
-public class Servlet {
+public interface Servlet {
+    /**
+     * 模拟Servlet的service方法
+     * @param request
+     * @param response
+     */
+    void service(Object request, Object response);
 }

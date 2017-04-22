@@ -2,7 +2,12 @@ package com.zkn.newlearn.netty.first;
 
 
 import org.jboss.netty.bootstrap.ServerBootstrap;
+import org.jboss.netty.channel.ChannelPipeline;
+import org.jboss.netty.channel.ChannelPipelineFactory;
+import org.jboss.netty.channel.Channels;
+import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 
+import java.net.InetSocketAddress;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -19,5 +24,18 @@ public class Server {
         ExecutorService worker = Executors.newCachedThreadPool();
 
         //设置nioSocket工厂
+        bootstrap.setFactory(new NioServerSocketChannelFactory(boss,worker));
+        //设置管道的工厂
+        bootstrap.setPipelineFactory(new ChannelPipelineFactory() {
+            @Override
+            public ChannelPipeline getPipeline() throws Exception {
+                ChannelPipeline pipeline = Channels.pipeline();
+                pipeline.addLast("helloHandler",new HelloHandler());
+                return pipeline;
+            }
+        });
+        //绑定端口号
+        bootstrap.bind(new InetSocketAddress(10101));
+        System.out.println("start");
     }
 }

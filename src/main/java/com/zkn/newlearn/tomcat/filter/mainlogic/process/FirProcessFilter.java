@@ -22,7 +22,8 @@ public class FirProcessFilter implements Filter {
      */
     @Override
     public void doFilter(Object request, Object response, FilterChain chain) throws IOException {
-
+        System.out.println("这是FirProcessFilter。。。。。");
+        chain.doFilter(request,response);
     }
 
     @Override

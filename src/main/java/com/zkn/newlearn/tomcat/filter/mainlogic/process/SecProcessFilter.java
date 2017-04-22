@@ -22,7 +22,8 @@ public class SecProcessFilter implements Filter {
      */
     @Override
     public void doFilter(Object request, Object response, FilterChain chain) throws IOException {
-
+        System.out.println("这是SecProcessFilter。。。。");
+        chain.doFilter(request,response);
     }
 
     @Override
