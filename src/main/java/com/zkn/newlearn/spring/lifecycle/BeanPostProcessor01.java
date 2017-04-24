@@ -5,6 +5,7 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 
 /**
  * Created by zkn on 2017/4/24.
+ * BeanPostProcessor:每个Bean都会调用，用的时候要慎重.
  */
 public class BeanPostProcessor01 implements BeanPostProcessor {
 

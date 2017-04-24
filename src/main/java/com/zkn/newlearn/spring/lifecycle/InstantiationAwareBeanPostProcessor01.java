@@ -8,13 +8,13 @@ import java.beans.PropertyDescriptor;
 
 /**
  * Created by zkn on 2017/4/24.
+ * InstantiationAwareBeanPostProcessorAdapter:每个Bean在设置属性的时候都会调用者三个方法,在用的时候要慎重.
  */
 public class InstantiationAwareBeanPostProcessor01 extends InstantiationAwareBeanPostProcessorAdapter {
 
     public InstantiationAwareBeanPostProcessor01() {
         super();
-        System.out
-                .println("这是InstantiationAwareBeanPostProcessorAdapter实现类构造器！！");
+        System.out.println("这是InstantiationAwareBeanPostProcessorAdapter实现类构造器！！");
     }
 
     /**
@@ -27,8 +27,7 @@ public class InstantiationAwareBeanPostProcessor01 extends InstantiationAwareBea
     @Override
     public Object postProcessBeforeInstantiation(Class beanClass,
                                                  String beanName) throws BeansException {
-        System.out
-                .println("InstantiationAwareBeanPostProcessor调用postProcessBeforeInstantiation方法");
+        System.out.println("InstantiationAwareBeanPostProcessor调用postProcessBeforeInstantiation方法");
         return null;
     }
 
@@ -42,8 +41,7 @@ public class InstantiationAwareBeanPostProcessor01 extends InstantiationAwareBea
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName)
             throws BeansException {
-        System.out
-                .println("InstantiationAwareBeanPostProcessor调用postProcessAfterInitialization方法");
+        System.out.println("InstantiationAwareBeanPostProcessor调用postProcessAfterInitialization方法");
         return bean;
     }
 
@@ -60,8 +58,7 @@ public class InstantiationAwareBeanPostProcessor01 extends InstantiationAwareBea
     public PropertyValues postProcessPropertyValues(PropertyValues pvs,
                                                     PropertyDescriptor[] pds, Object bean, String beanName)
             throws BeansException {
-        System.out
-                .println("InstantiationAwareBeanPostProcessor调用postProcessPropertyValues方法");
+        System.out.println("InstantiationAwareBeanPostProcessor调用postProcessPropertyValues方法");
         return pvs;
     }
 }

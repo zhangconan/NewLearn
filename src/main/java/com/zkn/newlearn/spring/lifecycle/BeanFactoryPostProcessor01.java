@@ -7,6 +7,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 
 /**
  * Created by zkn on 2017/4/24.
+ * BeanFactoryPostProcessor:这个在Spring容器的生命周期中只会被调用一次。
  */
 public class BeanFactoryPostProcessor01 implements BeanFactoryPostProcessor {
 

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.*;
 
 /**
  * Created by zkn on 2017/4/24.
+ * BeanFactoryAware、BeanNameAware、InitializingBean、DisposableBean是Bean级的生命周期接口方法.
  */
 public class BeanLifeCycleLearn01 implements BeanFactoryAware,BeanNameAware,InitializingBean,DisposableBean{
     /**
@@ -41,6 +42,7 @@ public class BeanLifeCycleLearn01 implements BeanFactoryAware,BeanNameAware,Init
      */
     @Override
     public void setBeanName(String s) {
+        this.beanName = s;
         System.out.println("【BeanNameAware接口】调用BeanNameAware.setBeanName()");
     }
 
@@ -60,5 +62,17 @@ public class BeanLifeCycleLearn01 implements BeanFactoryAware,BeanNameAware,Init
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("【InitializingBean接口】调用InitializingBean.afterPropertiesSet()");
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "BeanLifeCycleLearn01{" +
+            "name='" + name + '\'' +
+            ", beanName='" + beanName + '\'' +
+            '}';
     }
 }
