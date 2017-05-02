@@ -1,21 +1,11 @@
 package com.zkn.newlearn.netty.first;
 
-
-import org.jboss.netty.bootstrap.ServerBootstrap;
-import org.jboss.netty.channel.ChannelPipeline;
-import org.jboss.netty.channel.ChannelPipelineFactory;
-import org.jboss.netty.channel.Channels;
-import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
-
-import java.net.InetSocketAddress;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 /**
  * Created by zkn on 2017/4/12.
  * netty服务端
  */
 public class Server {
+    /*
     public static void main(String[] args){
         //服务类
         ServerBootstrap bootstrap = new ServerBootstrap();
@@ -38,4 +28,5 @@ public class Server {
         bootstrap.bind(new InetSocketAddress(10101));
         System.out.println("start");
     }
+    */
 }

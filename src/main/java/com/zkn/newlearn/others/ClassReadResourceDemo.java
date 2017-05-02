@@ -7,7 +7,7 @@ import java.util.Properties;
 import com.zkn.newlearn.gof.singleton.SimpleFactoryTest01;
 
 /**
- * ¶ÁÈ¡×ÊÔ´ÎÄ¼şµÄÎåÖÖ·½Ê½
+ * è¯»å–èµ„æºæ–‡ä»¶çš„äº”ç§æ–¹å¼
  * @author zkn
  */
 
@@ -15,11 +15,11 @@ public class ClassReadResourceDemo {
 
 	public static void main(String[] args) {
 		/**
-		 * µÚÒ»ÖÖ·½Ê½ ÓÃÀà¼ÓÔØÆ÷¶ÁÈ¡×ÊÔ´ÎÄ¼ş¡£
-		 * ÊÊÓÃÇéĞÎ£º×ÊÔ´ÎÄ¼şºÍÀàÎÄ¼şÔÚ²»ÔÚÍ¬Ò»Ä¿Â¼¶¼¿ÉÒÔ¡£
-		 * ×¢Òâ£ºgetResourceAsStreamÀïµÄ²ÎÊıÒª
-		 * Ğ´×ÊÔ´ÎÄ¼şµÄÈ«ÏŞ¶¨Â·¾¶£¬°üÃû+ÎÄ¼şÃû
-		 * ¿ªÍ·Ç§Íò²»ÒªĞ´"/"
+		 * ç¬¬ä¸€ç§æ–¹å¼ ç”¨ç±»åŠ è½½å™¨è¯»å–èµ„æºæ–‡ä»¶ã€‚
+		 * é€‚ç”¨æƒ…å½¢ï¼šèµ„æºæ–‡ä»¶å’Œç±»æ–‡ä»¶åœ¨ä¸åœ¨åŒä¸€ç›®å½•éƒ½å¯ä»¥ã€‚
+		 * æ³¨æ„ï¼šgetResourceAsStreamé‡Œçš„å‚æ•°è¦
+		 * å†™èµ„æºæ–‡ä»¶çš„å…¨é™å®šè·¯å¾„ï¼ŒåŒ…å+æ–‡ä»¶å
+		 * å¼€å¤´åƒä¸‡ä¸è¦å†™"/"
 		 */
 		InputStream is = ClassReadResourceDemo.class.
 				getClassLoader().getResourceAsStream("com/zkn/newlearn/io/config.properties");
@@ -32,9 +32,9 @@ public class ClassReadResourceDemo {
 			e.printStackTrace();
 		}
 		/**
-		 * µÚ¶şÖÖĞ´·¨£ºÓÃclass.getResourceAsStream()(ÆäÊµ»¹ÊÇÓÃµÄÀà¼ÓÔØÆ÷)
-		 * ÊÊÓÃÇéĞÎ£ºÈç¹û×ÊÔ´ÎÄ¼şºÍÀàÎÄ¼şÔÚÍ¬Ò»°üÏÂ£¬Ö±½ÓĞ´×ÊÔ´ÎÄ¼şµÄÃû³Æ¾ÍĞĞÁË£¬
-		 * ×¢Òâ£º×ÊÔ´ÎÄ¼şµÄÃû³ÆÇ°Ãæ²»ĞèÒª¼Ó¡°/¡±
+		 * ç¬¬äºŒç§å†™æ³•ï¼šç”¨class.getResourceAsStream()(å…¶å®è¿˜æ˜¯ç”¨çš„ç±»åŠ è½½å™¨)
+		 * é€‚ç”¨æƒ…å½¢ï¼šå¦‚æœèµ„æºæ–‡ä»¶å’Œç±»æ–‡ä»¶åœ¨åŒä¸€åŒ…ä¸‹ï¼Œç›´æ¥å†™èµ„æºæ–‡ä»¶çš„åç§°å°±è¡Œäº†ï¼Œ
+		 * æ³¨æ„ï¼šèµ„æºæ–‡ä»¶çš„åç§°å‰é¢ä¸éœ€è¦åŠ â€œ/â€
 		 */
 		is = ClassReadResourceDemo.class.getResourceAsStream("config.properties");
 		try {
@@ -45,9 +45,9 @@ public class ClassReadResourceDemo {
 			e.printStackTrace();
 		}
 		/**
-		 * µÚÈıÖÖĞ´·¨£ºÓÃclass.getResourceAsStream()(ÆäÊµ»¹ÊÇÓÃµÄÀà¼ÓÔØÆ÷)
-		 * ÊÊÓÃÇéĞÎ£ºÕâ¸öĞ´·¨ÊÊÓÃµÄÇéĞÎÊÇ×ÊÔ´ÎÄ¼şºÍÀàÎÄ¼ş²»ÔÚÍ¬Ò»¸öÄ¿Â¼ÏÂµÄÇé¿ö
-		 * ×¢Òâ£º¿ªÍ·Ò»¶¨Òª¼ÓÉÏ¡±/¡°
+		 * ç¬¬ä¸‰ç§å†™æ³•ï¼šç”¨class.getResourceAsStream()(å…¶å®è¿˜æ˜¯ç”¨çš„ç±»åŠ è½½å™¨)
+		 * é€‚ç”¨æƒ…å½¢ï¼šè¿™ä¸ªå†™æ³•é€‚ç”¨çš„æƒ…å½¢æ˜¯èµ„æºæ–‡ä»¶å’Œç±»æ–‡ä»¶ä¸åœ¨åŒä¸€ä¸ªç›®å½•ä¸‹çš„æƒ…å†µ
+		 * æ³¨æ„ï¼šå¼€å¤´ä¸€å®šè¦åŠ ä¸Šâ€/â€œ
 		 */
 		is = ClassReadResourceDemo.class.getResourceAsStream("/com/zkn/newlearn/io/config.properties");
 		try {
@@ -58,9 +58,9 @@ public class ClassReadResourceDemo {
 			e.printStackTrace();
 		}
 		/**
-		 * µÚËÄÖÖĞ´·¨:ÓÃclass.getResourceAsStream()
-		 * ÊÊÓÃÇéĞÎ£ºÕâÖÖĞ´·¨ÊÊÓÃÓÚ×ÊÔ´ÎÄ¼şÔÚ¸ùÄ¿Â¼ÏÂµÄÇé¿ö
-		 * ×¢Òâ£ºÎÄ¼şÃû³ÆÇ°ÃæÒ»¶¨Òª¼ÓÉÏ¡±/¡°
+		 * ç¬¬å››ç§å†™æ³•:ç”¨class.getResourceAsStream()
+		 * é€‚ç”¨æƒ…å½¢ï¼šè¿™ç§å†™æ³•é€‚ç”¨äºèµ„æºæ–‡ä»¶åœ¨æ ¹ç›®å½•ä¸‹çš„æƒ…å†µ
+		 * æ³¨æ„ï¼šæ–‡ä»¶åç§°å‰é¢ä¸€å®šè¦åŠ ä¸Šâ€/â€œ
 		 */
 		is = ClassReadResourceDemo.class.getResourceAsStream("/config.properties");
 		try {
@@ -71,9 +71,9 @@ public class ClassReadResourceDemo {
 			e.printStackTrace();
 		}
 		/**
-		 * µÚÎåÖÖĞ´·¨£ºÓÃÀà¼ÓÔØÆ÷À´¶ÁÈ¡×ÊÔ´ÎÄ¼ş
-		 * ÊÊÓÃÇéĞÎ£º×ÊÔ´ÎÄ¼şÔÚ¸úÄ¿Â¼ÏÂ
-		 * ×¢Òâ£º×ÊÔ´ÎÄ¼şÃû³ÆÇ°ÃæÒ»¶¨²»Òª¼Ó¡±/¡°
+		 * ç¬¬äº”ç§å†™æ³•ï¼šç”¨ç±»åŠ è½½å™¨æ¥è¯»å–èµ„æºæ–‡ä»¶
+		 * é€‚ç”¨æƒ…å½¢ï¼šèµ„æºæ–‡ä»¶åœ¨è·Ÿç›®å½•ä¸‹
+		 * æ³¨æ„ï¼šèµ„æºæ–‡ä»¶åç§°å‰é¢ä¸€å®šä¸è¦åŠ â€/â€œ
 		 */
 		is = ClassReadResourceDemo.class.getClassLoader().getResourceAsStream("config.properties");
 		try {

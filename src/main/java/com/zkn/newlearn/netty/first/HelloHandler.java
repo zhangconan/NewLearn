@@ -1,12 +1,9 @@
 package com.zkn.newlearn.netty.first;
 
-import org.jboss.netty.buffer.ChannelBuffer;
-import org.jboss.netty.channel.*;
-
 /**
  * Created by zkn on 2017/4/12.
  */
-public class HelloHandler extends SimpleChannelHandler{
+public class HelloHandler {/*extends SimpleChannelHandler{
 
     @Override
     public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
@@ -38,4 +35,5 @@ public class HelloHandler extends SimpleChannelHandler{
         System.out.println("channelClosed");
         super.channelClosed(ctx, e);
     }
+    */
 }
