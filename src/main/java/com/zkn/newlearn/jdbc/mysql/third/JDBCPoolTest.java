@@ -1,19 +1,14 @@
-package com.zkn.newlearn.jdbc.mysql.second;
+package com.zkn.newlearn.jdbc.mysql.third;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import com.zkn.newlearn.jdbc.mysql.second.CloseUtils;
 import org.junit.Test;
+import java.sql.*;
 
 /**
- * Created by wb-zhangkenan on 2017/5/3.
- *
- * @author wb-zhangkenan
- * @date 2017/05/03
+ * Created by zkn on 2017/5/3.
  */
 public class JDBCPoolTest {
+
 
     /**
      * 查询操作
@@ -24,21 +19,21 @@ public class JDBCPoolTest {
         Statement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = DataSourcePool.getConnection();
+            connection = DataSourcePoolNew.getConnection();
             if(connection == null){
                 return;
             }
             //获取sql的声明
             statement = connection.createStatement();
             //执行查询的操作
-            resultSet = statement.executeQuery("SELECT * FROM TABLE_NAME");
+            resultSet = statement.executeQuery("SELECT * FROM province_china");
             //取出查询出来的数据
             StringBuilder sb = new StringBuilder();
             while (resultSet.next()) {
                 sb.append(resultSet.getLong("id")).append("  ");
                 //这里需要注意的是下标是从1开始的，不是从0开始的
                 sb.append(resultSet.getString(2)).append("  ");
-                sb.append(resultSet.getString("gmt_create")).append("  ");
+                sb.append(resultSet.getString("cname")).append("  ");
                 System.out.println(sb.toString());
                 //清空原来的数据
                 sb.delete(0, sb.length());
@@ -48,7 +43,7 @@ public class JDBCPoolTest {
         } finally {
             CloseUtils.close(resultSet);
             CloseUtils.close(statement);
-            DataSourcePool.release(connection);
+            DataSourcePoolNew.release(connection);
         }
     }
 
@@ -62,7 +57,7 @@ public class JDBCPoolTest {
         ResultSet resultSet = null;
         try {
             //获取连接
-            connection = DataSourcePool.getConnection();
+            connection = DataSourcePoolNew.getConnection();
             if(connection == null){
                 return;
             }
@@ -99,7 +94,7 @@ public class JDBCPoolTest {
         ResultSet resultSet = null;
         try {
             //获取连接
-            connection = DataSourcePool.getConnection();
+            connection = DataSourcePoolNew.getConnection();
             if(connection == null){
                 return;
             }
@@ -107,9 +102,9 @@ public class JDBCPoolTest {
             connection.setAutoCommit(false);
             //创建sql声明
             pst = connection.prepareStatement(
-                "INSERT INTO TABLE_NAME (NAME,EMPID,ORG_ID,ORG_CODE,IS_ADMIN,GMT_CREATE,GMT_MODIFIED) VALUES (?,"
-                    + "?,?,?,?,now(),now())",
-                Statement.RETURN_GENERATED_KEYS);
+                    "INSERT INTO TABLE_NAME (NAME,EMPID,ORG_ID,ORG_CODE,IS_ADMIN,GMT_CREATE,GMT_MODIFIED) VALUES (?,"
+                            + "?,?,?,?,now(),now())",
+                    Statement.RETURN_GENERATED_KEYS);
             pst.setString(1, "张三");
             pst.setString(2, "784550");
             pst.setLong(3, 2);
@@ -151,7 +146,7 @@ public class JDBCPoolTest {
         ResultSet resultSet = null;
         try {
             //获取连接
-            connection = DataSourcePool.getConnection();
+            connection = DataSourcePoolNew.getConnection();
             if(connection == null){
                 return;
             }
@@ -159,9 +154,9 @@ public class JDBCPoolTest {
             connection.setAutoCommit(false);
             //创建sql声明
             pst = connection.prepareStatement(
-                "INSERT INTO TABLE_NAME (NAME,EMPID,ORG_ID,ORG_CODE,IS_ADMIN,GMT_CREATE,GMT_MODIFIED) VALUES (?,"
-                    + "?,?,?,?,now(),now())",
-                Statement.RETURN_GENERATED_KEYS);
+                    "INSERT INTO TABLE_NAME (NAME,EMPID,ORG_ID,ORG_CODE,IS_ADMIN,GMT_CREATE,GMT_MODIFIED) VALUES (?,"
+                            + "?,?,?,?,now(),now())",
+                    Statement.RETURN_GENERATED_KEYS);
             for (int i = 0; i < 10; i++) {
                 pst.setString(1, "张三");
                 pst.setString(2, "784550");
@@ -204,7 +199,7 @@ public class JDBCPoolTest {
         PreparedStatement pst = null;
         try {
             //获取连接
-            connection = DataSourcePool.getConnection();
+            connection = DataSourcePoolNew.getConnection();
             if(connection == null){
                 return;
             }
@@ -233,7 +228,7 @@ public class JDBCPoolTest {
                 ee.printStackTrace();
             }
         } finally {
-           closeResource(connection,pst);
+            closeResource(connection,pst);
         }
     }
 
@@ -246,7 +241,7 @@ public class JDBCPoolTest {
         PreparedStatement pst = null;
         try {
             //获取连接
-            connection = DataSourcePool.getConnection();
+            connection = DataSourcePoolNew.getConnection();
             if(connection == null){
                 return;
             }
@@ -280,7 +275,7 @@ public class JDBCPoolTest {
 
     private void closeResource(Connection connection, PreparedStatement statement) {
         CloseUtils.close(statement);
-        DataSourcePool.release(connection);
+        DataSourcePoolNew.release(connection);
     }
 
 }
