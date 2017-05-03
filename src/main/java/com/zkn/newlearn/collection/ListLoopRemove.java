@@ -33,7 +33,7 @@ public class ListLoopRemove {
             add("mmzq99qqw");
         }};
         for (int i = iteratorList.size() - 1; i >= 0; i--) {
-            if (iteratorList.get(i).equals("1zqqqw")) {
+            if ("1zqqqw".equals(iteratorList.get(i))) {
                 iteratorList.remove(i);
             }
         }
@@ -53,7 +53,7 @@ public class ListLoopRemove {
         ListIterator<String> iterator = iteratorList.listIterator();
         while (iterator.hasNext()) {
             String str = iterator.next();
-            if (str.equals("zqqqw2")) {
+            if ("zqqqw2".equals(str)) {
                 iterator.remove();
             }
         }
@@ -72,7 +72,7 @@ public class ListLoopRemove {
         }};
 
         for (int i = 0; i <= iteratorList.size(); i++) {
-            if (iteratorList.get(i).equals("mmzq99qqw4")) {
+            if ("mmzq99qqw4".equals(iteratorList.get(i))) {
                 iteratorList.remove(i);
             }
         }
@@ -91,7 +91,7 @@ public class ListLoopRemove {
         }};
 
         for (String str : iteratorList) {
-            if (str.equals("mmzq99qqw4")) {
+            if ("mmzq99qqw4".equals(str)) {
                 iteratorList.remove(str);
             }
         }

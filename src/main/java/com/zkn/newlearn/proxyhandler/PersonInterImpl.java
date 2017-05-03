@@ -8,7 +8,8 @@ package com.zkn.newlearn.proxyhandler;
 
 public class PersonInterImpl implements PersonInter {
 
-	public String test() {
+	@Override
+    public String test() {
 
 		System.out.println("动态代理测试。。。。。。。。。。。。。");
 		System.out.println("动态代理测试。。。。。。。。。。。。。");

@@ -92,8 +92,9 @@ public class ImitateLinkedListTest02<E> {
 	 */
 	public E getFirst(){
 		
-		if(first == null)
-			return null;
+		if(first == null) {
+            return null;
+        }
 		return first.item;
 	}
 	/**
@@ -102,8 +103,9 @@ public class ImitateLinkedListTest02<E> {
 	 */
 	public E getLast(){
 		
-		if(last == null)
-			return null;
+		if(last == null) {
+            return null;
+        }
 		return last.item;
 	}
 	/**

@@ -2,6 +2,8 @@ package com.zkn.newlearn.jvm;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.util.Objects;
+
 /**
  * Created by wb-zhangkenan on 2017/1/5.
  */
@@ -19,7 +21,7 @@ public class ClassAInvocationHandler implements InvocationHandler {
         if(Object.class  == method.getDeclaringClass()) {
             String name = method.getName();
             if("equals".equals(name)) {
-                return proxy == args[0];
+                return Objects.equals(proxy, args[0]);
             } else if("hashCode".equals(name)) {
                 return System.identityHashCode(proxy);
             } else if("toString".equals(name)) {

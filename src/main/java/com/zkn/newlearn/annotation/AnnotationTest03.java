@@ -27,8 +27,9 @@ public class AnnotationTest03 {
 		if(methods != null){
 			for(Method method : methods){
 				AnnotationTest01 annotation = method.getAnnotation(AnnotationTest01.class);
-				if(annotation == null)
-					continue;
+				if(annotation == null) {
+                    continue;
+                }
 				Method[] me = annotation.annotationType().getDeclaredMethods();
 				for(Method meth : me){
 					try {

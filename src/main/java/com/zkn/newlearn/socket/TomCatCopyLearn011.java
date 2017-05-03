@@ -27,8 +27,9 @@ public class TomCatCopyLearn011 {
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     String headerStr = null;
                     while ((headerStr = bufferedReader.readLine()) != null ){
-                        if("".equals(headerStr))
+                        if("".equals(headerStr)) {
                             break;
+                        }
                         System.out.println(new String(headerStr));
                     }
                     String str = new String("张三你好啊");
@@ -41,8 +42,9 @@ public class TomCatCopyLearn011 {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }finally {
-                    if(pw != null)
+                    if(pw != null) {
                         pw.close();
+                    }
                     try {
                         serverSocket.close();
                     } catch (IOException e) {

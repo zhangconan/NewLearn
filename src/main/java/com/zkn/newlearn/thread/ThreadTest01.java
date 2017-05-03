@@ -11,7 +11,8 @@ public class     ThreadTest01 {
 		
 		Runnable run = new Runnable() {
 			
-			public void run() {
+			@Override
+            public void run() {
 				while (true){
 
 				}

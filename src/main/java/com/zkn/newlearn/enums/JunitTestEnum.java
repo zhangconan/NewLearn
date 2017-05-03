@@ -54,8 +54,9 @@ public class JunitTestEnum {
 			System.out.println(method.getName());
 		}
 		Class clazzSuper = clazz.getSuperclass();
-		if (clazzSuper != null)
-			System.out.println(clazzSuper.getName());
+		if (clazzSuper != null) {
+            System.out.println(clazzSuper.getName());
+        }
 	}
 
 	@Test
@@ -81,6 +82,6 @@ public class JunitTestEnum {
 	@Test
 	public void testEnumCustom(){
 		EnumTest02 enumTest = GREEN;
-		enumTest.RED.RED.getInfo();
+		RED.RED.getInfo();
 	} 
 }

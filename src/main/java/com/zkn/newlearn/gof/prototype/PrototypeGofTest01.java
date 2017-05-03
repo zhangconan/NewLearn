@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.Objects;
 
 import com.zkn.newlearn.domain.PersonDomain;
 
@@ -99,7 +100,7 @@ public class PrototypeGofTest01 implements Cloneable,Serializable{
 		
 		ObjectInputStream objectin = new ObjectInputStream(new ByteArrayInputStream(bos.toByteArray()));
 		PrototypeGofTest01 test01 = (PrototypeGofTest01)objectin.readObject();
-		if(test01 == this){
+		if(Objects.equals(test01, this)){
 			System.out.println("222222");
 		}else{
 			System.out.println("33333");

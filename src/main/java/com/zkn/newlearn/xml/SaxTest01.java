@@ -18,11 +18,13 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class SaxTest01 implements XmlDocument{
 
-	public void createXml(String fileName) {   
+	@Override
+    public void createXml(String fileName) {
 		System.out.println("<<"+fileName+">>");   
 	}
 	
-	public void parserXml(String fileName) {   
+	@Override
+    public void parserXml(String fileName) {
 		SAXParserFactory saxfac = SAXParserFactory.newInstance();
 		try {   
 				SAXParser saxparser = saxfac.newSAXParser();   
@@ -44,17 +46,20 @@ class MySAXHandler extends DefaultHandler {
 	boolean hasAttribute = false;   
 	Attributes attributes = null;   
 	
-	public void startDocument() throws SAXException {   
+	@Override
+    public void startDocument() throws SAXException {
 		System.out.println("文档开始打印了");   
 	}   
-	public void endDocument() throws SAXException {   
+	@Override
+    public void endDocument() throws SAXException {
 		System.out.println("文档打印结束了");   
 	}   
-	public void startElement(String uri, String localName, String qName,   Attributes attributes) throws SAXException {   
-		if (qName.equals("employees")) {   
+	@Override
+    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+		if ("employees".equals(qName)) {
 			return;   
 		}   
-		if (qName.equals("employee")) {   
+		if ("employee".equals(qName)) {
 			System.out.println(qName);   
 		}   
 		if (attributes.getLength() > 0) {   
@@ -62,14 +67,16 @@ class MySAXHandler extends DefaultHandler {
 			this.hasAttribute = true;   
 		}   
 		}   
-	public void endElement(String uri, String localName, String qName)   throws SAXException {   
+	@Override
+    public void endElement(String uri, String localName, String qName)   throws SAXException {
 		if (hasAttribute && (attributes != null)) {   
 			for (int i = 0; i < attributes.getLength(); i++) {   
 				System.out.println(attributes.getQName(0)   + attributes.getValue(0));   
 				}   
 			}   
 		}  
-	public void characters(char[] ch, int start, int length)   throws SAXException {   
+	@Override
+    public void characters(char[] ch, int start, int length)   throws SAXException {
 		System.out.println(new String(ch, start, length));   
 	}   
 }  

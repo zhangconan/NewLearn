@@ -15,7 +15,7 @@ public class Keygen {
      * @param bytes
      * @return
      */
-    public static short getCRC(String s, int i, byte bytes[]) {
+    public static short getCRC(String s, int i, byte[] bytes) {
         CRC32 crc32 = new CRC32();
         if (s != null) {
             for (int j = 0; j < s.length(); j++) {
@@ -81,7 +81,7 @@ public class Keygen {
      */
     public static String MakeKey(String name, int days, int id) {
         id %= 100000;
-        byte bkey[] = new byte[12];
+        byte[] bkey = new byte[12];
         bkey[0] = (byte) 1; // Product type: IntelliJ IDEA is 1
         bkey[1] = version;
         Date d = new Date();

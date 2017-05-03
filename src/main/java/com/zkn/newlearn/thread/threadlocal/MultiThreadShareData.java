@@ -26,6 +26,7 @@ class MA implements Runnable {
         this.name = name;
     }
 
+    @Override
     public void run() {
         try {
             Thread.sleep(1000);
@@ -43,6 +44,7 @@ class MB implements Runnable {
         this.name = name;
     }
 
+    @Override
     public void run() {
         try {
             Thread.sleep(2000);

@@ -1,44 +1,19 @@
-package com.zkn.newlearn.jdbc.mysql.first;
+package com.zkn.newlearn.jdbc.mysql.second;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import org.junit.Test;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.*;
-import java.util.Properties;
-
 /**
- * Created by zkn on 2017/5/2.
+ * Created by wb-zhangkenan on 2017/5/3.
+ *
+ * @author wb-zhangkenan
+ * @date 2017/05/03
  */
-public class MySqlJDBC {
-    /**
-     * 数据库连接
-     */
-    private static String URL;
-    /**
-     * 用户名
-     */
-    private static String USER_NAME;
-    /**
-     * 密码
-     */
-    private static String PASS_WORD;
-    /**
-     * 存放属性信息
-     */
-    private static Properties properties = new Properties();
-
-    static {
-        InputStream is = MySqlJDBC.class.getResourceAsStream("driver.properties");
-        try {
-            properties.load(is);
-            URL = (String)properties.get("url");
-            USER_NAME = (String)properties.get("userName");
-            PASS_WORD = (String)properties.get("passWord");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+public class JDBCPoolTest {
 
     /**
      * 查询操作
@@ -49,10 +24,7 @@ public class MySqlJDBC {
         Statement statement = null;
         ResultSet resultSet = null;
         try {
-            //加载连接 这里会导致类的初始化
-            Class.forName("com.mysql.jdbc.Driver");
-            //获取数据库驱动
-            connection = DriverManager.getConnection(URL, USER_NAME, PASS_WORD);
+            connection = DataSourcePool.getConnection();
             //获取sql的声明
             statement = connection.createStatement();
             //执行查询的操作
@@ -60,7 +32,6 @@ public class MySqlJDBC {
             //取出查询出来的数据
             StringBuilder sb = new StringBuilder();
             while (resultSet.next()) {
-
                 sb.append(resultSet.getLong("id")).append("  ");
                 //这里需要注意的是下标是从1开始的，不是从0开始的
                 sb.append(resultSet.getString(2)).append("  ");
@@ -69,34 +40,12 @@ public class MySqlJDBC {
                 //清空原来的数据
                 sb.delete(0, sb.length());
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (resultSet != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            //关闭sql声明
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            //关闭连接
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+            CloseUtils.close(resultSet);
+            CloseUtils.close(statement);
+            DataSourcePool.release(connection);
         }
     }
 
@@ -109,10 +58,8 @@ public class MySqlJDBC {
         PreparedStatement pst = null;
         ResultSet resultSet = null;
         try {
-            //加载驱动
-            Class.forName("com.mysql.jdbc.Driver");
             //获取连接
-            connection = DriverManager.getConnection(URL, USER_NAME, PASS_WORD);
+            connection = DataSourcePool.getConnection();
             String sql = "SELECT * FROM TABLE_NAME WHERE EMPID = ?";
             //获取sql声明
             pst = connection.prepareStatement(sql);
@@ -129,32 +76,10 @@ public class MySqlJDBC {
                 //清空原来的数据
                 sb.delete(0, sb.length());
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (resultSet != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (pst != null) {
-                try {
-                    pst.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+            closeResource(connection,pst,resultSet);
         }
     }
 
@@ -167,10 +92,8 @@ public class MySqlJDBC {
         PreparedStatement pst = null;
         ResultSet resultSet = null;
         try {
-            //加载驱动
-            Class.forName("com.mysql.jdbc.Driver");
             //获取连接
-            connection = DriverManager.getConnection(URL, USER_NAME, PASS_WORD);
+            connection = DataSourcePool.getConnection();
             //自动提交为false
             connection.setAutoCommit(false);
             //创建sql声明
@@ -196,8 +119,6 @@ public class MySqlJDBC {
             }
             //提交操作
             connection.commit();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
             //异常回滚
@@ -207,27 +128,7 @@ public class MySqlJDBC {
                 ee.printStackTrace();
             }
         } finally {
-            if (resultSet != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (pst != null) {
-                try {
-                    pst.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+            closeResource(connection,pst,resultSet);
         }
     }
 
@@ -240,10 +141,8 @@ public class MySqlJDBC {
         PreparedStatement pst = null;
         ResultSet resultSet = null;
         try {
-            //加载驱动
-            Class.forName("com.mysql.jdbc.Driver");
             //获取连接
-            connection = DriverManager.getConnection(URL, USER_NAME, PASS_WORD);
+            connection = DataSourcePool.getConnection();
             //自动提交为false
             connection.setAutoCommit(false);
             //创建sql声明
@@ -271,8 +170,6 @@ public class MySqlJDBC {
             }
             //提交操作
             connection.commit();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
             //异常回滚
@@ -282,27 +179,7 @@ public class MySqlJDBC {
                 ee.printStackTrace();
             }
         } finally {
-            if (resultSet != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (pst != null) {
-                try {
-                    pst.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+            closeResource(connection,pst,resultSet);
         }
     }
 
@@ -314,10 +191,8 @@ public class MySqlJDBC {
         Connection connection = null;
         PreparedStatement pst = null;
         try {
-            //加载驱动
-            Class.forName("com.mysql.jdbc.Driver");
             //获取连接
-            connection = DriverManager.getConnection(URL, USER_NAME, PASS_WORD);
+            connection = DataSourcePool.getConnection();
             //自动提交为false
             connection.setAutoCommit(false);
             //创建sql声明
@@ -334,8 +209,6 @@ public class MySqlJDBC {
             }
             //提交操作
             connection.commit();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
             //异常回滚
@@ -345,20 +218,7 @@ public class MySqlJDBC {
                 ee.printStackTrace();
             }
         } finally {
-            if (pst != null) {
-                try {
-                    pst.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+           closeResource(connection,pst);
         }
     }
 
@@ -370,10 +230,8 @@ public class MySqlJDBC {
         Connection connection = null;
         PreparedStatement pst = null;
         try {
-            //加载驱动
-            Class.forName("com.mysql.jdbc.Driver");
             //获取连接
-            connection = DriverManager.getConnection(URL, USER_NAME, PASS_WORD);
+            connection = DataSourcePool.getConnection();
             //自动提交为false
             connection.setAutoCommit(false);
             //创建sql的声明
@@ -384,8 +242,6 @@ public class MySqlJDBC {
             pst.executeUpdate();
             //提交
             connection.commit();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
             //异常回滚
@@ -395,21 +251,18 @@ public class MySqlJDBC {
                 ee.printStackTrace();
             }
         } finally {
-            if (pst != null) {
-                try {
-                    pst.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+            closeResource(connection,pst);
         }
+    }
+
+    private void closeResource(Connection connection, PreparedStatement statement, ResultSet resultSet) {
+        CloseUtils.close(resultSet);
+        closeResource(connection, statement);
+    }
+
+    private void closeResource(Connection connection, PreparedStatement statement) {
+        CloseUtils.close(statement);
+        DataSourcePool.release(connection);
     }
 
 }

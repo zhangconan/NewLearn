@@ -46,12 +46,12 @@ public class ConsumerTest01 {
                     MessageExt messageExt = msgs.get(0);
                     if("TopicTest1".equals(messageExt.getTopic())){
                         // 执行TopicTest1的消费逻辑
-                        if (messageExt.getTags() != null && messageExt.getTags().equals("TagA")) {
+                        if (messageExt.getTags() != null && "TagA".equals(messageExt.getTags())) {
                             // 执行TagA的消费
                             System.out.println(new String(messageExt.getBody()));
-                        }else if(messageExt.getTags() != null && messageExt.getTags().equals("TagB")){
+                        }else if(messageExt.getTags() != null && "TagB".equals(messageExt.getTags())){
                             System.out.println(new String(messageExt.getBody()));
-                        }else if(messageExt.getTags() != null && messageExt.getTags().equals("TagC")) {
+                        }else if(messageExt.getTags() != null && "TagC".equals(messageExt.getTags())) {
                             System.out.println(new String(messageExt.getBody()));
                         }
                     }else if("TopicTest2".equals(messageExt.getTopic())){

@@ -37,8 +37,9 @@ public class SocketTcpTest06 {
 			
 			String line = null;
 			while((line=buffReader.readLine())!=null){
-				if("end".equals(line))
-					break;
+				if("end".equals(line)) {
+                    break;
+                }
 				/*
 				buffWriter.write(line);
 				buffWriter.newLine();  //相当于回车键

@@ -98,8 +98,9 @@ public class TimeSort<T> {
 
         rangeCheck(a.length, lo, hi);
         int nRemaining = hi - lo;
-        if (nRemaining < 2)
+        if (nRemaining < 2) {
             return;  // 长度是0或者1 就不需要排序了。
+        }
 
         // 小于MIN_MERGE长度的数组就不用归并排序了，杀鸡焉用宰牛刀
         if (nRemaining < MIN_MERGE) {
@@ -169,8 +170,9 @@ public class TimeSort<T> {
                                        Comparator<? super T> c) {
         assert lo <= start && start <= hi;
         //如果start 从起点开始，做下预处理；也就是原本就是无序的。
-        if (start == lo)
+        if (start == lo) {
             start++;
+        }
         //从start位置开始，对后面的所有元素排序
         for (; start < hi; start++) {
             //pivot 代表正在参与排序的值，
@@ -189,10 +191,11 @@ public class TimeSort<T> {
              */
             while (left < right) {
                 int mid = (left + right) >>> 1;
-                if (c.compare(pivot, a[mid]) < 0)
+                if (c.compare(pivot, a[mid]) < 0) {
                     right = mid;
-                else
+                } else {
                     left = mid + 1;
+                }
             }
             assert left == right;
 
@@ -248,17 +251,20 @@ public class TimeSort<T> {
                                                     Comparator<? super T> c) {
         assert lo < hi;
         int runHi = lo + 1;
-        if (runHi == hi)
+        if (runHi == hi) {
             return 1;
+        }
 
         // 找出最长升序序的子序列，如果降序，倒置之
         if (c.compare(a[runHi++], a[lo]) < 0) { // 前两个元素是降序，就按照降序统计
-            while (runHi < hi && c.compare(a[runHi], a[runHi - 1]) < 0)
+            while (runHi < hi && c.compare(a[runHi], a[runHi - 1]) < 0) {
                 runHi++;
+            }
             reverseRange(a, lo, runHi);
         } else {                              // 前两个元素是升序，按照升序统计
-            while (runHi < hi && c.compare(a[runHi], a[runHi - 1]) >= 0)
+            while (runHi < hi && c.compare(a[runHi], a[runHi - 1]) >= 0) {
                 runHi++;
+            }
         }
 
         return runHi - lo;
@@ -335,8 +341,9 @@ public class TimeSort<T> {
         while (stackSize > 1) {
             int n = stackSize - 2;
             if (n > 0 && runLen[n - 1] <= runLen[n] + runLen[n + 1]) {
-                if (runLen[n - 1] < runLen[n + 1])
+                if (runLen[n - 1] < runLen[n + 1]) {
                     n--;
+                }
                 mergeAt(n);
             } else if (runLen[n] <= runLen[n + 1]) {
                 mergeAt(n);
@@ -352,8 +359,9 @@ public class TimeSort<T> {
     private void mergeForceCollapse() {
         while (stackSize > 1) {
             int n = stackSize - 2;
-            if (n > 0 && runLen[n - 1] < runLen[n + 1])
+            if (n > 0 && runLen[n - 1] < runLen[n + 1]) {
                 n--;
+            }
             mergeAt(n);
         }
     }
@@ -388,10 +396,13 @@ public class TimeSort<T> {
                 lastOfs = ofs;
                 ofs = (ofs << 1) + 1;
                 if (ofs <= 0)   // int overflow
+                {
                     ofs = maxOfs;
+                }
             }
-            if (ofs > maxOfs)
+            if (ofs > maxOfs) {
                 ofs = maxOfs;
+            }
 
             // 最终的ofs是这样确定的，满足条件 a[base+hint+lastOfs] < key <= a[base+hint+ofs]
             // 的一组
@@ -409,10 +420,13 @@ public class TimeSort<T> {
                 lastOfs = ofs;
                 ofs = (ofs << 1) + 1;
                 if (ofs <= 0)   // int overflow
+                {
                     ofs = maxOfs;
+                }
             }
-            if (ofs > maxOfs)
+            if (ofs > maxOfs) {
                 ofs = maxOfs;
+            }
             // 确定ofs的过程与上面相同
             // ofs:     1   3   7  15  31  63 2^n-1 ... maxOfs
             // lastOfs: 0   1   3   7  15  31 2^(n-1)-1  < ofs
@@ -432,10 +446,11 @@ public class TimeSort<T> {
         while (lastOfs < ofs) {
             int m = lastOfs + ((ofs - lastOfs) >>> 1);
 
-            if (c.compare(key, a[base + m]) > 0)
+            if (c.compare(key, a[base + m]) > 0) {
                 lastOfs = m + 1;  // a[base + m] < key
-            else
+            } else {
                 ofs = m;          // key <= a[base + m]
+            }
         }
         assert lastOfs == ofs;    // so a[base + ofs - 1] < key <= a[base + ofs]
         return ofs;
@@ -466,10 +481,13 @@ public class TimeSort<T> {
                 lastOfs = ofs;
                 ofs = (ofs << 1) + 1;
                 if (ofs <= 0)   // int overflow
+                {
                     ofs = maxOfs;
+                }
             }
-            if (ofs > maxOfs)
+            if (ofs > maxOfs) {
                 ofs = maxOfs;
+            }
 
             // Make offsets relative to b
             int tmp = lastOfs;
@@ -482,10 +500,13 @@ public class TimeSort<T> {
                 lastOfs = ofs;
                 ofs = (ofs << 1) + 1;
                 if (ofs <= 0)   // int overflow
+                {
                     ofs = maxOfs;
+                }
             }
-            if (ofs > maxOfs)
+            if (ofs > maxOfs) {
                 ofs = maxOfs;
+            }
 
             // Make offsets relative to b
             lastOfs += hint;
@@ -502,10 +523,11 @@ public class TimeSort<T> {
         while (lastOfs < ofs) {
             int m = lastOfs + ((ofs - lastOfs) >>> 1);
 
-            if (c.compare(key, a[base + m]) < 0)
+            if (c.compare(key, a[base + m]) < 0) {
                 ofs = m;          // key < a[b + m]
-            else
+            } else {
                 lastOfs = m + 1;  // a[b + m] <= key
+            }
         }
         assert lastOfs == ofs;    // so a[b + ofs - 1] <= key < a[b + ofs]
         return ofs;
@@ -554,8 +576,9 @@ public class TimeSort<T> {
         len1 -= k;
         // 如果序列2 的首个元素要插入到序列1的后面，那就直接结束了,
         // ！！！ 因为序列2在数组中的位置本来就在序列1后面,也就是整个范围本来就是有序的！！！
-        if (len1 == 0)
+        if (len1 == 0) {
             return;
+        }
 
         /*
          * 跟上面相似，看序列1的最后一个元素(a[base1+len1-1])可以插入到序列2的什么位置（相对第二个序列起点的位置，非在数组中的位置），
@@ -563,15 +586,17 @@ public class TimeSort<T> {
          */
         len2 = gallopLeft(a[base1 + len1 - 1], a, base2, len2, len2 - 1, c);
         assert len2 >= 0;
-        if (len2 == 0)
+        if (len2 == 0) {
             return;
+        }
 
         // 合并剩下的两个有序序列，并且这里为了节省空间，临时数组选用 min(len1,len2)的长度
         // 优化的很细呢
-        if (len1 <= len2)
+        if (len1 <= len2) {
             mergeLo(base1, len1, base2, len2);
-        else
+        } else {
             mergeHi(base1, len1, base2, len2);
+        }
     }
 
     /**
@@ -643,15 +668,17 @@ public class TimeSort<T> {
                     count1 = 0;
 
                     // 序列2没有元素了就跳出整次合并
-                    if (--len2 == 0)
+                    if (--len2 == 0) {
                         break outer;
+                    }
                 } else {
                     a[dest++] = tmp[cursor1++];
                     count1++;
                     count2 = 0;
                     // 如果序列1只剩下最后一个元素了就可以跳出循环
-                    if (--len1 == 1)
+                    if (--len1 == 1) {
                         break outer;
+                    }
                 }
 
             /*
@@ -677,11 +704,15 @@ public class TimeSort<T> {
                     cursor1 += count1;
                     len1 -= count1;
                     if (len1 <= 1) // 结尾处理退化的序列
+                    {
                         break outer;
+                    }
                 }
                 a[dest++] = a[cursor2++];
                 if (--len2 == 0) //结尾处理退化的序列
+                {
                     break outer;
+                }
 
                 count2 = gallopLeft(tmp[cursor1], a, cursor2, len2, 0, c);
                 if (count2 != 0) {
@@ -689,20 +720,23 @@ public class TimeSort<T> {
                     dest += count2;
                     cursor2 += count2;
                     len2 -= count2;
-                    if (len2 == 0)
+                    if (len2 == 0) {
                         break outer;
+                    }
                 }
                 a[dest++] = tmp[cursor1++];
-                if (--len1 == 1)
+                if (--len1 == 1) {
                     break outer;
+                }
                 // 这里对连续性比另外一个大的阈值减少，这样更容易触发这段操作，
                 // 应该是因为前面的数据表现好，后面的数据类似的可能性更高？
                 minGallop--;
             } while (count1 >= MIN_GALLOP | count2 >= MIN_GALLOP); //如果连续性还是很大的话，继续这样处理s
 
 
-            if (minGallop < 0)
+            if (minGallop < 0) {
                 minGallop = 0;
+            }
 
             //同样，这里如果跳出了那段循环，就证明数据的顺序程度不好，应当增加阈值，避免浪费资源
             minGallop += 2;
@@ -781,14 +815,16 @@ public class TimeSort<T> {
                     a[dest--] = a[cursor1--];
                     count1++;
                     count2 = 0;
-                    if (--len1 == 0)
+                    if (--len1 == 0) {
                         break outer;
+                    }
                 } else {
                     a[dest--] = tmp[cursor2--];
                     count2++;
                     count1 = 0;
-                    if (--len2 == 1)
+                    if (--len2 == 1) {
                         break outer;
+                    }
                 }
             } while ((count1 | count2) < minGallop);
 
@@ -805,12 +841,14 @@ public class TimeSort<T> {
                     cursor1 -= count1;
                     len1 -= count1;
                     System.arraycopy(a, cursor1 + 1, a, dest + 1, count1);
-                    if (len1 == 0)
+                    if (len1 == 0) {
                         break outer;
+                    }
                 }
                 a[dest--] = tmp[cursor2--];
-                if (--len2 == 1)
+                if (--len2 == 1) {
                     break outer;
+                }
 
                 count2 = len2 - gallopLeft(a[cursor1], tmp, 0, len2, len2 - 1, c);
                 if (count2 != 0) {
@@ -819,15 +857,19 @@ public class TimeSort<T> {
                     len2 -= count2;
                     System.arraycopy(tmp, cursor2 + 1, a, dest + 1, count2);
                     if (len2 <= 1)  // len2 == 1 || len2 == 0
+                    {
                         break outer;
+                    }
                 }
                 a[dest--] = a[cursor1--];
-                if (--len1 == 0)
+                if (--len1 == 0) {
                     break outer;
+                }
                 minGallop--;
             } while (count1 >= MIN_GALLOP | count2 >= MIN_GALLOP);
-            if (minGallop < 0)
+            if (minGallop < 0) {
                 minGallop = 0;
+            }
             minGallop += 2;  // Penalize for leaving gallop mode
         }  // End of "outer" loop
         this.minGallop = minGallop < 1 ? 1 : minGallop;  // Write back to field
@@ -884,9 +926,11 @@ public class TimeSort<T> {
             newSize++;
 
             if (newSize < 0) // Not bloody likely! 估计作者在这里遇到bug了
+            {
                 newSize = minCapacity;
-            else
+            } else {
                 newSize = Math.min(newSize, a.length >>> 1);
+            }
 
             @SuppressWarnings({"unchecked", "UnnecessaryLocalVariable"})
             T[] newArray = (T[]) new Object[newSize];
@@ -905,12 +949,15 @@ public class TimeSort<T> {
      * @throws ArrayIndexOutOfBoundsException if fromIndex < 0 or toIndex > arrayLen
      */
     private static void rangeCheck(int arrayLen, int fromIndex, int toIndex) {
-        if (fromIndex > toIndex)
+        if (fromIndex > toIndex) {
             throw new IllegalArgumentException("fromIndex(" + fromIndex +
-                    ") > toIndex(" + toIndex + ")");
-        if (fromIndex < 0)
+                ") > toIndex(" + toIndex + ")");
+        }
+        if (fromIndex < 0) {
             throw new ArrayIndexOutOfBoundsException(fromIndex);
-        if (toIndex > arrayLen)
+        }
+        if (toIndex > arrayLen) {
             throw new ArrayIndexOutOfBoundsException(toIndex);
+        }
     }
 }

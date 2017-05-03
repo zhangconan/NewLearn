@@ -21,7 +21,8 @@ import org.dom4j.io.XMLWriter;
 
 public class Dom4jTest01 implements XmlDocument{
 
-	public void createXml(String fileName) {  
+	@Override
+    public void createXml(String fileName) {
 		Document document = DocumentHelper.createDocument();   
 		Element employees=document.addElement("employees");   
 		Element employee=employees.addElement("employee");   
@@ -40,7 +41,8 @@ public class Dom4jTest01 implements XmlDocument{
 			}   
 		}   
 	
-	public void parserXml(String fileName) {   
+	@Override
+    public void parserXml(String fileName) {
 		File inputXml=new File(fileName);   
 		SAXReader saxReader = new SAXReader();   
 		

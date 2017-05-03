@@ -41,8 +41,9 @@ class TestDaemonThread extends Thread {
             SleepUtils.sleep(20);
             ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
             ThreadInfo[] threadInfos = threadMXBean.dumpAllThreads(false, false);
-            for (ThreadInfo threadInfo : threadInfos)
+            for (ThreadInfo threadInfo : threadInfos) {
                 System.out.println(threadInfo.getThreadId() + "  " + threadInfo.getThreadName());
+            }
         } finally {
             System.out.println("守护线程工作结束了!"+Thread.currentThread().getName());
         }

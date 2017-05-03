@@ -5,6 +5,7 @@ package com.zkn.newlearn.jvm;
  */
 public class ClassAImpl implements ClassA {
 
+    @Override
     public void method(String name) {
         // do nothing
     }

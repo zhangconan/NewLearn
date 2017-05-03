@@ -8,7 +8,8 @@ package com.zkn.newlearn.gof.factory;
 
 public class MailSenderImpl implements Sender{
 
-	public void doSend() {
+	@Override
+    public void doSend() {
 		
 		System.out.println("邮件发送。。。。");
 	}

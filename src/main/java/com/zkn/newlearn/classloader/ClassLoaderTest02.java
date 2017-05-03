@@ -43,7 +43,7 @@ class ClassLoaderTest02 {
 	public static void main(String[] args) {
 
 		MainClass cl = MainClass.getInstance();
-		System.out.println(cl.a +" "+cl.b);
+		System.out.println(MainClass.a +" "+ MainClass.b);
 	}
 
 }

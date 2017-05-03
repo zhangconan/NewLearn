@@ -95,7 +95,9 @@ public class P<T> {
         if ((st.characteristics() & Spliterator.SIZED) != 0) {
             parEach(t);
         } else {
-            while (st.tryAdvance(t)) ;
+            while (st.tryAdvance(t)) {
+                ;
+            }
         }
     }
 

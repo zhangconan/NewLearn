@@ -1,6 +1,7 @@
 package com.zkn.newlearn.tomcat.filter.mainlogic;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * Created by wb-zhangkenan on 2017/4/21.
@@ -60,7 +61,7 @@ public class ApplicationFilterChain implements FilterChain {
     public void addFilter(ApplicationFilterConfig filterConfig){
         //过滤掉重复的Filter
         for(int i=0;i<filters.length;i++){
-            if(filters[i] == filterConfig){
+            if(Objects.equals(filters[i], filterConfig)){
                 return;
             }
         }

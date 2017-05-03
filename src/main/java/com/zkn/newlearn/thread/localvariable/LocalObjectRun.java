@@ -19,8 +19,9 @@ public class LocalObjectRun {
                     Thread thread = new Thread(()->
                             localObjectTest.run());thread.start();});
         while (true){
-            if(Thread.activeCount() == 2)
+            if(Thread.activeCount() == 2) {
                 break;
+            }
         }
     }
 }

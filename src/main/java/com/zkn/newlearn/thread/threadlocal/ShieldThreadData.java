@@ -28,6 +28,7 @@ class TA implements Runnable {
         this.name = name;
     }
 
+    @Override
     public void run() {
         System.out.println(Thread.currentThread() + "-" + this.name + "- method-run=>" + ShieldThreadData.threadLocal.get());
         ShieldThreadData.threadLocal.set(2);
@@ -47,6 +48,7 @@ class TB implements Runnable {
         this.name = name;
     }
 
+    @Override
     public void run() {
         System.out.println(Thread.currentThread() + "-" + this.name + "- method-run=>" + ShieldThreadData.threadLocal.get());
         ShieldThreadData.threadLocal.set(3);

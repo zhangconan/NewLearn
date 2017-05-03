@@ -50,16 +50,22 @@ public class CompareList {
                 .stream()
                 .allMatch(e -> {
                     Long v1 = m2.get(e.getKey());
-                    if (v1 == null) return false;
-                    else return v1.equals(e.getValue());
+                    if (v1 == null) {
+                        return false;
+                    } else {
+                        return v1.equals(e.getValue());
+                    }
                 });
 
         boolean b2 = m2.entrySet()
                 .stream()
                 .allMatch(e -> {
                     Long v1 = m1.get(e.getKey());
-                    if (v1 == null) return false;
-                    else return v1.equals(e.getValue());
+                    if (v1 == null) {
+                        return false;
+                    } else {
+                        return v1.equals(e.getValue());
+                    }
                 });
         return b1 == b2;
     }

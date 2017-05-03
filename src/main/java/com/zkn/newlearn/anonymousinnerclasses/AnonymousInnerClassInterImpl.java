@@ -8,7 +8,8 @@ package com.zkn.newlearn.anonymousinnerclasses;
 
 public class AnonymousInnerClassInterImpl implements AnonymousInnerClassInter{
 
-	public void test(){
+	@Override
+    public void test(){
 		
 		System.out.println("我是一个匿名内部类");
 	}

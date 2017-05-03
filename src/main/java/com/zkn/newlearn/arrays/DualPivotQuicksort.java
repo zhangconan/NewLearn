@@ -62,9 +62,13 @@ public final class DualPivotQuicksort {
         // 检查数组是不是已经接近有序状态
         for(int k = left; k < right; run[count] = k) {
             if(a[k] < a[k + 1]){ // 升序
-                while(++k <= right && a[k - 1] <= a[k]) ;
+                while(++k <= right && a[k - 1] <= a[k]) {
+                    ;
+                }
             } else if(a[k] > a[k + 1]) { // 降序
-                while(++k <=right && a[k - 1] >= a[k]);
+                while(++k <=right && a[k - 1] >= a[k]) {
+                    ;
+                }
                 //如果是降序的，找出k之后，把数列倒置
                 for (int lo = run[count],hi = k;++lo < --hi;) {
                     int t = a[lo]; a[lo] = a[hi]; a[hi] = t;
@@ -101,11 +105,15 @@ public final class DualPivotQuicksort {
          * 这里没看懂，没发现后面的奇数处理和偶数处理有什么不同
          */
         int[] b; byte odd=0;
-        for(int n=1; (n <<= 1) < count; odd ^=1);
+        for(int n=1; (n <<= 1) < count; odd ^=1) {
+            ;
+        }
 
         if(odd == 0) {
             b=a;a= new int[b.length];
-            for(int i=left -1; ++i < right; a[i] = b[i]);
+            for(int i=left -1; ++i < right; a[i] = b[i]) {
+                ;
+            }
         } else {
             b=new int[a.length];
         }
@@ -132,7 +140,9 @@ public final class DualPivotQuicksort {
             }
             // 如果栈的长度为奇数，那么把最后落单的有序数列copy过对面
             if((count & 1) != 0) {
-                for(int i = right, lo =run[count -1]; --i >= lo; b[i] = a[i]);
+                for(int i = right, lo =run[count -1]; --i >= lo; b[i] = a[i]) {
+                    ;
+                }
                 run[++last] = right;
             }
             //临时数组，与原始数组对调，保持a做原始数组，b 做目标数组
@@ -277,8 +287,12 @@ public final class DualPivotQuicksort {
             /*
              * 跳过一些队首的小于pivot1的值，跳过队尾的大于pivot2的值
              */
-            while (a[++less] < pivot1);
-            while (a[--great] > pivot2);
+            while (a[++less] < pivot1) {
+                ;
+            }
+            while (a[--great] > pivot2) {
+                ;
+            }
 
             /*
              * Partitioning:

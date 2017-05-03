@@ -21,8 +21,9 @@ public class LocalVariableRun {
                         Thread thread = new Thread(()->
                                 localVariableTest.run());thread.start();});
         while (true){
-            if(Thread.activeCount() == 2)
+            if(Thread.activeCount() == 2) {
                 break;
+            }
         }
     }
 }

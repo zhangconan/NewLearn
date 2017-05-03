@@ -29,8 +29,9 @@ public class ClassLoaderTest04 extends ClassLoader {
 	@Override
 	protected Class<?> findClass(String name) {
 		byte[] b =loadClassData(name);
-		if(b != null && b.length > 0)
-			return defineClass(name, b, 0, b.length);
+		if(b != null && b.length > 0) {
+            return defineClass(name, b, 0, b.length);
+        }
 		return this.getClass(); 
 	}
 	
@@ -53,10 +54,12 @@ public class ClassLoaderTest04 extends ClassLoader {
 			e.printStackTrace();
 		}finally{
 			try{
-				if(is != null)
-					is.close();
-				if(baos != null)	
-					baos.close();
+				if(is != null) {
+                    is.close();
+                }
+				if(baos != null) {
+                    baos.close();
+                }
 			}catch(Exception ee){
 				ee.printStackTrace();
 			}

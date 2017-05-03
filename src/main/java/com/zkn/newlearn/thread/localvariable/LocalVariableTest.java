@@ -11,8 +11,9 @@ public class LocalVariableTest {
     }
 
     public void run01(int a){
-        for(int i=0;i<10_000_000;i++)
+        for(int i=0;i<10_000_000;i++) {
             a++;
+        }
         System.out.println(a);
     }
 }

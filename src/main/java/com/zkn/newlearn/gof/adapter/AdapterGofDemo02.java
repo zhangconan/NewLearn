@@ -25,7 +25,8 @@ public class AdapterGofDemo02 implements LearnLanguageInter{
 		this.learnLanguage = learnLanguage;
 	}
 	
-	public void learnEnglish(){
+	@Override
+    public void learnEnglish(){
 		
 		learnLanguage.learnEnglish();
 	}

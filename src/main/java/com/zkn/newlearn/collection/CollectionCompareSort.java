@@ -35,10 +35,12 @@ class NewCollectionCompareSort implements Comparator<PersonDomain> {
 
     @Override
     public int compare(PersonDomain o1, PersonDomain o2) {
-        if(o1.getBirthDay() == null)
+        if(o1.getBirthDay() == null) {
             return 1;
-        if(o2.getBirthDay() == null)
+        }
+        if(o2.getBirthDay() == null) {
             return -1;
+        }
         return o1.getBirthDay().getTime() > o2.getBirthDay().getTime()?1:-1;
     }
 }

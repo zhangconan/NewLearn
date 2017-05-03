@@ -47,7 +47,8 @@ public class DomTest01 implements XmlDocument {
 	/**
 	 * 创建XML文件
 	 */
-	public void createXml(String fileName) {
+	@Override
+    public void createXml(String fileName) {
 		Element root = this.document.createElement("employees");
 		this.document.appendChild(root);
 		Element employee = this.document.createElement("employee");
@@ -86,7 +87,8 @@ public class DomTest01 implements XmlDocument {
 	 * 解析XML文件
 	 * 这里用递归比较好一点
 	 */
-	public void parserXml(String fileName) {
+	@Override
+    public void parserXml(String fileName) {
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
