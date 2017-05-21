@@ -2,12 +2,14 @@ package com.zkn.newlearn.spring.lifecycle;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
 /**
- * Created by zkn on 2017/4/24.
+ * Created by zkn
  * BeanFactoryAware、BeanNameAware、InitializingBean、DisposableBean是Bean级的生命周期接口方法.
  */
-public class BeanLifeCycleLearn01 implements BeanFactoryAware,BeanNameAware,InitializingBean,DisposableBean{
+public class BeanLifeCycleLearn01 implements BeanFactoryAware,BeanNameAware,InitializingBean,DisposableBean,ApplicationContextAware {
     /**
      * 姓名
      */
@@ -18,6 +20,12 @@ public class BeanLifeCycleLearn01 implements BeanFactoryAware,BeanNameAware,Init
     private BeanFactory beanFactory;
 
     private String beanName;
+
+    static {
+        System.out.println("BeanLifeCycleLearn01的静态方法块。。。。");
+    }
+
+    private ApplicationContext applicationContext;
 
     public BeanLifeCycleLearn01() {
         System.out.println("---------调用BeanLifeCycleLearn01的构造器实例化---------");
@@ -65,7 +73,16 @@ public class BeanLifeCycleLearn01 implements BeanFactoryAware,BeanNameAware,Init
     }
 
     public void setName(String name) {
+        System.out.println("BeanLifeCycleLearn01调用set方法进行name属性值的设置!");
         this.name = name;
+    }
+
+    public void initMethod(){
+        System.out.println("我是配置文件中的init-method。。。。");
+    }
+
+    public void destoryMethod(){
+        System.out.println("我是配置文件中的destory-method。。。。");
     }
 
     @Override
@@ -74,5 +91,11 @@ public class BeanLifeCycleLearn01 implements BeanFactoryAware,BeanNameAware,Init
             "name='" + name + '\'' +
             ", beanName='" + beanName + '\'' +
             '}';
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+        System.out.println("ApplicationContextAware中的setApplicationContext方法。。。。。");
     }
 }
