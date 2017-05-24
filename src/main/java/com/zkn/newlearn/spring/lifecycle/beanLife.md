@@ -26,6 +26,7 @@ BeanFactoryAware：
     执行时机：所有的属性设置完成之后，InitializingBean的afterPropertiesSet()方法或者init-method方法调用之前.
     作用：获取创建这个Bean的BeanFactory。
     Tips：不建议使用。
+
     
     
     
