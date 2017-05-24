@@ -7,7 +7,7 @@ import org.springframework.beans.factory.config.InstantiationAwareBeanPostProces
 import java.beans.PropertyDescriptor;
 
 /**
- * Created by zkn on 2017/4/24.
+ * Created by zkn
  * InstantiationAwareBeanPostProcessorAdapter:每个Bean在设置属性的时候都会调用者三个方法,在用的时候要慎重.
  */
 public class InstantiationAwareBeanPostProcessor01 extends InstantiationAwareBeanPostProcessorAdapter {
@@ -42,6 +42,9 @@ public class InstantiationAwareBeanPostProcessor01 extends InstantiationAwareBea
     public Object postProcessAfterInitialization(Object bean, String beanName)
             throws BeansException {
         System.out.println("InstantiationAwareBeanPostProcessor调用postProcessAfterInitialization方法");
+        if(bean instanceof BeanLifeCycleLearn01){
+            ((BeanLifeCycleLearn01) bean).setName("我被该名为张四了");
+        }
         return bean;
     }
 
@@ -60,5 +63,11 @@ public class InstantiationAwareBeanPostProcessor01 extends InstantiationAwareBea
             throws BeansException {
         System.out.println("InstantiationAwareBeanPostProcessor调用postProcessPropertyValues方法");
         return pvs;
+    }
+
+    @Override
+    public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
+        System.out.println("InstantiationAwareBeanPostProcessor调用postProcessAfterInstantiation方法");
+        return true;
     }
 }
