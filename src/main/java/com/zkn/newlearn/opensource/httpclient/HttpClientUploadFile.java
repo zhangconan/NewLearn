@@ -11,7 +11,6 @@ import org.apache.http.Consts;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.HttpMultipartMode;
@@ -21,7 +20,7 @@ import org.apache.http.impl.client.HttpClients;
 
 /**
  * Created by wb-zhangkenan on 2017/5/25.
- *
+ * http://www.baeldung.com/httpclient-multipart-upload
  * @author wb-zhangkenan
  * @date 2017/05/25
  */
