@@ -1,4 +1,4 @@
-package com.zkn.newlearn.httpclient;
+package com.zkn.newlearn.opensource.httpclient;
 
 import java.io.BufferedReader;
 import java.io.IOException;

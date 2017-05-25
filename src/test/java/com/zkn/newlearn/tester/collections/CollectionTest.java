@@ -2,6 +2,7 @@ package com.zkn.newlearn.tester.collections;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 import org.junit.Test;
@@ -36,7 +37,14 @@ public class CollectionTest {
         list01.removeAll(list02);
         System.out.println(list01.size());
         System.out.println(Arrays.toString(list01.toArray()));
-
         System.out.println("qq"+"  ssss  ".trim()+"zz");
+
+        Calendar calendar = Calendar.getInstance();
+        System.out.println(calendar.get(Calendar.YEAR));
+    }
+
+    public void testDouble(){
+
+
     }
 }
