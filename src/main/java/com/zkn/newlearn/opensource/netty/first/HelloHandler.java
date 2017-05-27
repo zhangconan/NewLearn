@@ -1,4 +1,4 @@
-package com.zkn.newlearn.netty.first;
+package com.zkn.newlearn.opensource.netty.first;
 
 /**
  * Created by zkn on 2017/4/12.

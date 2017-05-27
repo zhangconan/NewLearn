@@ -66,7 +66,7 @@ public class LearnCreateExcel {
             cell = row.createCell(1);
             cell.setCellType(HSSFCell.CELL_TYPE_STRING);
             cell.setCellStyle(style);
-            cell.setCellValue("78555" + i);
+            cell.setCellValue("78555787454778" + i);
 
             cell = row.createCell(2);
             cell.setCellType(HSSFCell.CELL_TYPE_NUMERIC);
@@ -77,9 +77,14 @@ public class LearnCreateExcel {
             cell.setCellStyle(dateStyle);
             cell.setCellValue(sdf.format(new Date(random.nextLong())));
         }
+        //列宽度自适应 这个一定要放到最后
+        sheet01.autoSizeColumn(0);
+        sheet01.autoSizeColumn(1);
+        sheet01.autoSizeColumn(2);
+        sheet01.autoSizeColumn(3);
         FileOutputStream fou = null;
         try {
-            fou = new FileOutputStream("G:\\LearnVideo\\test.xls");
+            fou = new FileOutputStream("D:\\LearnVideo\\test.xls");
             wb.write(fou);
         } catch (FileNotFoundException e) {
             e.printStackTrace();

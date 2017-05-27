@@ -1,4 +1,4 @@
-package com.zkn.newlearn.rocketmq;
+package com.zkn.newlearn.opensource.rocketmq;
 
 import com.alibaba.rocketmq.client.exception.MQBrokerException;
 import com.alibaba.rocketmq.client.exception.MQClientException;
