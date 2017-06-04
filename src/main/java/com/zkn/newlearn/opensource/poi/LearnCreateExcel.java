@@ -1,6 +1,12 @@
 package com.zkn.newlearn.opensource.poi;
 
 import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.ss.usermodel.DataValidation;
+import org.apache.poi.ss.usermodel.DataValidationConstraint;
+import org.apache.poi.ss.usermodel.DataValidationHelper;
+import org.apache.poi.ss.util.CellRangeAddressList;
+import org.apache.poi.xssf.usermodel.XSSFDataValidation;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -34,6 +40,21 @@ public class LearnCreateExcel {
         //创建一个sheet页
         HSSFSheet sheet01 = wb.createSheet();
         wb.setSheetName(0, "第一个sheet页");
+        //设置下拉选
+        DataValidationHelper helper = sheet01.getDataValidationHelper();
+        CellRangeAddressList addressList = new CellRangeAddressList(1, 10, 4, 4);
+        //设置下拉框数据
+        String[] pos = { "3.75", "3.50", "3.25"};
+        DataValidationConstraint constraint = helper.createExplicitListConstraint(pos);
+        DataValidation dataValidation = helper.createValidation(constraint, addressList);
+        //处理Excel兼容性问题
+        if(dataValidation instanceof XSSFDataValidation) {
+            dataValidation.setSuppressDropDownArrow(true);
+            dataValidation.setShowErrorBox(true);
+        }else {
+            dataValidation.setSuppressDropDownArrow(false);
+        }
+        sheet01.addValidationData(dataValidation);
         //创建行
         HSSFRow row01 = sheet01.createRow(0);
         //创建表头
@@ -53,6 +74,9 @@ public class LearnCreateExcel {
         cell01 = row01.createCell(3);
         cell01.setCellStyle(style);
         cell01.setCellValue("收入日期");
+        cell01 = row01.createCell(4);
+        cell01.setCellStyle(style);
+        cell01.setCellValue("下拉选");
         HSSFRow row = null;
         HSSFCell cell = null;
         for (int i = 0; i < 10; i++) {
@@ -66,7 +90,7 @@ public class LearnCreateExcel {
             cell = row.createCell(1);
             cell.setCellType(HSSFCell.CELL_TYPE_STRING);
             cell.setCellStyle(style);
-            cell.setCellValue("78555" + i);
+            cell.setCellValue("78555787454778" + i);
 
             cell = row.createCell(2);
             cell.setCellType(HSSFCell.CELL_TYPE_NUMERIC);
@@ -77,9 +101,15 @@ public class LearnCreateExcel {
             cell.setCellStyle(dateStyle);
             cell.setCellValue(sdf.format(new Date(random.nextLong())));
         }
+        //列宽度自适应 这个一定要放到最后
+        sheet01.autoSizeColumn(0);
+        sheet01.autoSizeColumn(1);
+        sheet01.autoSizeColumn(2);
+        sheet01.autoSizeColumn(3);
+        sheet01.autoSizeColumn(4);
         FileOutputStream fou = null;
         try {
-            fou = new FileOutputStream("G:\\LearnVideo\\test.xls");
+            fou = new FileOutputStream("D:\\LearnVideo\\test.xls");
             wb.write(fou);
         } catch (FileNotFoundException e) {
             e.printStackTrace();

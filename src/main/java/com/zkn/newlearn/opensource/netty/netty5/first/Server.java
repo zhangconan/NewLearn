@@ -1,4 +1,4 @@
-package com.zkn.newlearn.netty.netty5.first;
+package com.zkn.newlearn.opensource.netty.netty5.first;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
