@@ -8,7 +8,7 @@ package com.zkn.newlearn.enums;
 
 public enum EnumTest01 {
 	
-	UPDATE(1,"更新"),QUERY(2,"查询"),DELETE(3,"删除");
+	UPDATE(1,"更新"),QUERY(2,"查询"),DELETE(3,"删除"),INSERT(4,"%s,%s,%s,出现错误!");
 	private Integer enumValue;
 	private String enumDesc;
 	

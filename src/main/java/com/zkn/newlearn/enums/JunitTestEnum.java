@@ -83,5 +83,11 @@ public class JunitTestEnum {
 	public void testEnumCustom(){
 		EnumTest02 enumTest = GREEN;
 		RED.RED.getInfo();
-	} 
+	}
+
+	@Test
+	public void testStringFormat(){
+
+		System.out.println(String.format(EnumTest01.INSERT.getEnumDesc(),"过圣诞节",1,2));
+	}
 }
