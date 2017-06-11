@@ -30,7 +30,7 @@ public class MemoryVisibilityTest {
             Thread thread02 = new Thread(() -> {
                 System.out.println("Thread02 before a:" + visibility.a);
                 try {
-                    Thread.sleep(200);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -52,7 +52,7 @@ public class MemoryVisibilityTest {
         Visibility visibility = new Visibility();
         visibility.start();
         try {
-            //保证线程执行
+            //让线程执行一段时间
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
