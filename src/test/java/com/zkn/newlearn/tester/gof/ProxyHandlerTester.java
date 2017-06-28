@@ -2,10 +2,10 @@ package com.zkn.newlearn.tester.gof;
 
 import org.junit.Test;
 
-import com.zkn.newlearn.proxyhandler.CglibProxyHandler;
-import com.zkn.newlearn.proxyhandler.JdkProxyHandler;
-import com.zkn.newlearn.proxyhandler.PersonInter;
-import com.zkn.newlearn.proxyhandler.PersonInterImpl;
+import com.zkn.newlearn.gof.proxyhandler.CglibProxyHandler;
+import com.zkn.newlearn.gof.proxyhandler.JdkProxyHandler;
+import com.zkn.newlearn.gof.proxyhandler.PersonInter;
+import com.zkn.newlearn.gof.proxyhandler.PersonInterImpl;
 
 
 public class ProxyHandlerTester {
