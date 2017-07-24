@@ -10,5 +10,5 @@ public interface Boss {
      * 用来注册新的服务端
      * @param serverSocketChannel
      */
-    void registerAcceptChannelTask(ServerSocketChannel serverSocketChannel);
+    void  registerAcceptChannelTask(ServerSocketChannel serverSocketChannel);
 }

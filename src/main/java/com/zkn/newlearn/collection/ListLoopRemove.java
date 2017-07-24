@@ -1,9 +1,7 @@
 package com.zkn.newlearn.collection;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ListIterator;
+import org.junit.Test;
+import java.util.*;
 
 /**
  * Created by wb-zhangkenan on 2017/4/27.
@@ -96,5 +94,14 @@ public class ListLoopRemove {
             }
         }
         System.out.println(Arrays.toString(iteratorList.toArray(new String[0])));
+    }
+
+    @Test
+    public void testMap(){
+        Map<String,String> testMap = new HashMap(2);
+        testMap.put("zhang","zhangsan");
+        testMap.put("li","lisi");
+        testMap.put("wang","wangwu");
+        testMap.put("ma","maliu");
     }
 }
