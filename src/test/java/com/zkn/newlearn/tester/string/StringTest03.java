@@ -109,4 +109,11 @@ public class StringTest03 {
             e.printStackTrace();
         }
     }
+    @Test
+    public void testString(){
+        String str = "sss=sdsds&sewewew=&sdw3dwew=&sdw2sd=232323";
+        String[] strArray = str.split("zkn");
+        System.out.println(strArray.length);
+        //Arrays.stream(str.split("=")).collect()
+    }
 }
