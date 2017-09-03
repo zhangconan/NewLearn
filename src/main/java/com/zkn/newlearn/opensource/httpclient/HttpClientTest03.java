@@ -23,7 +23,7 @@ public class HttpClientTest03 {
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		CloseableHttpResponse response = null;
 		InputStream is = null;
-		String url = "http://v6.365yg.com/video/m/2202c03371cfc2c42339d437e49bdd0d12611476980000245ff95f07e8/?Expires=1496854915&AWSAccessKeyId=qh0h9TdcEMoS2oPj7aKX&Signature=O%2FDkixO4RdxsSvkqICn%2B5DoX5RA%3D";
+		String url = "http://www.infoq.com/resource/minibooks/Kubernetes-handbook/zh/pdf/kubernetes.pdf";
 		//封装请求参数
 		List<NameValuePair> params = Lists.newArrayList();
 		params.add(new BasicNameValuePair("cityEname", "henan"));
@@ -39,7 +39,7 @@ public class HttpClientTest03 {
 			response = httpClient.execute(httpGet);
 			//得到响应体
 			HttpEntity entity = response.getEntity();
-			os = new FileOutputStream("G:\\LearnVideo\\test.mp4");
+			os = new FileOutputStream("G:\\LearnVideo\\kubernetes.pdf");
 			if(entity != null){
 				is = entity.getContent();
 				FileCopyUtils.copy(is,os);
