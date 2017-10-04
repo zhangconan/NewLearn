@@ -17,7 +17,7 @@ public class ProxyHandlerTester {
 	public void testJdk(){
 		JdkProxyHandler jdk = new JdkProxyHandler();
 		PersonInter per = (PersonInter)jdk.createObject(new PersonInterImpl());
-		String st = per.test();
+		String st = per.test("");
 		System.out.println(st+"     ");
 	}
 	
@@ -28,6 +28,6 @@ public class ProxyHandlerTester {
 	public void testCglib(){
 		CglibProxyHandler cglib = new CglibProxyHandler();
 		PersonInter pre = (PersonInter)cglib.createObject(new PersonInterImpl());
-		pre.test();
+		pre.test("");
 	}
 }

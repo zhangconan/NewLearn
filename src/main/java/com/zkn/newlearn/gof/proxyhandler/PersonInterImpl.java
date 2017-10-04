@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
 public class PersonInterImpl implements PersonInter {
 
 	@Override
-    public String test() {
+    public String test(String s) {
 
 		System.out.println("动态代理测试。。。。。。。。。。。。。");
 		System.out.println("动态代理测试。。。。。。。。。。。。。");
@@ -27,11 +27,11 @@ public class PersonInterImpl implements PersonInter {
 		for(Method method : methods){
 			System.out.println(method.getName());
 		}
-		per.test();
+		per.test("");
 		
 		CglibProxyHandler cglib = new CglibProxyHandler();
 		PersonInter pre = (PersonInter)cglib.createObject(new PersonInterImpl());
-		pre.test();
+		pre.test("");
 	}
 	
 }

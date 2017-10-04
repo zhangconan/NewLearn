@@ -45,7 +45,7 @@ public class JdkProxySourceClass {
 	public void testJdk(){
 		JdkProxyHandler jdk = new JdkProxyHandler();
 		PersonInter per = (PersonInter)jdk.createObject(new PersonInterImpl());
-		String st = per.test();
+		String st = per.test("ss");
 		System.out.println(st+"     ");
 	}
 	
