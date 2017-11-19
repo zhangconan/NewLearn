@@ -1,5 +1,6 @@
 package com.zkn.newlearn.opensource.poi;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.xssf.streaming.SXSSFCell;
@@ -30,17 +31,14 @@ public class CreateMultipleSheetNew {
         //居中格式
         style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
         //手工创建线程池
-        ExecutorService executorService = new ThreadPoolExecutor(processor, processor, 1000, TimeUnit.MILLISECONDS, new LinkedBlockingDeque());
+        ExecutorService executorService = new ThreadPoolExecutor(processor, processor, 1000, TimeUnit.MILLISECONDS, new LinkedBlockingDeque(),
+                new ThreadFactoryBuilder().setNameFormat("poi-task-%d").build());
         //计数器 等待线程池中的线程执行完毕
         CountDownLatch countDownLatch = new CountDownLatch(processor);
         for (int i = 0; i < processor; i++) {
             int sheetId = i;
             //放入线程池中
-            executorService.execute(() -> {
-                createSheet(workBook, style, sheetId);
-                //计数器减一
-                countDownLatch.countDown();
-            });
+            executorService.execute(() -> createSheet(workBook, style, sheetId, countDownLatch));
         }
         try {
             //等待所有线程执行完毕
@@ -68,41 +66,46 @@ public class CreateMultipleSheetNew {
         }
     }
 
-    private static void createSheet(SXSSFWorkbook workBook, CellStyle style, int sheetId) {
-        SXSSFSheet hSSFSheet;
-        //这个地方一定要加锁，要不然会出现问题
-        synchronized (object) {
-            //创建sheet页
-            hSSFSheet = workBook.createSheet(String.format("第%d个sheet页", sheetId));
-        }
-        //创建一行
-        SXSSFRow hssfRow = hSSFSheet.createRow(0);
-        SXSSFCell hssfCell = hssfRow.createCell(0);
-        hssfCell.setCellStyle(style);
-        hssfCell.setCellValue("第" + sheetId + "个sheet页，第一行，第一个单元格");
+    private static void createSheet(SXSSFWorkbook workBook, CellStyle style, int sheetId, CountDownLatch countDownLatch) {
+        try {
+            SXSSFSheet hSSFSheet;
+            //这个地方一定要加锁，要不然会出现问题
+            synchronized (object) {
+                //创建sheet页
+                hSSFSheet = workBook.createSheet(String.format("第%d个sheet页", sheetId));
+            }
+            //创建一行
+            SXSSFRow hssfRow = hSSFSheet.createRow(0);
+            SXSSFCell hssfCell = hssfRow.createCell(0);
+            hssfCell.setCellStyle(style);
+            hssfCell.setCellValue("第" + sheetId + "个sheet页，第一行，第一个单元格");
 
-        hssfCell = hssfRow.createCell(1);
-        hssfCell.setCellStyle(style);
-        hssfCell.setCellValue("第" + sheetId + "个sheet页，第一行，第二个单元格");
+            hssfCell = hssfRow.createCell(1);
+            hssfCell.setCellStyle(style);
+            hssfCell.setCellValue("第" + sheetId + "个sheet页，第一行，第二个单元格");
 
-        hssfCell = hssfRow.createCell(2);
-        hssfCell.setCellStyle(style);
-        hssfCell.setCellValue("第" + sheetId + "个sheet页，第一行，第三个单元格");
-        SXSSFRow hssfRows;
-        SXSSFCell hSSFCells;
-        for (int i = 1; i < 3; i++) {
-            hssfRows = hSSFSheet.createRow(i);
-            hSSFCells = hssfRows.createCell(0);
-            hSSFCells.setCellStyle(style);
-            hSSFCells.setCellValue("第" + sheetId + "个sheet页，第" + (i + 1) + "行，第一个单元格");
+            hssfCell = hssfRow.createCell(2);
+            hssfCell.setCellStyle(style);
+            hssfCell.setCellValue("第" + sheetId + "个sheet页，第一行，第三个单元格");
+            SXSSFRow hssfRows;
+            SXSSFCell hSSFCells;
+            for (int i = 1; i < 3; i++) {
+                hssfRows = hSSFSheet.createRow(i);
+                hSSFCells = hssfRows.createCell(0);
+                hSSFCells.setCellStyle(style);
+                hSSFCells.setCellValue("第" + sheetId + "个sheet页，第" + (i + 1) + "行，第一个单元格");
 
-            hSSFCells = hssfRows.createCell(1);
-            hSSFCells.setCellStyle(style);
-            hSSFCells.setCellValue("第" + sheetId + "个sheet页，第一个单元格");
+                hSSFCells = hssfRows.createCell(1);
+                hSSFCells.setCellStyle(style);
+                hSSFCells.setCellValue("第" + sheetId + "个sheet页，第一个单元格");
 
-            hSSFCells = hssfRows.createCell(2);
-            hSSFCells.setCellStyle(style);
-            hSSFCells.setCellValue("第" + sheetId + "个sheet页，第一个单元格");
+                hSSFCells = hssfRows.createCell(2);
+                hSSFCells.setCellStyle(style);
+                hSSFCells.setCellValue("第" + sheetId + "个sheet页，第一个单元格");
+            }
+        } finally {
+            //计数器减一
+            countDownLatch.countDown();
         }
     }
 }
