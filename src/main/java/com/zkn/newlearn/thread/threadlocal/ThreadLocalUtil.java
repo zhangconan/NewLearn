@@ -1,7 +1,5 @@
 package com.zkn.newlearn.thread.threadlocal;
 
-import com.zkn.newlearn.lambda.S;
-
 import java.lang.ref.Reference;
 import java.lang.reflect.Field;
 import java.util.*;

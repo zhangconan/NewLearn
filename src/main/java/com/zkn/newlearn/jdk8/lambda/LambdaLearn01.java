@@ -1,4 +1,4 @@
-package com.zkn.newlearn.lambda;
+package com.zkn.newlearn.jdk8.lambda;
 
 import java.math.BigDecimal;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.zkn.newlearn.lambda;
+package com.zkn.newlearn.jdk8.lambda;
 
 import java.util.Iterator;
 import java.util.function.Consumer;

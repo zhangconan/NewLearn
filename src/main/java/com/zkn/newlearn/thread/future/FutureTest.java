@@ -1,6 +1,5 @@
 package com.zkn.newlearn.thread.future;
 
-import com.zkn.newlearn.lambda.S;
 import org.junit.Test;
 
 /**

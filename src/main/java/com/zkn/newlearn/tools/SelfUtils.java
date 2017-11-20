@@ -4,9 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
-import com.zkn.newlearn.lambda.S;
-import org.springframework.util.StringUtils;
-
 /**
  * Created by wb-zhangkenan on 2017/4/13.
  *

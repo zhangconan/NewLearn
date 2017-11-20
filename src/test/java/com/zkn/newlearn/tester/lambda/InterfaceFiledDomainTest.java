@@ -1,6 +1,6 @@
 package com.zkn.newlearn.tester.lambda;
 
-import com.zkn.newlearn.lambda.InterfaceFiledDomain;
+import com.zkn.newlearn.jdk8.lambda.InterfaceFiledDomain;
 import org.junit.Test;
 
 import java.util.HashMap;
