@@ -31,8 +31,8 @@ public class CglibProxyHandler implements MethodInterceptor{
 	@Override
     public Object intercept(Object obj, Method arg1, Object[] arg2,
                             MethodProxy proxy) throws Throwable {
-		
-		Object object = proxy.invoke(this.targetObj, arg2);//这里如果换成obj 会陷入死循环中
+		//这里如果换成obj 会陷入死循环中
+		Object object = proxy.invoke(this.targetObj, arg2);
 		return object;
 	}
 	
