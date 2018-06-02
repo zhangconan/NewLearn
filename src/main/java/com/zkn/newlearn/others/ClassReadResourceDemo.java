@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import com.zkn.newlearn.gof.singleton.SimpleFactoryTest01;
-
 /**
  * 读取资源文件的五种方式
  * @author zkn
@@ -22,7 +20,7 @@ public class ClassReadResourceDemo {
 		 * 开头千万不要写"/"
 		 */
 		InputStream is = ClassReadResourceDemo.class.
-				getClassLoader().getResourceAsStream("com/zkn/newlearn/io/config.properties");
+				getClassLoader().getResourceAsStream("com/zkn/newlearn/io/io/config.properties");
 		Properties prop = new Properties();
 		try {
 			prop.load(is);
@@ -49,7 +47,7 @@ public class ClassReadResourceDemo {
 		 * 适用情形：这个写法适用的情形是资源文件和类文件不在同一个目录下的情况
 		 * 注意：开头一定要加上”/“
 		 */
-		is = ClassReadResourceDemo.class.getResourceAsStream("/com/zkn/newlearn/io/config.properties");
+		is = ClassReadResourceDemo.class.getResourceAsStream("/com/zkn/newlearn/io/io/config.properties");
 		try {
 			prop.load(is);
 			System.out.println(prop.getProperty("key"));

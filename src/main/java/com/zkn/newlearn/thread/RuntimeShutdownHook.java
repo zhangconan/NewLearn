@@ -8,7 +8,7 @@ import static java.lang.System.out;
  * @author zkn
  * @date 2017/11/14 23:00
  */
-public class RuntimeShutdownHook {
+public class  RuntimeShutdownHook {
 
     public static void main(String[] args) {
 
