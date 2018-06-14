@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
  */
 public class TimeServerHandler extends ChannelHandlerAdapter {
 
+    private int counter;
+
     /**
      * 网络读事件处理
      *
@@ -28,9 +30,11 @@ public class TimeServerHandler extends ChannelHandlerAdapter {
         byte[] req = new byte[buf.readableBytes()];
         //读字节到byte数组中
         buf.readBytes(req);
-        String body = new String(req, "UTF-8");
-        System.out.println("The time server receive order:" + body);
+        String body = new String(req, "UTF-8")
+                .substring(0, req.length - System.getProperty("line.separator").length());
+        System.out.println("The time server receive order:" + body + ";the counter is : " + ++counter);
         String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body) ? LocalDateTime.now().toString() : "BAD ORDER";
+        currentTime += System.getProperty("line.separator");
         ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
         //将要发送的消息发送到发送缓冲数组中
         ctx.write(resp);
