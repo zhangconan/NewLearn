@@ -3,15 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="beanLifeCycleLearn01" class="com.zkn.newlearn.spring.lifecycle.BeanLifeCycleLearn01"
+    <bean id="beanLifeCycleLearn01" class="com.zkn.newlearn.opensource.spring.lifecycle.BeanLifeCycleLearn01"
           init-method="initMethod" destroy-method="destoryMethod">
         <property name="name" value="zhangsan"/>
     </bean>
 
-    <bean id="beanPostProcessor01" class="com.zkn.newlearn.spring.lifecycle.BeanPostProcessor01"/>
+    <bean id="beanPostProcessor01" class="com.zkn.newlearn.opensource.spring.lifecycle.BeanPostProcessor01"/>
 
-    <bean id="beanFactoryPostProcessor01" class="com.zkn.newlearn.spring.lifecycle.BeanFactoryPostProcessor01"/>
+    <bean id="beanFactoryPostProcessor01" class="com.zkn.newlearn.opensource.spring.lifecycle.BeanFactoryPostProcessor01"/>
 
     <bean id="instantiationAwareBeanPostProcessor01"
-          class="com.zkn.newlearn.spring.lifecycle.InstantiationAwareBeanPostProcessor01"/>
+          class="com.zkn.newlearn.opensource.spring.lifecycle.InstantiationAwareBeanPostProcessor01"/>
 </beans>
