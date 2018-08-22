@@ -1,9 +1,7 @@
 package com.zkn.newlearn.opensource.redis.data.structure;
 
 import com.zkn.newlearn.opensource.redis.data.BaseJedis;
-import org.junit.Before;
 import org.junit.Test;
-import redis.clients.jedis.Jedis;
 
 import java.util.Arrays;
 import java.util.List;
@@ -99,6 +97,17 @@ public class StringStructure extends BaseJedis {
         //redis-cli命令为： incrby age 5
         getJedis().incrBy("age", 5);
         System.out.println(getJedis().get("age"));
+    }
+
+    @Test
+    public void append() {
+        getJedis().set("strName1", "strValue1");
+        //追加字符串
+        //redis-cli命令：append strName1 strValue2
+        getJedis().append("strName1", "strValue2");
+        System.out.println(getJedis().get("strName1"));
+        getJedis().append("strName2", "strValue2");
+        System.out.println(getJedis().get("strName2"));
     }
     /**
      *字符串是由多个字节组成，每个字节又是由8个bit组成，如此便可以将一个字符串看成很多bit的组合。这便是bitmap数据结构。
