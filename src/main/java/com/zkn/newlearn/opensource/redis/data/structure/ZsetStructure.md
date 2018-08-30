@@ -1,0 +1,4 @@
+zset类似于java的SortedSet和HashMap的结合体，一方面它是一个set，保证了内部value的唯一性，另一方面它可以给每个value赋予一个score，
+代表这个value的排序权重。它的内部实现用的是一种叫做**跳跃列表**的数据结构。
+
+zset中最后一个value被移除后，数据结构自动删除，内存被回收。
